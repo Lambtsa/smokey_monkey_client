@@ -1,3 +1,3 @@
 export const HomeScreen = (): JSX.Element => {
-  return <></>;
+  return <h1>Hello World!</h1>;
 };
