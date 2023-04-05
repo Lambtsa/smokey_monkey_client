@@ -29,7 +29,7 @@
       "@locales/*": ["locales/*"],
       "@screens/*": ["screens/*"],
       "@styles": ["styles/index"],
-      "@customTypes": ["types/index"]
+      "@types": ["types/index"]
     },
     "plugins": [
       {

@@ -1,20 +1,20 @@
 import { MetaData } from "@components/MetaData";
 import type { NextPage } from "next";
-import { HomeScreen } from "@screens/Home";
 import { pageData } from "@helpers/metadata";
+import { Layout } from "@components/Layout";
 
-const IndexPage: NextPage = () => {
-  const { index } = pageData;
+const AboutPage: NextPage = () => {
+  const { about } = pageData;
   return (
-    <>
+    <Layout>
       <MetaData
-        title={index.title}
-        description={index.description}
-        url={index.url}
+        title={about.title}
+        description={about.description}
+        url={about.url}
       />
-      <HomeScreen />
-    </>
+      <h2>Hello World!</h2>
+    </Layout>
   );
 };
 
-export default IndexPage;
+export default AboutPage;

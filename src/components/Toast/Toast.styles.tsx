@@ -64,7 +64,7 @@ export const ToastCloseBtn = styled.button`
 `;
 
 export const ToastTitle = styled.h3`
-  color: ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.white};
   font-weight: ${(props) => props.theme.fontWeights.bold};
   text-align: left;
   font-size: 16px;
@@ -76,7 +76,7 @@ export const ToastTitle = styled.h3`
 `;
 
 export const ToastSubtitle = styled.p`
-  color: ${(props) => props.theme.colors.secondary70};
+  color: ${(props) => props.theme.colors.white};
   font-weight: ${(props) => props.theme.fontWeights.regular};
   text-align: left;
   font-size: 16px;

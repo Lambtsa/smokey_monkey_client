@@ -1,9 +1,11 @@
+import { TranslationKey } from "@types";
+
 export type ToastType = "success" | "warning" | "danger" | "info";
 
 export interface ToastInfo {
   type: ToastType;
-  title: FormatjsIntl.Message["ids"];
-  message: FormatjsIntl.Message["ids"];
+  title: TranslationKey;
+  message: TranslationKey;
   onClose: () => void;
 }
 

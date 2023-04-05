@@ -5,7 +5,7 @@ export const FourOhFourContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.white};
   width: 100%;
   height: 100vh;
   color: ${(props) => props.theme.colors.white};

@@ -1,3 +1,11 @@
+import { Jumbotron, Intro, Location } from "./sections";
+
 export const HomeScreen = (): JSX.Element => {
-  return <h1>Hello World!</h1>;
+  return (
+    <>
+      <Jumbotron />
+      <Intro />
+      <Location />
+    </>
+  );
 };

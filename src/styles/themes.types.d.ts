@@ -6,12 +6,11 @@ interface Colors {
   pacificBlue: string;
   persianOrange: string;
   primary: string;
-  primary10: string;
-  primary70: string;
-  primaryDark: string;
-  secondary: string;
-  secondary20: string;
-  secondary70: string;
+  darkBlack: string;
+  black: string;
+  black90: string;
+  black80: string;
+  black70: string;
   white: string;
 }
 

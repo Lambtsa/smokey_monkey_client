@@ -8,14 +8,14 @@ export const ButtonStyled = styled.button<{
     switch (props.btnType) {
       case "primary": {
         return css`
-          background-color: ${(props) => props.theme.colors.secondary};
+          background-color: ${(props) => props.theme.colors.white};
           color: ${(props) => props.theme.colors.primary};
         `;
       }
       case "secondary": {
         return css`
           background-color: ${(props) => props.theme.colors.primary};
-          color: ${(props) => props.theme.colors.secondary};
+          color: ${(props) => props.theme.colors.white};
         `;
       }
     }

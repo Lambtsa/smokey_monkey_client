@@ -1,20 +1,22 @@
 import { MetaData } from "@components/MetaData";
 import type { NextPage } from "next";
-import { HomeScreen } from "@screens/Home";
 import { pageData } from "@helpers/metadata";
+import { Layout } from "@components/Layout";
 
-const IndexPage: NextPage = () => {
-  const { index } = pageData;
+const ReserverPage: NextPage = () => {
+  const {
+    gite: { reserver },
+  } = pageData;
   return (
-    <>
+    <Layout>
       <MetaData
-        title={index.title}
-        description={index.description}
-        url={index.url}
+        title={reserver.title}
+        description={reserver.description}
+        url={reserver.url}
       />
-      <HomeScreen />
-    </>
+      <h2>Hello World!</h2>
+    </Layout>
   );
 };
 
-export default IndexPage;
+export default ReserverPage;

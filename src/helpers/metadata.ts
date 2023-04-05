@@ -1,8 +1,9 @@
+import { TranslationKey } from "@types";
 import { routes } from "./routes";
 
 export interface MetaData {
-  title: FormatjsIntl.Message["ids"];
-  description: FormatjsIntl.Message["ids"];
+  title: TranslationKey;
+  description: TranslationKey;
   url: string;
 }
 
