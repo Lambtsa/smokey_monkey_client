@@ -2,6 +2,7 @@ import { MetaData } from "@components/MetaData";
 import type { NextPage } from "next";
 import { pageData } from "@helpers/metadata";
 import { Layout } from "@components/Layout";
+import { PensionScreen } from "@screens/Pension";
 
 const PensionPage: NextPage = () => {
   const {
@@ -14,7 +15,7 @@ const PensionPage: NextPage = () => {
         description={index.description}
         url={index.url}
       />
-      <h2>Hello World!</h2>
+      <PensionScreen />
     </Layout>
   );
 };

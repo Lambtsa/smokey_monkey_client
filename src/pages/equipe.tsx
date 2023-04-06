@@ -2,19 +2,20 @@ import { MetaData } from "@components/MetaData";
 import type { NextPage } from "next";
 import { pageData } from "@helpers/metadata";
 import { Layout } from "@components/Layout";
+import { TeamScreen } from "@screens/Team";
 
-const AboutPage: NextPage = () => {
-  const { about } = pageData;
+const TeamPage: NextPage = () => {
+  const { team } = pageData;
   return (
     <Layout>
       <MetaData
-        title={about.title}
-        description={about.description}
-        url={about.url}
+        title={team.title}
+        description={team.description}
+        url={team.url}
       />
-      <h2>Hello World!</h2>
+      <TeamScreen />
     </Layout>
   );
 };
 
-export default AboutPage;
+export default TeamPage;

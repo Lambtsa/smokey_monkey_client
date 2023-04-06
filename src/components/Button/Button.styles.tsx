@@ -10,6 +10,11 @@ export const ButtonStyled = styled.button<{
         return css`
           background-color: ${(props) => props.theme.colors.white};
           color: ${(props) => props.theme.colors.primary};
+
+          &:hover {
+            background-color: ${(props) => props.theme.colors.black};
+            color: ${(props) => props.theme.colors.white};
+          }
         `;
       }
       case "secondary": {
@@ -20,7 +25,6 @@ export const ButtonStyled = styled.button<{
       }
     }
   }};
-  padding: 16px 32px;
-  border-radius: 10px;
-  width: 240px;
+  padding: 12px 24px;
+  border-radius: 7px;
 `;

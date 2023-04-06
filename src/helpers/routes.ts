@@ -6,7 +6,7 @@ const buildUrl = (path: string): string => {
 
 export const routes = {
   index: () => buildUrl("/"),
-  about: () => buildUrl("/a-propos"),
+  team: () => buildUrl("/equipe"),
   pension: {
     index: () => buildUrl("/pension"),
     tarifs: () => buildUrl("/pension/tarifs"),
@@ -18,4 +18,5 @@ export const routes = {
   },
   contact: () => buildUrl("/contact"),
   media: () => buildUrl("/medias"),
+  terms: () => buildUrl("/terms"),
 };

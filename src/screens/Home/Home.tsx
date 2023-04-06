@@ -1,9 +1,13 @@
-import { Jumbotron, Intro, Location } from "./sections";
+import { Jumbotron } from "@components/Jumbotron";
+import { Intro, Location } from "./sections";
 
 export const HomeScreen = (): JSX.Element => {
   return (
     <>
-      <Jumbotron />
+      <Jumbotron
+        title="home.jumbotron.title"
+        subtitle="home.jumbotron.subtitle"
+      />
       <Intro />
       <Location />
     </>

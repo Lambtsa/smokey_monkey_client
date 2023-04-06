@@ -25,12 +25,9 @@ export const FourOhFour = (): JSX.Element => {
           <Title>{t({ id: "fourOhFour.title" })}</Title>
           <Subtitle>{t({ id: "fourOhFour.subtitle" })}</Subtitle>
         </div>
-        <Button
-          type="button"
-          onClick={handleOnClick}
-          btnType="secondary"
-          text={t({ id: "fourOhFour.btn" })}
-        />
+        <Button type="button" onClick={handleOnClick} btnType="secondary">
+          {t({ id: "fourOhFour.btn" })}
+        </Button>
       </FourOhFourInnerContainer>
     </FourOhFourContainer>
   );

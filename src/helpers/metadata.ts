@@ -9,7 +9,7 @@ export interface MetaData {
 
 interface Pages {
   index: MetaData;
-  about: MetaData;
+  team: MetaData;
   pension: {
     index: MetaData;
     tarifs: MetaData;
@@ -29,10 +29,10 @@ export const pageData: Pages = {
     description: "metadata.index.description",
     url: routes.index(),
   },
-  about: {
-    title: "metadata.about.title",
-    description: "metadata.about.description",
-    url: routes.about(),
+  team: {
+    title: "metadata.team.title",
+    description: "metadata.team.description",
+    url: routes.team(),
   },
   pension: {
     index: {

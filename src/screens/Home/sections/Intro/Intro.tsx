@@ -7,7 +7,9 @@ import {
   IntroList,
   IntroListElement,
   IntroTitleContainer,
+  LinkBtn,
 } from "./Intro.styles";
+import { routes } from "@helpers/routes";
 
 export const Intro = (): JSX.Element => {
   const { t } = useTranslation();
@@ -35,6 +37,9 @@ export const Intro = (): JSX.Element => {
               {t({ id: "intro.list.garden" })}
             </IntroListElement>
           </IntroList>
+          <LinkBtn href={routes.team()}>
+            {t({ id: "intro.button.text" })}
+          </LinkBtn>
         </IntroContainer>
       }
       rightBlock={<Img alt="" src={Dogs} />}

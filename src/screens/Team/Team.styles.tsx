@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-export const IntroContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
@@ -12,27 +12,28 @@ export const IntroContainer = styled.div`
   align-items: center;
 `;
 
-export const IntroTitleContainer = styled.div`
+export const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 
-export const IntroContent = styled.p`
+export const Content = styled.p`
   color: ${(props) => props.theme.colors.white};
   font-weight: ${(props) => props.theme.fontWeights.regular};
   text-align: center;
   font-size: 16px;
+  white-space: pre-line;
   line-height: 24px;
   font-family: ${(props) => props.theme.fonts.montserrat};
 `;
 
-export const IntroList = styled.ul`
+export const List = styled.ul`
   list-style: none;
 `;
 
-export const IntroListElement = styled.li`
+export const ListElement = styled.li`
   color: ${(props) => props.theme.colors.white};
   font-weight: ${(props) => props.theme.fontWeights.regular};
   text-align: center;
@@ -50,5 +51,19 @@ export const LinkBtn = styled(Link)`
   &:hover {
     background-color: ${(props) => props.theme.colors.black};
     color: ${(props) => props.theme.colors.white};
+  }
+`;
+
+export const TextLink = styled(Link)`
+  color: ${(props) => props.theme.colors.white};
+  font-weight: ${(props) => props.theme.fontWeights.regular};
+  text-align: center;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: ${(props) => props.theme.fonts.montserrat};
+
+  &:hover {
+    color: ${(props) => props.theme.colors.black};
+    text-decoration: underline;
   }
 `;

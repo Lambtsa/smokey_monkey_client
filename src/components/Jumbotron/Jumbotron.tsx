@@ -1,3 +1,4 @@
+import { TranslationKey } from "@types";
 import {
   JumbotronContainer,
   JumbotronInnerContainer,
@@ -6,14 +7,19 @@ import {
 } from "./Jumbotron.styles";
 import { useTranslation } from "@hooks/useTranslation";
 
-export const Jumbotron = (): JSX.Element => {
+interface JumbotronProps {
+  title: TranslationKey;
+  subtitle: TranslationKey;
+}
+
+export const Jumbotron = ({ title, subtitle }: JumbotronProps): JSX.Element => {
   const { t } = useTranslation();
   return (
     <JumbotronContainer>
       <JumbotronInnerContainer>
         <div>
-          <Title>{t({ id: "jumbotron.title" })}</Title>
-          <Subtitle>{t({ id: "jumbotron.subtitle" })}</Subtitle>
+          <Title>{t({ id: title })}</Title>
+          <Subtitle>{t({ id: subtitle })}</Subtitle>
         </div>
       </JumbotronInnerContainer>
     </JumbotronContainer>
