@@ -19,16 +19,6 @@ export const TitleContainer = styled.div`
   align-items: center;
 `;
 
-export const Content = styled.p`
-  color: ${(props) => props.theme.colors.white};
-  font-weight: ${(props) => props.theme.fontWeights.regular};
-  text-align: center;
-  font-size: 16px;
-  white-space: pre-line;
-  line-height: 24px;
-  font-family: ${(props) => props.theme.fonts.montserrat};
-`;
-
 export const List = styled.ul`
   list-style: none;
 `;

@@ -2,6 +2,7 @@ import { MetaData } from "@components/MetaData";
 import type { NextPage } from "next";
 import { pageData } from "@helpers/metadata";
 import { Layout } from "@components/Layout";
+import { TarifsScreen } from "@screens/Tarifs";
 
 const TarifsPage: NextPage = () => {
   const {
@@ -14,7 +15,7 @@ const TarifsPage: NextPage = () => {
         description={tarifs.description}
         url={tarifs.url}
       />
-      <h2>Hello World!</h2>
+      <TarifsScreen />
     </Layout>
   );
 };

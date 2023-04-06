@@ -70,8 +70,11 @@
   "footer.copyright": "© {date} Les copains de Maui. Tous droits réservés. Siret 917 461 238 00011",
   "home.jumbotron.title": "Les copains de Maui",
   "home.jumbotron.subtitle": "Pension canine familiale et Gîte de vacances",
-  "pension.jumbotron.title": "Les copains de Maui",
-  "pension.jumbotron.subtitle": "Pension canine familiale et Gîte de vacances",
+  "pension.jumbotron.title": "La pension",
+  "pension.jumbotron.subtitle": "Pension canine familiale",
+  "pension.intro.title": "La pension",
+  "pension.intro.subtitle": "Nous vous proposons des prestations et services autour des animaux dans un cadre convivial et familial en pleine nature.",
+  "pension.intro.content": "Vous souhaitez partir en vacances mais emmener votre animal est compliqué ?\nNous nous occuperons de lui !\n\nVous souhaitez partager des moments ludiques avec votre chien ?\nVotre compagnon est accepté pendant votre séjour dans notre gîte !",
   "fourOhFour.title": "404",
   "fourOhFour.subtitle": "By the beard of Zeus! This page doesn't exist",
   "fourOhFour.btn": "Retour accueil"

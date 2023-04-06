@@ -53,7 +53,14 @@ export const NavList = styled.ul`
 
 export const NavElement = styled.li``;
 
-export const NavLink = styled(Link)<{
+export const NavLanguages = styled.div`
+  display: flex;
+  padding: 0 8px;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const NavLink = styled.a<{
   isScrolled: boolean;
 }>`
   color: ${(props) =>
@@ -67,13 +74,6 @@ export const NavLink = styled(Link)<{
   &:hover {
     text-decoration: underline;
   }
-`;
-
-export const NavLanguages = styled.div`
-  display: flex;
-  padding: 0 8px;
-  justify-content: center;
-  align-items: center;
 `;
 
 export const DropdownContainer = styled.div`

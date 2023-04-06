@@ -1,39 +1,29 @@
-import { MEDIA } from "@constants/layout";
-import Image from "next/image";
+import { CONTAINER, MEDIA } from "@constants/layout";
 import styled from "styled-components";
 
-export const SplitScreenContainer = styled.section`
+export const CentreScreenContainer = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: ${(props) => props.theme.colors.primary};
   width: 100%;
-  height: 100vh;
-  color: ${(props) => props.theme.colors.primary};
+  min-height: 100vh;
 `;
 
-export const SplitScreenWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-items: center;
-  align-content: center;
-  width: 100%;
+export const CentreScreenWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  align-items: center;
+  max-width: ${CONTAINER.TABLET}px;
   height: 100%;
   overflow: hidden;
 
   @media ${MEDIA.TABLET} {
     grid-template-columns: 1fr;
   }
-`;
-
-export const InnerContainer = styled.div`
-  position: relative;
-  display: flex;
-  min-width: 100%;
-  min-height: 100%;
-  height: 100%;
-  width: 100%;
 `;
 
 export const Title = styled.h2`
@@ -64,9 +54,4 @@ export const Content = styled.p`
   white-space: pre-line;
   line-height: 24px;
   font-family: ${(props) => props.theme.fonts.montserrat};
-`;
-
-export const Img = styled(Image)`
-  object-fit: cover;
-  height: 100%;
 `;

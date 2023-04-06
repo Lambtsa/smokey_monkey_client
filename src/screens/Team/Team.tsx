@@ -1,7 +1,13 @@
-import { Img, SplitScreen, Subtitle, Title } from "@components/SplitScreen";
+import {
+  Content,
+  Img,
+  SplitScreen,
+  Subtitle,
+  Title,
+} from "@components/SplitScreen";
 import Dogs from "@assets/images/dogs.jpeg";
 import { useTranslation } from "@hooks/useTranslation";
-import { Container, Content, TitleContainer, TextLink } from "./Team.styles";
+import { Container, TitleContainer, TextLink } from "./Team.styles";
 import { Jumbotron } from "@components/Jumbotron";
 
 export const TeamScreen = (): JSX.Element => {
