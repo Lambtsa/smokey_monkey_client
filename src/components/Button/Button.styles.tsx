@@ -9,17 +9,17 @@ export const ButtonStyled = styled.button<{
       case "primary": {
         return css`
           background-color: ${(props) => props.theme.colors.white};
-          color: ${(props) => props.theme.colors.primary};
+          color: ${(props) => props.theme.colors.darkGreen};
 
           &:hover {
-            background-color: ${(props) => props.theme.colors.black};
+            background-color: ${(props) => props.theme.colors.eerieBlack};
             color: ${(props) => props.theme.colors.white};
           }
         `;
       }
       case "secondary": {
         return css`
-          background-color: ${(props) => props.theme.colors.primary};
+          background-color: ${(props) => props.theme.colors.darkGreen};
           color: ${(props) => props.theme.colors.white};
         `;
       }

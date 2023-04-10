@@ -9,12 +9,12 @@ export const routes = {
   team: () => buildUrl("/equipe"),
   pension: {
     index: () => buildUrl("/pension"),
-    tarifs: () => buildUrl("/pension/tarifs"),
+    prices: () => buildUrl("/pension/tarifs"),
     conditions: () => buildUrl("/pension/conditions"),
   },
   gite: {
     index: () => buildUrl("/gite"),
-    reserver: () => buildUrl("/reserver"),
+    reserver: () => buildUrl("/gite/reserver"),
   },
   contact: () => buildUrl("/contact"),
   media: () => buildUrl("/medias"),

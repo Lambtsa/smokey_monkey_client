@@ -20,14 +20,20 @@ export const TableRow = styled.tr`
 export const TableHeader = styled.th`
   padding: 16px;
   /* border: 1px solid black; */
-  background-color: ${(props) => props.theme.colors.black70};
+  background-color: ${(props) => props.theme.colors.white20};
+  color: ${(props) => props.theme.colors.white};
+  font-size: 14px;
+  line-height: 18px;
   text-align: left;
   flex: 1;
 `;
 
 export const TableCell = styled.td`
   padding: 16px;
-  background-color: ${(props) => props.theme.colors.black70};
+  background-color: ${(props) => props.theme.colors.white20};
+  color: ${(props) => props.theme.colors.white};
+  font-size: 14px;
+  line-height: 18px;
   text-align: left;
   flex: 1;
 `;

@@ -26,12 +26,12 @@ export const FourOhFourInnerContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.darkGreen};
   font-weight: ${(props) => props.theme.fontWeights.bold};
   text-align: center;
   font-size: 72px;
   line-height: 72px;
-  font-family: ${(props) => props.theme.fonts.parisienne};
+  font-family: ${(props) => props.theme.fonts.notoSans};
 
   @media ${MEDIA.MOBILE} {
     font-size: 48px;
@@ -40,7 +40,7 @@ export const Title = styled.h1`
 `;
 
 export const Subtitle = styled.p`
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.darkGreen};
   font-weight: ${(props) => props.theme.fontWeights.regular};
   text-align: center;
   font-size: 16px;

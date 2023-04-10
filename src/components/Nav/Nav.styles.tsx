@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled, { css } from "styled-components";
 import { NavPosition } from "./Nav.types";
+import { MEDIA } from "@constants/layout";
 
 export const NavContainer = styled.div<{
   isScrolled: boolean;
@@ -20,13 +21,13 @@ export const NavContainer = styled.div<{
       case "fixed": {
         return css`
           background-color: ${props.isScrolled
-            ? props.theme.colors.black80
+            ? props.theme.colors.eerieBlack80
             : "transparent"};
         `;
       }
       case "unset": {
         return css`
-          background-color: ${props.theme.colors.black80};
+          background-color: ${props.theme.colors.eerieBlack80};
           a {
             color: ${props.theme.colors.white};
           }
@@ -35,7 +36,7 @@ export const NavContainer = styled.div<{
       default: {
         return css`
           background-color: ${props.isScrolled
-            ? props.theme.colors.black80
+            ? props.theme.colors.eerieBlack80
             : "transparent"};
         `;
       }
@@ -43,12 +44,30 @@ export const NavContainer = styled.div<{
   }};
 `;
 
-export const NavList = styled.ul`
+export const NavList = styled.ul<{
+  isOpen: boolean;
+}>`
   display: flex;
-  list-style: none;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
+
+  @media ${MEDIA.TABLET} {
+    position: fixed;
+    display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+    left: 0;
+    top: 0;
+    flex-direction: column;
+    background-color: ${(props) => props.theme.colors.eerieBlack};
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    scroll-behavior: none;
+
+    a {
+      color: ${(props) => props.theme.colors.white};
+    }
+  }
 `;
 
 export const NavElement = styled.li``;
@@ -64,7 +83,9 @@ export const NavLink = styled.a<{
   isScrolled: boolean;
 }>`
   color: ${(props) =>
-    props.isScrolled ? props.theme.colors.white : props.theme.colors.black};
+    props.isScrolled
+      ? props.theme.colors.white
+      : props.theme.colors.eerieBlack};
   font-weight: ${(props) => props.theme.fontWeights.regular};
   text-align: center;
   line-height: 16px;
@@ -92,14 +113,15 @@ export const DropdownContainer = styled.div`
 export const DropdownContent = styled.div`
   display: none;
   position: absolute;
-  background-color: ${(props) => props.theme.colors.black};
+  background-color: ${(props) => props.theme.colors.eerieBlack};
   min-width: 160px;
+  border-radius: 0 0 4px 4px;
   width: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 
   a:hover {
-    background-color: ${(props) => props.theme.colors.black};
+    background-color: ${(props) => props.theme.colors.hunterGreen};
   }
 `;
 
@@ -109,7 +131,35 @@ export const DropdownLink = styled(Link)`
   text-decoration: none;
   display: block;
 
-  :hover {
-    text-decoration: underline;
+  :last-child {
+    border-radius: 0 0 4px 4px;
+  }
+`;
+
+export const BurgerMenuBtn = styled.button`
+  display: none;
+
+  @media ${MEDIA.TABLET} {
+    display: block;
+  }
+`;
+
+export const CloseBtn = styled.button<{
+  isOpen: boolean;
+}>`
+  display: none;
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 20;
+
+  svg {
+    path {
+      fill: ${(props) => props.theme.colors.white};
+    }
+  }
+
+  @media ${MEDIA.TABLET} {
+    display: ${({ isOpen }) => (isOpen ? "block" : "none")};
   }
 `;

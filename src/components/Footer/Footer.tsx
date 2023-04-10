@@ -9,7 +9,6 @@ import {
   FooterList,
   FooterListItem,
   FooterSections,
-  FooterText,
   SmallTitle,
   Title,
 } from "./Footer.styles";
@@ -68,9 +67,13 @@ export const Footer = (): JSX.Element => {
               <SmallTitle>
                 {t({ id: "footer.contact.address.title" })}
               </SmallTitle>
-              <FooterText>
+              <FooterLink
+                target="_blank"
+                rel="noopener noreferrer"
+                href={"https://goo.gl/maps/NW6S15bBEmMKvLkB6"}
+              >
                 {t({ id: "footer.contact.address.text" })}
-              </FooterText>
+              </FooterLink>
             </FooterContent>
             <FooterContent>
               <SmallTitle>{t({ id: "footer.contact.phone.title" })}</SmallTitle>

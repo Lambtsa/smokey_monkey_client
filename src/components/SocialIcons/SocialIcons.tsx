@@ -8,10 +8,18 @@ import Link from "next/link";
 export const SocialIcons = (): JSX.Element => {
   return (
     <SocialIconsContainer>
-      <Link href="https://www.facebook.com/profile.php?id=100083411077689">
+      <Link
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.facebook.com/profile.php?id=100083411077689"
+      >
         <Facebook />
       </Link>
-      <Link href="https://www.instagram.com/lescopainsdemaui/">
+      <Link
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.instagram.com/lescopainsdemaui/"
+      >
         <Instagram />
       </Link>
       {/* <Link href="">

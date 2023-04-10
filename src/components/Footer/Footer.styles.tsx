@@ -9,7 +9,7 @@ export const FooterContainer = styled.footer`
   align-items: center;
   gap: 32px;
   color: ${(props) => props.theme.colors.white};
-  background-color: ${(props) => props.theme.colors.black};
+  background-color: ${(props) => props.theme.colors.eerieBlack};
   padding: 48px;
   font-size: 12px;
 `;
@@ -21,7 +21,7 @@ export const CopyrightContainer = styled.footer`
   align-items: center;
   gap: 32px;
   color: ${(props) => props.theme.colors.white};
-  background-color: ${(props) => props.theme.colors.darkBlack};
+  background-color: ${(props) => props.theme.colors.night};
   padding: 16px;
   font-size: 12px;
 `;

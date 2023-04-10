@@ -8,7 +8,7 @@ export const JumbotronContainer = styled.section`
   background-color: ${(props) => props.theme.colors.white};
   width: 100%;
   height: 100vh;
-  color: ${(props) => props.theme.colors.black};
+  color: ${(props) => props.theme.colors.eerieBlack};
 `;
 
 export const JumbotronInnerContainer = styled.div`
@@ -22,12 +22,13 @@ export const JumbotronInnerContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.darkGreen};
   font-weight: ${(props) => props.theme.fontWeights.bold};
   text-align: center;
   font-size: 48px;
   line-height: 48px;
-  font-family: ${(props) => props.theme.fonts.montserrat};
+  font-family: ${(props) => props.theme.fonts.notoSans};
+  margin-bottom: 8px;
 
   @media ${MEDIA.MOBILE} {
     font-size: 36px;
@@ -36,10 +37,9 @@ export const Title = styled.h1`
 `;
 
 export const Subtitle = styled.p`
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.darkGreen};
   font-weight: ${(props) => props.theme.fontWeights.regular};
   text-align: center;
   font-size: 16px;
   line-height: 16px;
-  font-style: italic;
 `;

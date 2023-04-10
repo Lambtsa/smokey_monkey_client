@@ -2,6 +2,7 @@ import { MetaData } from "@components/MetaData";
 import type { NextPage } from "next";
 import { pageData } from "@helpers/metadata";
 import { Layout } from "@components/Layout";
+import { ContactScreen } from "@screens/Contact";
 
 const ContactPage: NextPage = () => {
   const { contact } = pageData;
@@ -12,7 +13,7 @@ const ContactPage: NextPage = () => {
         description={contact.description}
         url={contact.url}
       />
-      <h2>Hello World!</h2>
+      <ContactScreen />
     </Layout>
   );
 };

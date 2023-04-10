@@ -2,6 +2,7 @@ import { MetaData } from "@components/MetaData";
 import type { NextPage } from "next";
 import { pageData } from "@helpers/metadata";
 import { Layout } from "@components/Layout";
+import { ReserverScreen } from "@screens/Reserver";
 
 const ReserverPage: NextPage = () => {
   const {
@@ -14,7 +15,7 @@ const ReserverPage: NextPage = () => {
         description={reserver.description}
         url={reserver.url}
       />
-      <h2>Hello World!</h2>
+      <ReserverScreen />
     </Layout>
   );
 };

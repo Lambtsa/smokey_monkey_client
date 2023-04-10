@@ -4,22 +4,32 @@ import type { DefaultTheme } from "styled-components";
  * @see https://coolors.co/38393d-262626-dd9f93-fffeed-329a91
  */
 const colors = {
+  /* dcfffd,95d3e0,61ae46,336133,15361b */
   englishVermillion: "#C64142",
   greenPigment: "#4BA457",
   pacificBlue: "#3CACC5",
   persianOrange: "#DF964A",
-  primary: "#C64142",
-  black: "rgba(37, 36, 34, 1)",
-  black90: "rgba(37, 36, 34, 0.9)",
-  black80: "rgba(37, 36, 34, 0.8)",
-  black70: "rgba(37, 36, 34, 0.7)",
-  darkBlack: "#151514",
-  white: "#FFFEEB",
+  darkGreen: "rgba(21, 54, 27, 1)",
+  hunterGreen: "rgba(51, 97, 51, 1)",
+  eerieBlack: "rgba(37, 36, 34, 1)",
+  eerieBlack90: "rgba(37, 36, 34, 0.9)",
+  eerieBlack80: "rgba(37, 36, 34, 0.8)",
+  eerieBlack70: "rgba(37, 36, 34, 0.7)",
+  night: "rgba(21, 21, 20, 1)",
+  white: "rgba(255, 254, 235, 1)",
+  white90: "rgba(255, 254, 235, 0.9)",
+  white80: "rgba(255, 254, 235, 0.8)",
+  white70: "rgba(255, 254, 235, 0.7)",
+  white20: "rgba(255, 254, 235, 0.2)",
+
+  mintGreen: "rgba(220, 255, 253, 1)",
+  nonPhotoBlue: "rgba(149, 211, 224, 1)",
+  kellyGreen: "rgba(97, 147, 70, 1)",
 };
 
 const fonts = {
   montserrat: "'Montserrat', sans-serif",
-  parisienne: "'Parisienne', cursive",
+  notoSans: "'Noto Sans', sans-serif;",
 };
 
 const fontWeights = {

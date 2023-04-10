@@ -1,6 +1,25 @@
 import Image from "next/image";
-import { CONTAINER, MEDIA } from "@constants/layout";
+import { MEDIA } from "@constants/layout";
 import styled from "styled-components";
+
+export const Container = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 32px;
+  padding: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+`;
 
 export const SplitScreenContainer = styled.section`
   display: flex;
@@ -42,40 +61,8 @@ export const TextContainer = styled.div`
   height: 100%;
   gap: 32px;
   padding: 16px;
-  background-color: ${(props) => props.theme.colors.eerieBlack};
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Img = styled(Image)`
-  object-fit: cover;
-  height: 100%;
-`;
-
-export const PensionContainer = styled.div`
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  gap: 32px;
   background-color: ${(props) => props.theme.colors.darkGreen};
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const InnerPensionContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 48px 0;
-  max-width: ${CONTAINER.TABLET}px;
-`;
-
-export const PensionTitleContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
   justify-content: center;
   align-items: center;
 `;
@@ -108,4 +95,9 @@ export const Content = styled.p`
   white-space: pre-line;
   line-height: 24px;
   font-family: ${(props) => props.theme.fonts.montserrat};
+`;
+
+export const Img = styled(Image)`
+  object-fit: cover;
+  height: 100%;
 `;

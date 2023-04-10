@@ -2,6 +2,7 @@ import { MetaData } from "@components/MetaData";
 import type { NextPage } from "next";
 import { pageData } from "@helpers/metadata";
 import { Layout } from "@components/Layout";
+import { ConditionsScreen } from "@screens/Conditions";
 
 const ConditionsPage: NextPage = () => {
   const {
@@ -14,7 +15,7 @@ const ConditionsPage: NextPage = () => {
         description={conditions.description}
         url={conditions.url}
       />
-      <h2>Hello World!</h2>
+      <ConditionsScreen />
     </Layout>
   );
 };

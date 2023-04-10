@@ -1,11 +1,4 @@
 import { Jumbotron } from "@components/Jumbotron";
-import {
-  Content,
-  Img,
-  SplitScreen,
-  Subtitle,
-  Title,
-} from "@components/SplitScreen";
 import Dogs from "@assets/images/dogs.jpeg";
 import Image1 from "@assets/images/image1.jpeg";
 import Image2 from "@assets/images/image2.jpeg";
@@ -16,9 +9,20 @@ import Image6 from "@assets/images/image6.jpeg";
 import Image7 from "@assets/images/image7.jpeg";
 import Image8 from "@assets/images/image8.jpeg";
 import Image9 from "@assets/images/image9.jpeg";
-import { PensionContainer, PensionTitleContainer } from "./Pension.styles";
+import {
+  Content,
+  InnerContainer,
+  InnerPensionContainer,
+  Img,
+  PensionContainer,
+  PensionTitleContainer,
+  SplitScreenContainer,
+  SplitScreenWrapper,
+  Subtitle,
+  TextContainer,
+  Title,
+} from "./Pension.styles";
 import { useTranslation } from "@hooks/useTranslation";
-import { CentreScreen } from "@components/CentreScreen";
 import { Masonry } from "@components/Masonry";
 
 export const PensionScreen = (): JSX.Element => {
@@ -42,23 +46,31 @@ export const PensionScreen = (): JSX.Element => {
         title="pension.jumbotron.title"
         subtitle="pension.jumbotron.subtitle"
       />
-      <CentreScreen>
-        <Title>{t({ id: "pension.intro.title" })}</Title>
-        <Subtitle>{t({ id: "pension.intro.subtitle" })}</Subtitle>
-        <Content>{t({ id: "pension.intro.content" })}</Content>
-      </CentreScreen>
-      <SplitScreen
-        leftBlock={
-          <PensionContainer>
-            <PensionTitleContainer>
-              <Title>{t({ id: "pension.intro.title" })}</Title>
-              <Subtitle>{t({ id: "pension.intro.subtitle" })}</Subtitle>
-            </PensionTitleContainer>
-            <Content>{t({ id: "pension.intro.content" })}</Content>
-          </PensionContainer>
-        }
-        rightBlock={<Img alt="" src={Dogs} />}
-      />
+      <PensionContainer>
+        <InnerPensionContainer>
+          <PensionTitleContainer>
+            <Title>{t({ id: "pension.intro.title" })}</Title>
+            <Subtitle>{t({ id: "pension.intro.subtitle" })}</Subtitle>
+          </PensionTitleContainer>
+          <Content>{t({ id: "pension.intro.content" })}</Content>
+        </InnerPensionContainer>
+      </PensionContainer>
+      <SplitScreenContainer>
+        <SplitScreenWrapper>
+          <InnerContainer>
+            <TextContainer>
+              <PensionTitleContainer>
+                <Title>{t({ id: "pension.intro.title" })}</Title>
+                <Subtitle>{t({ id: "pension.intro.subtitle" })}</Subtitle>
+              </PensionTitleContainer>
+              <Content>{t({ id: "pension.intro.content" })}</Content>
+            </TextContainer>
+          </InnerContainer>
+          <InnerContainer>
+            <Img alt="" src={Dogs} />
+          </InnerContainer>
+        </SplitScreenWrapper>
+      </SplitScreenContainer>
       <Masonry images={images} />
     </>
   );

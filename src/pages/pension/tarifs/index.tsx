@@ -2,22 +2,22 @@ import { MetaData } from "@components/MetaData";
 import type { NextPage } from "next";
 import { pageData } from "@helpers/metadata";
 import { Layout } from "@components/Layout";
-import { TarifsScreen } from "@screens/Tarifs";
+import { PricesScreen } from "@screens/Prices";
 
-const TarifsPage: NextPage = () => {
+const PricesPage: NextPage = () => {
   const {
-    pension: { tarifs },
+    pension: { prices },
   } = pageData;
   return (
     <Layout>
       <MetaData
-        title={tarifs.title}
-        description={tarifs.description}
-        url={tarifs.url}
+        title={prices.title}
+        description={prices.description}
+        url={prices.url}
       />
-      <TarifsScreen />
+      <PricesScreen />
     </Layout>
   );
 };
 
-export default TarifsPage;
+export default PricesPage;

@@ -1,5 +1,9 @@
 import { ReactComponent as Logo } from "@assets/logo.svg";
+import { ReactComponent as BurgerMenu } from "@assets/burger.svg";
+import { ReactComponent as CloseMenu } from "@assets/close24.svg";
 import {
+  BurgerMenuBtn,
+  CloseBtn,
   DropdownContainer,
   DropdownContent,
   DropdownLink,
@@ -11,7 +15,7 @@ import {
 } from "./Nav.styles";
 import { v4 as uuid } from "uuid";
 import { routes } from "@helpers/routes";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "@hooks/useTranslation";
 import { LanguageToggle } from "@components/LanguageToggle";
 import { useWindowScroll } from "react-use";
@@ -47,8 +51,8 @@ export const Nav = ({ position }: NavProps): JSX.Element => {
         subLinks: [
           {
             id: uuid(),
-            label: "nav.pension.tarifs",
-            url: routes.pension.tarifs(),
+            label: "nav.pension.prices",
+            url: routes.pension.prices(),
           },
           {
             id: uuid(),
@@ -91,13 +95,22 @@ export const Nav = ({ position }: NavProps): JSX.Element => {
     []
   );
 
+  /* ######################################## */
+  /* Actions */
+  /* ######################################## */
+  const handleOnClick = useCallback(() => {
+    setIsOpen(!isOpen);
+  }, [isOpen]);
+
+  const hasLinks = !!links.length;
+
   return (
     <NavContainer position={position} isScrolled={isScrolled}>
       <Link href={routes.index()}>
         <Logo />
       </Link>
-      <NavList>
-        {links &&
+      <NavList isOpen={isOpen}>
+        {hasLinks &&
           links.map((link) => {
             return (
               <NavElement key={link.id}>
@@ -122,6 +135,12 @@ export const Nav = ({ position }: NavProps): JSX.Element => {
           <LanguageToggle setIsOpen={setIsOpen} />
         </NavLanguages>
       </NavList>
+      <BurgerMenuBtn>
+        <BurgerMenu onClick={handleOnClick} />
+      </BurgerMenuBtn>
+      <CloseBtn onClick={handleOnClick} isOpen={isOpen}>
+        <CloseMenu />
+      </CloseBtn>
     </NavContainer>
   );
 };

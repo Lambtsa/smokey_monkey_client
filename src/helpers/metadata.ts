@@ -12,7 +12,7 @@ interface Pages {
   team: MetaData;
   pension: {
     index: MetaData;
-    tarifs: MetaData;
+    prices: MetaData;
     conditions: MetaData;
   };
   gite: {
@@ -21,6 +21,7 @@ interface Pages {
   };
   contact: MetaData;
   media: MetaData;
+  terms: MetaData;
 }
 
 export const pageData: Pages = {
@@ -40,10 +41,10 @@ export const pageData: Pages = {
       description: "metadata.pension.index.description",
       url: routes.pension.index(),
     },
-    tarifs: {
-      title: "metadata.pension.tarifs.title",
-      description: "metadata.pension.tarifs.description",
-      url: routes.pension.tarifs(),
+    prices: {
+      title: "metadata.pension.prices.title",
+      description: "metadata.pension.prices.description",
+      url: routes.pension.prices(),
     },
     conditions: {
       title: "metadata.pensions.conditions.title",
@@ -69,6 +70,11 @@ export const pageData: Pages = {
     url: routes.contact(),
   },
   media: {
+    title: "metadata.media.title",
+    description: "metadata.media.description",
+    url: routes.media(),
+  },
+  terms: {
     title: "metadata.media.title",
     description: "metadata.media.description",
     url: routes.media(),
