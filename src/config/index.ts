@@ -17,8 +17,8 @@ export const configuration: ConfigType = {
     frontendUrl: "http://localhost:3000",
   },
   prod: {
-    backendUrl: "https://api.217.160.153.201",
-    frontendUrl: "https://217.160.153.201",
+    backendUrl: "http://api.217.160.153.201",
+    frontendUrl: "http://217.160.153.201",
   },
 };
 
