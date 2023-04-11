@@ -17,8 +17,8 @@ export const configuration: ConfigType = {
     frontendUrl: "http://localhost:3000",
   },
   prod: {
-    backendUrl: "https://api.pierreetmichelle2023.fr",
-    frontendUrl: "https://pierreetmichelle2023.fr",
+    backendUrl: "https://api.217.160.153.201",
+    frontendUrl: "https://217.160.153.201",
   },
 };
 
