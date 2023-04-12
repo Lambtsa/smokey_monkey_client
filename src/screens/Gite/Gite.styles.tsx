@@ -1,6 +1,17 @@
 import { MEDIA } from "@constants/layout";
 import styled from "styled-components";
 
+export const Container = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 32px;
+  padding: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+`;
+
 export const SplitScreenContainer = styled.section`
   display: flex;
   flex-direction: column;
@@ -15,7 +26,6 @@ export const SplitScreenContainer = styled.section`
 export const SplitScreenWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
   justify-items: center;
   align-content: center;
   width: 100%;
@@ -34,15 +44,4 @@ export const InnerContainer = styled.div`
   min-height: 100%;
   height: 100%;
   width: 100%;
-`;
-
-export const PensionContainer = styled.div`
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  gap: 32px;
-  background-color: ${(props) => props.theme.colors.darkGreen};
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `;

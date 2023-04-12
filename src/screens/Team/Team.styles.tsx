@@ -15,13 +15,15 @@ export const SplitScreenContainer = styled.section`
 `;
 
 export const SplitScreenWrapper = styled.div`
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
   justify-items: center;
   align-content: center;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 
   @media ${MEDIA.TABLET} {
     grid-template-columns: 1fr;
@@ -31,27 +33,12 @@ export const SplitScreenWrapper = styled.div`
 export const InnerContainer = styled.div`
   position: relative;
   display: flex;
-  min-width: 100%;
-  min-height: 100%;
   height: 100%;
   width: 100%;
-`;
-
-export const TextContainer = styled.div`
-  display: flex;
-  width: 100%;
-  height: 100%;
-  gap: 32px;
-  padding: 16px;
-  background-color: ${(props) => props.theme.colors.eerieBlack};
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `;
 
 export const Img = styled(Image)`
   object-fit: cover;
-  height: 100%;
 `;
 
 export const Container = styled.div`
@@ -112,35 +99,4 @@ export const TextLink = styled(Link)`
     color: ${(props) => props.theme.colors.eerieBlack};
     text-decoration: underline;
   }
-`;
-
-export const Title = styled.h2`
-  color: ${(props) => props.theme.colors.white70};
-  font-weight: ${(props) => props.theme.fontWeights.bold};
-  text-align: left;
-  text-transform: uppercase;
-  font-size: 16px;
-  line-height: 16px;
-  font-family: ${(props) => props.theme.fonts.notoSans};
-`;
-
-export const Subtitle = styled.p`
-  color: ${(props) => props.theme.colors.white};
-  font-weight: ${(props) => props.theme.fontWeights.regular};
-  text-align: left;
-  font-style: italic;
-  font-size: 24px;
-  line-height: 32px;
-  margin-bottom: 16px;
-`;
-
-export const Content = styled.p`
-  color: ${(props) => props.theme.colors.white};
-  font-weight: ${(props) => props.theme.fontWeights.regular};
-  text-align: left;
-  font-size: 16px;
-  /* Note: This allows \n to work */
-  white-space: pre-line;
-  line-height: 24px;
-  font-family: ${(props) => props.theme.fonts.montserrat};
 `;

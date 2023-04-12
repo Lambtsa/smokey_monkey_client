@@ -9,6 +9,7 @@ export const MediasScreen = (): JSX.Element => {
       <Jumbotron
         title="pension.jumbotron.title"
         subtitle="pension.jumbotron.subtitle"
+        images={[]}
       />
     </>
   );

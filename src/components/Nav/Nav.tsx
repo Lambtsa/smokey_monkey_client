@@ -64,14 +64,8 @@ export const Nav = ({ position }: NavProps): JSX.Element => {
       {
         id: uuid(),
         label: "nav.gite",
-        url: routes.gite.index(),
-        subLinks: [
-          {
-            id: uuid(),
-            label: "nav.gite.reserver",
-            url: routes.gite.reserver(),
-          },
-        ],
+        url: routes.gite(),
+        subLinks: [],
       },
       {
         id: uuid(),

@@ -1,27 +1,30 @@
-import { TranslationKey } from "@types";
 import {
-  JumbotronContainer,
-  JumbotronInnerContainer,
+  Container,
+  LinkBtn,
   Subtitle,
+  TextContainer,
   Title,
 } from "./Jumbotron.styles";
 import { useTranslation } from "@hooks/useTranslation";
+import { Carousel } from "@components/Carousel";
+import { JumbotronProps } from "./Jumbotron.types";
 
-interface JumbotronProps {
-  title: TranslationKey;
-  subtitle: TranslationKey;
-}
-
-export const Jumbotron = ({ title, subtitle }: JumbotronProps): JSX.Element => {
+export const Jumbotron = ({
+  title,
+  subtitle,
+  images,
+  type = "dot",
+  link,
+}: JumbotronProps): JSX.Element => {
   const { t } = useTranslation();
   return (
-    <JumbotronContainer>
-      <JumbotronInnerContainer>
-        <div>
-          <Title>{t({ id: title })}</Title>
-          <Subtitle>{t({ id: subtitle })}</Subtitle>
-        </div>
-      </JumbotronInnerContainer>
-    </JumbotronContainer>
+    <Container>
+      <TextContainer>
+        <Title>{t({ id: title })}</Title>
+        <Subtitle>{t({ id: subtitle })}</Subtitle>
+        {link && <LinkBtn href={link.href}>{t({ id: link.text })}</LinkBtn>}
+      </TextContainer>
+      <Carousel images={images} type={type} />
+    </Container>
   );
 };

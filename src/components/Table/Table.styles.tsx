@@ -10,6 +10,14 @@ export const TableContainer = styled.table`
   text-align: left;
 `;
 
+export const TableHead = styled.thead``;
+
+export const TableBody = styled.tbody`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+
 export const TableRow = styled.tr`
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;

@@ -12,10 +12,7 @@ export const routes = {
     prices: () => buildUrl("/pension/tarifs"),
     conditions: () => buildUrl("/pension/conditions"),
   },
-  gite: {
-    index: () => buildUrl("/gite"),
-    reserver: () => buildUrl("/gite/reserver"),
-  },
+  gite: () => buildUrl("/gite"),
   contact: () => buildUrl("/contact"),
   media: () => buildUrl("/medias"),
   terms: () => buildUrl("/terms"),

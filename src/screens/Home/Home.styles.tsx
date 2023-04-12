@@ -10,15 +10,7 @@ export const Container = styled.div`
   padding: 16px;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-`;
-
-export const TitleContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 export const SplitScreenContainer = styled.section`
@@ -35,6 +27,7 @@ export const SplitScreenContainer = styled.section`
 export const SplitScreenWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
   justify-items: center;
   align-content: center;
   width: 100%;
@@ -55,49 +48,20 @@ export const InnerContainer = styled.div`
   width: 100%;
 `;
 
-export const TextContainer = styled.div`
-  display: flex;
-  width: 100%;
-  height: 100%;
-  gap: 32px;
-  padding: 16px;
-  background-color: ${(props) => props.theme.colors.darkGreen};
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Title = styled.h2`
-  color: ${(props) => props.theme.colors.white};
-  font-weight: ${(props) => props.theme.fontWeights.bold};
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 16px;
-  line-height: 16px;
-  font-family: ${(props) => props.theme.fonts.notoSans};
-`;
-
-export const Subtitle = styled.p`
-  color: ${(props) => props.theme.colors.white};
-  font-weight: ${(props) => props.theme.fontWeights.bold};
-  text-align: center;
-  font-size: 24px;
-  line-height: 32px;
-  margin-bottom: 16px;
-`;
-
-export const Content = styled.p`
-  color: ${(props) => props.theme.colors.white};
-  font-weight: ${(props) => props.theme.fontWeights.regular};
-  text-align: center;
-  font-size: 16px;
-  /* Note: This allows \n to work */
-  white-space: pre-line;
-  line-height: 24px;
-  font-family: ${(props) => props.theme.fonts.montserrat};
-`;
-
 export const Img = styled(Image)`
   object-fit: cover;
   height: 100%;
+`;
+
+export const IntroList = styled.ul`
+  list-style: none;
+`;
+
+export const IntroListElement = styled.li`
+  color: ${(props) => props.theme.colors.white};
+  font-weight: ${(props) => props.theme.fontWeights.regular};
+  text-align: left;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: ${(props) => props.theme.fonts.montserrat};
 `;

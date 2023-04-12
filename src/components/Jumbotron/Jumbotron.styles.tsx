@@ -1,7 +1,9 @@
-import { CONTAINER, MEDIA } from "@constants/layout";
+import { CONTAINER } from "@constants/layout";
+import Link from "next/link";
 import styled from "styled-components";
 
-export const JumbotronContainer = styled.section`
+export const Container = styled.section`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,35 +13,49 @@ export const JumbotronContainer = styled.section`
   color: ${(props) => props.theme.colors.eerieBlack};
 `;
 
-export const JumbotronInnerContainer = styled.div`
+export const TextContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  right: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 16px;
-  padding: 16px;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 200;
   max-width: ${CONTAINER.TABLET}px;
+  width: 100%;
 `;
 
 export const Title = styled.h1`
-  color: ${(props) => props.theme.colors.darkGreen};
+  color: ${(props) => props.theme.colors.white};
   font-weight: ${(props) => props.theme.fontWeights.bold};
   text-align: center;
   font-size: 48px;
   line-height: 48px;
   font-family: ${(props) => props.theme.fonts.notoSans};
-  margin-bottom: 8px;
-
-  @media ${MEDIA.MOBILE} {
-    font-size: 36px;
-    line-height: 36px;
-  }
 `;
 
 export const Subtitle = styled.p`
-  color: ${(props) => props.theme.colors.darkGreen};
+  color: ${(props) => props.theme.colors.white50};
   font-weight: ${(props) => props.theme.fontWeights.regular};
-  text-align: center;
+  text-align: left;
   font-size: 16px;
   line-height: 16px;
+  margin-bottom: 16px;
+`;
+
+export const LinkBtn = styled(Link)`
+  background-color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.darkGreen};
+  padding: 12px 24px;
+  border-radius: 7px;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.eerieBlack};
+    color: ${(props) => props.theme.colors.white};
+  }
 `;

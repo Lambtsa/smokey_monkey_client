@@ -1,3 +1,4 @@
+import { MEDIA } from "@constants/layout";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -12,6 +13,11 @@ export const FooterContainer = styled.footer`
   background-color: ${(props) => props.theme.colors.eerieBlack};
   padding: 48px;
   font-size: 12px;
+
+  @media ${MEDIA.TABLET} {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
 `;
 
 export const CopyrightContainer = styled.footer`
@@ -19,6 +25,7 @@ export const CopyrightContainer = styled.footer`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  text-align: center;
   gap: 32px;
   color: ${(props) => props.theme.colors.white};
   background-color: ${(props) => props.theme.colors.night};

@@ -15,10 +15,7 @@ interface Pages {
     prices: MetaData;
     conditions: MetaData;
   };
-  gite: {
-    index: MetaData;
-    reserver: MetaData;
-  };
+  gite: MetaData;
   contact: MetaData;
   media: MetaData;
   terms: MetaData;
@@ -53,16 +50,9 @@ export const pageData: Pages = {
     },
   },
   gite: {
-    index: {
-      title: "metadata.gite.index.title",
-      description: "metadata.gite.index.description",
-      url: routes.gite.index(),
-    },
-    reserver: {
-      title: "metadata.gite.reserver.title",
-      description: "metadata.gite.reserver.description",
-      url: routes.gite.reserver(),
-    },
+    title: "metadata.gite.index.title",
+    description: "metadata.gite.index.description",
+    url: routes.gite(),
   },
   contact: {
     title: "metadata.contact.title",

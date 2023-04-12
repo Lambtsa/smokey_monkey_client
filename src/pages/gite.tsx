@@ -5,15 +5,13 @@ import { Layout } from "@components/Layout";
 import { GiteScreen } from "@screens/Gite";
 
 const GitePage: NextPage = () => {
-  const {
-    gite: { index },
-  } = pageData;
+  const { gite } = pageData;
   return (
     <Layout>
       <MetaData
-        title={index.title}
-        description={index.description}
-        url={index.url}
+        title={gite.title}
+        description={gite.description}
+        url={gite.url}
       />
       <GiteScreen />
     </Layout>

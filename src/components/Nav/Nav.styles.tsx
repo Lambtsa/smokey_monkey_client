@@ -15,7 +15,7 @@ export const NavContainer = styled.div<{
   left: 0;
   padding: 16px;
   width: 100%;
-  z-index: 100;
+  z-index: 1000;
   ${(props) => {
     switch (props.position) {
       case "fixed": {
@@ -82,10 +82,7 @@ export const NavLanguages = styled.div`
 export const NavLink = styled.a<{
   isScrolled: boolean;
 }>`
-  color: ${(props) =>
-    props.isScrolled
-      ? props.theme.colors.white
-      : props.theme.colors.eerieBlack};
+  color: ${(props) => props.theme.colors.white};
   font-weight: ${(props) => props.theme.fontWeights.regular};
   text-align: center;
   line-height: 16px;
@@ -138,6 +135,12 @@ export const DropdownLink = styled(Link)`
 
 export const BurgerMenuBtn = styled.button`
   display: none;
+
+  svg {
+    path {
+      fill: ${(props) => props.theme.colors.white};
+    }
+  }
 
   @media ${MEDIA.TABLET} {
     display: block;

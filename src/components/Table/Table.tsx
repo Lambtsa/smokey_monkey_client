@@ -1,6 +1,8 @@
 import {
+  TableBody,
   TableCell,
   TableContainer,
+  TableHead,
   TableHeader,
   TableRow,
 } from "./Table.styles";
@@ -51,20 +53,29 @@ export const Table = (): JSX.Element => {
     },
   ];
 
+  const hasItems = !!items.length;
+
   return (
     <TableContainer>
-      <TableRow>
-        <TableHeader>{""}</TableHeader>
-        <TableHeader>{"Réduction(sur le montant total du séjour)"}</TableHeader>
-        <TableHeader>{"Tarif / Jour"}</TableHeader>
-      </TableRow>
-      {items.map((item, index) => (
-        <TableRow key={index}>
-          <TableCell>{item.label}</TableCell>
-          <TableCell>{item.reduction}</TableCell>
-          <TableCell>{item.montant}</TableCell>
+      <TableHead>
+        <TableRow>
+          <TableHeader>{""}</TableHeader>
+          <TableHeader>
+            {"Réduction(sur le montant total du séjour)"}
+          </TableHeader>
+          <TableHeader>{"Tarif / Jour"}</TableHeader>
         </TableRow>
-      ))}
+      </TableHead>
+      <TableBody>
+        {hasItems &&
+          items.map((item, index) => (
+            <TableRow key={index}>
+              <TableCell>{item.label}</TableCell>
+              <TableCell>{item.reduction}</TableCell>
+              <TableCell>{item.montant}</TableCell>
+            </TableRow>
+          ))}
+      </TableBody>
     </TableContainer>
   );
 };

@@ -41,7 +41,7 @@ export const Footer = (): JSX.Element => {
       {
         id: uuid(),
         label: "footer.links.gite.title",
-        url: routes.gite.index(),
+        url: routes.gite(),
       },
       {
         id: uuid(),
