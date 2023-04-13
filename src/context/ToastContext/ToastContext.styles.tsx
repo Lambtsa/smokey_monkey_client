@@ -9,6 +9,7 @@ export const ToastsWrapper = styled.div`
   top: 0px;
   right: 0px;
   margin: 16px;
+  z-index: 2000;
   /* padding: 16px; */
   max-width: 500px;
   overflow-x: hidden;

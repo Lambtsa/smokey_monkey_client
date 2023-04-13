@@ -15,7 +15,7 @@ import {
 } from "./Nav.styles";
 import { v4 as uuid } from "uuid";
 import { routes } from "@helpers/routes";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "@hooks/useTranslation";
 import { LanguageToggle } from "@components/LanguageToggle";
 import { useWindowScroll } from "react-use";
@@ -30,10 +30,6 @@ export const Nav = ({ position }: NavProps): JSX.Element => {
   /* State */
   /* ######################################## */
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    console.log({ isOpen });
-  }, [isOpen]);
 
   const isScrolled = useMemo(() => {
     if (typeof window === "undefined") {

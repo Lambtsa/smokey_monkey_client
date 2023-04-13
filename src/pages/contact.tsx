@@ -1,6 +1,6 @@
 import { MetaData } from "@components/MetaData";
 import type { NextPage } from "next";
-import { pageData } from "@helpers/metadata";
+import { pageData } from "config/metadata";
 import { Layout } from "@components/Layout";
 import { ContactScreen } from "@screens/Contact";
 

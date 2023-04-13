@@ -1,5 +1,5 @@
 import Head from "next/head";
-import type { MetaData as MetaDataProps } from "@helpers/metadata";
+import type { MetaData as MetaDataProps } from "config/metadata";
 import { useTranslation } from "@hooks/useTranslation";
 
 const isProduction = false;

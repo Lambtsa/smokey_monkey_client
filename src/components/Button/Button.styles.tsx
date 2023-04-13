@@ -25,6 +25,7 @@ export const ButtonStyled = styled.button<{
       }
     }
   }};
-  padding: 12px 24px;
+  padding: 14px 24px;
+  width: 100%;
   border-radius: 7px;
 `;

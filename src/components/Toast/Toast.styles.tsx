@@ -80,5 +80,5 @@ export const ToastSubtitle = styled.p`
   font-weight: ${(props) => props.theme.fontWeights.regular};
   text-align: left;
   font-size: 16px;
-  line-height: 16px;
+  line-height: 18px;
 `;

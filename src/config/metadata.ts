@@ -1,5 +1,5 @@
 import { TranslationKey } from "@types";
-import { routes } from "./routes";
+import { routes } from "../helpers/routes";
 
 export interface MetaData {
   title: TranslationKey;
@@ -50,8 +50,8 @@ export const pageData: Pages = {
     },
   },
   gite: {
-    title: "metadata.gite.index.title",
-    description: "metadata.gite.index.description",
+    title: "metadata.gite.title",
+    description: "metadata.gite.description",
     url: routes.gite(),
   },
   contact: {

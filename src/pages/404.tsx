@@ -1,6 +1,6 @@
 import { Layout } from "@components/Layout";
 import { MetaData } from "@components/MetaData";
-import { pageData } from "@helpers/metadata";
+import { pageData } from "config/metadata";
 import { FourOhFour } from "@screens/fourOhFour";
 
 const Custom404 = () => {

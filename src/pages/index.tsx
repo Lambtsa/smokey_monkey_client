@@ -1,7 +1,7 @@
 import { MetaData } from "@components/MetaData";
 import type { NextPage } from "next";
 import { HomeScreen } from "@screens/Home";
-import { pageData } from "@helpers/metadata";
+import { pageData } from "config/metadata";
 import { Layout } from "@components/Layout";
 
 const IndexPage: NextPage = () => {
