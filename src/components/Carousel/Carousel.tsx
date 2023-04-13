@@ -3,13 +3,13 @@ import {
   ContainerFilter,
   DotBtn,
   DotBtnContainer,
-  Img,
   ImgBtn,
   ImgContainer,
 } from "./Carousel.styles";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { ReactComponent as Caret } from "@assets/caret.svg";
 import { CarouselProps } from "./Carousel.types";
+import { Image } from "@components/Image";
 
 export const Carousel = ({ images, type }: CarouselProps): JSX.Element => {
   /* ############################## */
@@ -75,7 +75,7 @@ export const Carousel = ({ images, type }: CarouselProps): JSX.Element => {
             imgPosition={calculateCurrentPosition(index)}
             key={image.id}
           >
-            <Img alt={image.alt} src={image.data} layout="fill" />
+            <Image alt={image.alt} src={image.data} />
           </ImgContainer>
         ))}
       {hasMultipleImages && type === "button" && (

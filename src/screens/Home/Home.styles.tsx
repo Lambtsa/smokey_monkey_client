@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { MEDIA } from "@constants/layout";
 import styled from "styled-components";
 
@@ -22,6 +21,10 @@ export const SplitScreenContainer = styled.section`
   width: 100%;
   height: 100vh;
   color: ${(props) => props.theme.colors.darkGreen};
+
+  @media ${MEDIA.TABLET} {
+    height: 100%;
+  }
 `;
 
 export const SplitScreenWrapper = styled.div`
@@ -46,11 +49,6 @@ export const InnerContainer = styled.div`
   min-height: 100%;
   height: 100%;
   width: 100%;
-`;
-
-export const Img = styled(Image)`
-  object-fit: cover;
-  height: 100%;
 `;
 
 export const IntroList = styled.ul`

@@ -18,7 +18,8 @@ import {
 } from "./Pension.styles";
 import { useTranslation } from "@hooks/useTranslation";
 import { Masonry } from "@components/Masonry";
-import { Container, Content, Img } from "@components/Container";
+import { Container, Content } from "@components/Container";
+import { Image } from "@components/Image";
 
 export const PensionScreen = (): JSX.Element => {
   const { t } = useTranslation();
@@ -72,7 +73,7 @@ export const PensionScreen = (): JSX.Element => {
             </Container>
           </InnerContainer>
           <InnerContainer>
-            <Img alt="" src={Dogs} fill />
+            <Image alt="" src={Dogs} />
           </InnerContainer>
         </SplitScreenWrapper>
       </SplitScreenContainer>

@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import Image from "next/image";
 
 export const Container = styled.div`
   position: relative;
@@ -31,13 +30,6 @@ export const ImgContainer = styled.div<{
   position: absolute;
   transition: all 0.5s;
   transform: ${(props) => `translateX(${props.imgPosition * 100}%)`};
-`;
-
-export const Img = styled(Image)`
-  object-fit: cover;
-  height: 100%;
-  min-width: 100%;
-  object-position: center;
 `;
 
 export const ImgBtn = styled.button<{

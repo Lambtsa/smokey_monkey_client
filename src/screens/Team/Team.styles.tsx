@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { CONTAINER, MEDIA } from "@constants/layout";
 import Link from "next/link";
 import styled from "styled-components";
@@ -35,10 +34,6 @@ export const InnerContainer = styled.div`
   display: flex;
   height: 100%;
   width: 100%;
-`;
-
-export const Img = styled(Image)`
-  object-fit: cover;
 `;
 
 export const Container = styled.div`

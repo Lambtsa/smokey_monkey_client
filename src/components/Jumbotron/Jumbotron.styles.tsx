@@ -1,4 +1,4 @@
-import { CONTAINER } from "@constants/layout";
+import { CONTAINER, MEDIA } from "@constants/layout";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -28,6 +28,10 @@ export const TextContainer = styled.div`
   z-index: 200;
   max-width: ${CONTAINER.TABLET}px;
   width: 100%;
+
+  @media ${MEDIA.TABLET} {
+    padding: 16px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -42,7 +46,7 @@ export const Title = styled.h1`
 export const Subtitle = styled.p`
   color: ${(props) => props.theme.colors.white50};
   font-weight: ${(props) => props.theme.fontWeights.regular};
-  text-align: left;
+  text-align: center;
   font-size: 16px;
   line-height: 16px;
   margin-bottom: 16px;

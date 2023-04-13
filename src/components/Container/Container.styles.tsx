@@ -1,6 +1,5 @@
-import { CONTAINER } from "@constants/layout";
+import { CONTAINER, MEDIA } from "@constants/layout";
 import styled, { css } from "styled-components";
-import Image from "next/image";
 import { Alignment } from "./Container.types";
 
 export const StyledContainer = styled.div<{
@@ -36,6 +35,10 @@ export const StyledContainer = styled.div<{
       }
     }
   }};
+
+  @media ${MEDIA.TABLET} {
+    padding: 48px 16px;
+  }
 `;
 
 export const TitleContainer = styled.div<{
@@ -144,8 +147,4 @@ export const Content = styled.p<{
       }
     }
   }};
-`;
-
-export const Img = styled(Image)`
-  object-fit: cover;
 `;

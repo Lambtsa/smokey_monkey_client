@@ -5,8 +5,8 @@ import JumboImg from "@assets/images/dogs1.jpeg";
 import Gite1 from "@assets/images/gite1.jpeg";
 import Gite6 from "@assets/images/gite6.jpeg";
 import Pension from "@assets/images/pension1.jpeg";
+import { Image } from "@components/Image";
 import {
-  Img,
   InnerContainer,
   IntroList,
   IntroListElement,
@@ -70,7 +70,7 @@ export const HomeScreen = (): JSX.Element => {
             </Container>
           </InnerContainer>
           <InnerContainer>
-            <Img alt="" src={Gite6} fill />
+            <Image alt="" src={Gite6} />
           </InnerContainer>
         </SplitScreenWrapper>
       </SplitScreenContainer>
@@ -79,7 +79,7 @@ export const HomeScreen = (): JSX.Element => {
       <SplitScreenContainer>
         <SplitScreenWrapper>
           <InnerContainer>
-            <Img alt="" src={Pension} fill />
+            <Image alt="" src={Pension} />
           </InnerContainer>
           <InnerContainer>
             <Container
@@ -112,7 +112,7 @@ export const HomeScreen = (): JSX.Element => {
             </Container>
           </InnerContainer>
           <InnerContainer>
-            <Img alt="" src={Gite1} fill />
+            <Image alt="" src={Gite1} />
           </InnerContainer>
         </SplitScreenWrapper>
       </SplitScreenContainer>

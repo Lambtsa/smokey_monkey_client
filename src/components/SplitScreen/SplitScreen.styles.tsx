@@ -1,5 +1,4 @@
 import { MEDIA } from "@constants/layout";
-import Image from "next/image";
 import styled from "styled-components";
 
 export const SplitScreenContainer = styled.section`
@@ -76,9 +75,4 @@ export const Content = styled.p`
   white-space: pre-line;
   line-height: 24px;
   font-family: ${(props) => props.theme.fonts.montserrat};
-`;
-
-export const Img = styled(Image)`
-  object-fit: cover;
-  height: 100%;
 `;

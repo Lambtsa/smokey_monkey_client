@@ -4,10 +4,10 @@ import {
   SplitScreenContainer,
   SplitScreenWrapper,
   InnerContainer,
-  Img,
 } from "./Team.styles";
 import { Jumbotron } from "@components/Jumbotron";
 import { Container, Content } from "@components/Container";
+import { Image } from "@components/Image";
 
 export const TeamScreen = (): JSX.Element => {
   const { t } = useTranslation();
@@ -33,7 +33,7 @@ export const TeamScreen = (): JSX.Element => {
             </Container>
           </InnerContainer>
           <InnerContainer>
-            <Img alt="" src={Dogs} fill />
+            <Image alt="" src={Dogs} />
           </InnerContainer>
         </SplitScreenWrapper>
       </SplitScreenContainer>
@@ -41,7 +41,7 @@ export const TeamScreen = (): JSX.Element => {
       <SplitScreenContainer>
         <SplitScreenWrapper>
           <InnerContainer>
-            <Img alt="" src={Dogs} fill />
+            <Image alt="" src={Dogs} />
           </InnerContainer>
           <InnerContainer>
             <Container
@@ -71,7 +71,7 @@ export const TeamScreen = (): JSX.Element => {
             </Container>
           </InnerContainer>
           <InnerContainer>
-            <Img alt="" src={Dogs} fill />
+            <Image alt="" src={Dogs} />
           </InnerContainer>
         </SplitScreenWrapper>
       </SplitScreenContainer>
@@ -79,7 +79,7 @@ export const TeamScreen = (): JSX.Element => {
       <SplitScreenContainer>
         <SplitScreenWrapper>
           <InnerContainer>
-            <Img alt="" src={Dogs} fill />
+            <Image alt="" src={Dogs} />
           </InnerContainer>
           <InnerContainer>
             <Container
@@ -109,7 +109,7 @@ export const TeamScreen = (): JSX.Element => {
             </Container>
           </InnerContainer>
           <InnerContainer>
-            <Img alt="" src={Dogs} fill />
+            <Image alt="" src={Dogs} />
           </InnerContainer>
         </SplitScreenWrapper>
       </SplitScreenContainer>
