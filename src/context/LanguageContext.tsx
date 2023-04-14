@@ -10,7 +10,7 @@ import {
   Fragment,
 } from "react";
 import { IntlProvider } from "react-intl";
-import EN from "@locales/en_UK.json";
+import EN from "@locales/en_GB.json";
 import DE from "@locales/de_DE.json";
 import FR from "@locales/fr_FR.json";
 
