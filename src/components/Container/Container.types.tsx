@@ -1,3 +1,4 @@
+import { CONTAINER } from "@constants/layout";
 import { TranslationKey } from "@types";
 import { ReactNode } from "react";
 
@@ -8,4 +9,5 @@ export interface ContainerProps {
   subtitle: TranslationKey;
   children: ReactNode;
   alignment?: Alignment;
+  maxWidth?: keyof typeof CONTAINER;
 }

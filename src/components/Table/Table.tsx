@@ -61,7 +61,7 @@ export const Table = (): JSX.Element => {
         <TableRow>
           <TableHeader>{""}</TableHeader>
           <TableHeader>
-            {"Réduction(sur le montant total du séjour)"}
+            {"Réduction (sur le montant total du séjour)"}
           </TableHeader>
           <TableHeader>{"Tarif / Jour"}</TableHeader>
         </TableRow>

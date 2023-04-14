@@ -6,21 +6,25 @@ export const TableContainer = styled.table`
   gap: 16px;
   justify-content: center;
   align-items: center;
-  padding: 16px;
   text-align: left;
 `;
 
-export const TableHead = styled.thead``;
+export const TableHead = styled.thead`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
 
 export const TableBody = styled.tbody`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100%;
 `;
 
 export const TableRow = styled.tr`
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 3fr 2fr 1fr;
   width: 100%;
   gap: 16px;
 `;

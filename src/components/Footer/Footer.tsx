@@ -16,6 +16,7 @@ import { useMemo } from "react";
 import { TranslationKey } from "@types";
 import { routes } from "@helpers/routes";
 import { SocialIcons } from "@components/SocialIcons";
+import { details } from "@constants/details";
 
 interface FooterLinkType {
   id: string;
@@ -77,13 +78,13 @@ export const Footer = (): JSX.Element => {
             </FooterContent>
             <FooterContent>
               <SmallTitle>{t({ id: "footer.contact.phone.title" })}</SmallTitle>
-              <FooterLink href={"tel:+33610572748"}>
+              <FooterLink href={details.mobile}>
                 {t({ id: "footer.contact.phone.text" })}
               </FooterLink>
             </FooterContent>
             <FooterContent>
               <SmallTitle>{t({ id: "footer.contact.email.title" })}</SmallTitle>
-              <FooterLink href={"mailto:lescopainsdemaui@gmail.com"}>
+              <FooterLink href={details.email}>
                 {t({ id: "footer.contact.email.text" })}
               </FooterLink>
             </FooterContent>

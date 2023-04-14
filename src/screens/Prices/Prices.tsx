@@ -24,6 +24,7 @@ export const PricesScreen = (): JSX.Element => {
       />
       <PricesContainer>
         <Container
+          maxWidth="TABLET"
           title="prices.content.title"
           subtitle="prices.content.subtitle"
         >

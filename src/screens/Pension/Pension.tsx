@@ -51,6 +51,7 @@ export const PensionScreen = (): JSX.Element => {
       />
       <PensionContainer>
         <Container
+          maxWidth="TABLET"
           title="pension.intro.title"
           subtitle="pension.intro.subtitle"
         >

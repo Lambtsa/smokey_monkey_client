@@ -5,9 +5,9 @@ export const PricesContainer = styled.section`
   width: 100%;
   min-height: 100vh;
   gap: 32px;
-  padding: 16px;
   background-color: ${(props) => props.theme.colors.darkGreen};
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow-x: scroll;
 `;

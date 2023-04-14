@@ -58,7 +58,7 @@ export const NavList = styled.ul<{
     left: 0;
     top: 0;
     flex-direction: column;
-    background-color: ${(props) => props.theme.colors.eerieBlack};
+    background-color: ${(props) => props.theme.colors.night};
     z-index: 10;
     width: 100vw;
     height: 100vh;
@@ -70,7 +70,14 @@ export const NavList = styled.ul<{
   }
 `;
 
-export const NavElement = styled.li``;
+export const NavElement = styled.li`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+`;
 
 export const NavLanguages = styled.div`
   display: flex;
@@ -89,8 +96,40 @@ export const NavLink = styled.a<{
   font-family: ${(props) => props.theme.fonts.montserrat};
   font-size: 16px;
 
-  &:hover {
-    text-decoration: underline;
+  /* @see https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover */
+  @media (hover: hover) {
+    /* when hover is supported */
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
+
+export const MobileNavContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  width: 100%;
+  background-color: ${(props) => props.theme.colors.eerieBlack};
+`;
+
+export const MobileNavLink = styled.a`
+  color: ${(props) => props.theme.colors.white};
+  font-weight: ${(props) => props.theme.fontWeights.regular};
+  text-align: center;
+  line-height: 16px;
+  font-family: ${(props) => props.theme.fonts.montserrat};
+  font-size: 16px;
+
+  /* @see https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover */
+  @media (hover: hover) {
+    /* when hover is supported */
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
@@ -98,8 +137,12 @@ export const DropdownContainer = styled.div`
   position: relative;
   display: inline-block;
 
-  :hover > div {
-    display: block;
+  /* @see https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover */
+  @media (hover: hover) {
+    /* when hover is supported */
+    :hover > div {
+      display: block;
+    }
   }
 
   button {
@@ -117,8 +160,12 @@ export const DropdownContent = styled.div`
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 
-  a:hover {
-    background-color: ${(props) => props.theme.colors.hunterGreen};
+  /* @see https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover */
+  @media (hover: hover) {
+    /* when hover is supported */
+    a:hover {
+      background-color: ${(props) => props.theme.colors.hunterGreen};
+    }
   }
 `;
 

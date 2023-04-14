@@ -57,9 +57,13 @@ export const ImgBtn = styled.button<{
     }
   }
 
-  :hover {
-    background-color: ${(props) => props.theme.colors.white60};
-    transition: all 0.5s;
+  /* @see https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover */
+  @media (hover: hover) {
+    /* when hover is supported */
+    :hover {
+      background-color: ${(props) => props.theme.colors.white60};
+      transition: all 0.5s;
+    }
   }
 
   :disabled {

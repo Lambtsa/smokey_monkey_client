@@ -83,8 +83,12 @@ export const FooterLink = styled(Link)`
   font-family: ${(props) => props.theme.fonts.montserrat};
   font-size: 16px;
 
-  &:hover {
-    text-decoration: underline;
+  /* @see https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover */
+  @media (hover: hover) {
+    /* when hover is supported */
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 

@@ -4,14 +4,15 @@ import { Alignment } from "./Container.types";
 
 export const StyledContainer = styled.div<{
   alignment: Alignment;
+  maxWidth: keyof typeof CONTAINER;
 }>`
   display: flex;
   width: 100%;
   height: 100%;
   gap: 32px;
-  padding: 48px;
+  padding: 48px 32px;
   flex-direction: column;
-  max-width: ${CONTAINER.TABLET}px;
+  max-width: ${(props) => `${CONTAINER[props.maxWidth]}px;`};
 
   ${(props) => {
     switch (props.alignment) {

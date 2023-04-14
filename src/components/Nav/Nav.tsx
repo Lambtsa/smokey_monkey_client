@@ -7,6 +7,7 @@ import {
   DropdownContainer,
   DropdownContent,
   DropdownLink,
+  MobileNavContainer,
   NavContainer,
   NavElement,
   NavLanguages,
@@ -18,13 +19,15 @@ import { routes } from "@helpers/routes";
 import { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "@hooks/useTranslation";
 import { LanguageToggle } from "@components/LanguageToggle";
-import { useWindowScroll } from "react-use";
+import { useMedia, useWindowScroll } from "react-use";
 import Link from "next/link";
 import type { NavLinkType, NavProps } from "./Nav.types";
+import { MEDIA } from "@constants/layout";
 
 export const Nav = ({ position }: NavProps): JSX.Element => {
   const { t } = useTranslation();
   const { y } = useWindowScroll();
+  const isMobile = useMedia(MEDIA.TABLET, false);
 
   /* ######################################## */
   /* State */
@@ -104,20 +107,42 @@ export const Nav = ({ position }: NavProps): JSX.Element => {
           links.map((link) => {
             return (
               <NavElement key={link.id}>
-                <DropdownContainer>
-                  <NavLink href={link.url} isScrolled={isScrolled}>
-                    {t({ id: link.label })}
-                  </NavLink>
-                  {!!link.subLinks.length && (
-                    <DropdownContent>
-                      {link.subLinks.map((subLink) => (
-                        <DropdownLink key={subLink.id} href={subLink.url}>
-                          {t({ id: subLink.label })}
-                        </DropdownLink>
-                      ))}
-                    </DropdownContent>
-                  )}
-                </DropdownContainer>
+                {isMobile && (
+                  <>
+                    <NavLink href={link.url} isScrolled={isScrolled}>
+                      {t({ id: link.label })}
+                    </NavLink>
+                    {!!link.subLinks.length && (
+                      <MobileNavContainer>
+                        {link.subLinks.map((subLink) => (
+                          <NavLink
+                            isScrolled={isScrolled}
+                            key={subLink.id}
+                            href={subLink.url}
+                          >
+                            {t({ id: subLink.label })}
+                          </NavLink>
+                        ))}
+                      </MobileNavContainer>
+                    )}
+                  </>
+                )}
+                {!isMobile && (
+                  <DropdownContainer>
+                    <NavLink href={link.url} isScrolled={isScrolled}>
+                      {t({ id: link.label })}
+                    </NavLink>
+                    {!!link.subLinks.length && (
+                      <DropdownContent>
+                        {link.subLinks.map((subLink) => (
+                          <DropdownLink key={subLink.id} href={subLink.url}>
+                            {t({ id: subLink.label })}
+                          </DropdownLink>
+                        ))}
+                      </DropdownContent>
+                    )}
+                  </DropdownContainer>
+                )}
               </NavElement>
             );
           })}

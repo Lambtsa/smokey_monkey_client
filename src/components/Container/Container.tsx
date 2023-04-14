@@ -11,11 +11,12 @@ export const Container = ({
   title,
   subtitle,
   children,
+  maxWidth = "TV",
   alignment = "center",
 }: ContainerProps): JSX.Element => {
   const { t } = useTranslation();
   return (
-    <StyledContainer alignment={alignment}>
+    <StyledContainer maxWidth={maxWidth} alignment={alignment}>
       <TitleContainer alignment={alignment}>
         <Title alignment={alignment}>{t({ id: title })}</Title>
         <Subtitle alignment={alignment}>{t({ id: subtitle })}</Subtitle>
