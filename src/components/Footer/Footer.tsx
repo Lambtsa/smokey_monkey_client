@@ -31,18 +31,18 @@ export const Footer = (): JSX.Element => {
     () => [
       {
         id: uuid(),
-        label: "footer.links.team.title",
-        url: routes.team(),
+        label: "footer.links.smoker.title",
+        url: routes.smoker(),
       },
       {
         id: uuid(),
-        label: "footer.links.pension.title",
-        url: routes.pension.index(),
+        label: "footer.links.restaurant.title",
+        url: routes.restaurant.index(),
       },
       {
         id: uuid(),
-        label: "footer.links.gite.title",
-        url: routes.gite(),
+        label: "footer.links.bar.title",
+        url: routes.bar(),
       },
       {
         id: uuid(),

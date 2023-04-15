@@ -13,12 +13,12 @@ const isProd = process.env.NODE_ENV === "production";
 
 export const configuration: ConfigType = {
   dev: {
-    backendUrl: "http://localhost:8080",
+    backendUrl: "http://localhost:1337",
     frontendUrl: "http://localhost:3000",
   },
   prod: {
-    backendUrl: "http://api.217.160.153.201",
-    frontendUrl: "http://217.160.153.201",
+    backendUrl: "https://api.smokey-monkey.com/",
+    frontendUrl: "https://smokey-monkey.com/",
   },
 };
 

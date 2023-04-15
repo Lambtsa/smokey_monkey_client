@@ -1,4 +1,4 @@
-import { ReactComponent as Logo } from "@assets/logo.svg";
+import { ReactComponent as Logo } from "@assets/images/logo.svg";
 import { ReactComponent as BurgerMenu } from "@assets/burger.svg";
 import { ReactComponent as CloseMenu } from "@assets/close24.svg";
 import {
@@ -45,43 +45,32 @@ export const Nav = ({ position }: NavProps): JSX.Element => {
     () => [
       {
         id: uuid(),
-        label: "nav.pension",
-        url: routes.pension.index(),
+        label: "nav.bar",
+        url: routes.bar(),
+        subLinks: [],
+      },
+      {
+        id: uuid(),
+        label: "nav.restaurant",
+        url: routes.restaurant.index(),
         subLinks: [
           {
             id: uuid(),
-            label: "nav.pension.prices",
-            url: routes.pension.prices(),
-          },
-          {
-            id: uuid(),
-            label: "nav.pension.conditions",
-            url: routes.pension.conditions(),
+            label: "nav.restaurant.reservation",
+            url: routes.restaurant.reservation(),
           },
         ],
       },
       {
         id: uuid(),
-        label: "nav.gite",
-        url: routes.gite(),
-        subLinks: [],
-      },
-      {
-        id: uuid(),
-        label: "nav.team",
-        url: routes.team(),
+        label: "nav.smoker",
+        url: routes.smoker(),
         subLinks: [],
       },
       {
         id: uuid(),
         label: "nav.contact",
         url: routes.contact(),
-        subLinks: [],
-      },
-      {
-        id: uuid(),
-        label: "nav.media",
-        url: routes.media(),
         subLinks: [],
       },
     ],

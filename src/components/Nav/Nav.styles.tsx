@@ -75,7 +75,6 @@ export const NavElement = styled.li`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
   gap: 8px;
 `;
 

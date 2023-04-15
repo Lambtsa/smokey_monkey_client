@@ -9,15 +9,13 @@ export interface MetaData {
 
 interface Pages {
   index: MetaData;
-  team: MetaData;
-  pension: {
+  smoker: MetaData;
+  restaurant: {
     index: MetaData;
-    prices: MetaData;
-    conditions: MetaData;
+    reservation: MetaData;
   };
-  gite: MetaData;
+  bar: MetaData;
   contact: MetaData;
-  media: MetaData;
   terms: MetaData;
 }
 
@@ -27,46 +25,36 @@ export const pageData: Pages = {
     description: "metadata.index.description",
     url: routes.index(),
   },
-  team: {
-    title: "metadata.team.title",
-    description: "metadata.team.description",
-    url: routes.team(),
+  smoker: {
+    title: "metadata.smoker.title",
+    description: "metadata.smoker.description",
+    url: routes.smoker(),
   },
-  pension: {
+  restaurant: {
     index: {
-      title: "metadata.pension.index.title",
-      description: "metadata.pension.index.description",
-      url: routes.pension.index(),
+      title: "metadata.restaurant.index.title",
+      description: "metadata.restaurant.index.description",
+      url: routes.restaurant.index(),
     },
-    prices: {
-      title: "metadata.pension.prices.title",
-      description: "metadata.pension.prices.description",
-      url: routes.pension.prices(),
-    },
-    conditions: {
-      title: "metadata.pensions.conditions.title",
-      description: "metadata.pensions.conditions.description",
-      url: routes.pension.conditions(),
+    reservation: {
+      title: "metadata.restaurant.reservation.title",
+      description: "metadata.restaurant.reservation.description",
+      url: routes.restaurant.reservation(),
     },
   },
-  gite: {
-    title: "metadata.gite.title",
-    description: "metadata.gite.description",
-    url: routes.gite(),
+  bar: {
+    title: "metadata.bar.title",
+    description: "metadata.bar.description",
+    url: routes.bar(),
   },
   contact: {
     title: "metadata.contact.title",
     description: "metadata.contact.description",
     url: routes.contact(),
   },
-  media: {
-    title: "metadata.media.title",
-    description: "metadata.media.description",
-    url: routes.media(),
-  },
   terms: {
-    title: "metadata.media.title",
-    description: "metadata.media.description",
-    url: routes.media(),
+    title: "metadata.terms.title",
+    description: "metadata.terms.description",
+    url: routes.terms(),
   },
 };

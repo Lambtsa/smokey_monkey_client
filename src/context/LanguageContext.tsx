@@ -11,7 +11,7 @@ import {
 } from "react";
 import { IntlProvider } from "react-intl";
 import EN from "@locales/en_GB.json";
-import DE from "@locales/de_DE.json";
+// import DE from "@locales/de_DE.json";
 import FR from "@locales/fr_FR.json";
 
 type LocaleType = keyof typeof LOCALES;
@@ -34,9 +34,9 @@ const LanguageProvider = ({ children }: LanguageProviderProps) => {
 
   const translations = useMemo(() => {
     switch (locale) {
-      case "DE": {
-        return DE;
-      }
+      // case "DE": {
+      //   return DE;
+      // }
       case "EN": {
         return EN;
       }

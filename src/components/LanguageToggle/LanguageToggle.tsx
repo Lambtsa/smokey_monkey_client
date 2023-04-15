@@ -12,7 +12,7 @@ export const LanguageToggle = ({
   return (
     <LanguageContainer>
       <LanguageToggleBtn setIsOpen={setIsOpen} locale="FR" />
-      <LanguageToggleBtn setIsOpen={setIsOpen} locale="DE" />
+      {/* <LanguageToggleBtn setIsOpen={setIsOpen} locale="DE" /> */}
       <LanguageToggleBtn setIsOpen={setIsOpen} locale="EN" />
     </LanguageContainer>
   );

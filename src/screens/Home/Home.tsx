@@ -1,10 +1,7 @@
 import { Jumbotron } from "@components/Jumbotron";
 import { v4 as uuid } from "uuid";
 import { Map } from "@components/Map";
-import JumboImg from "@assets/images/dogs1.jpeg";
-import Gite1 from "@assets/images/gite1.jpeg";
-import Gite6 from "@assets/images/gite6.jpeg";
-import Pension from "@assets/images/pension1.jpeg";
+import Ribs from "@assets/images/ribs.webp";
 import { Image } from "@components/Image";
 import {
   InnerContainer,
@@ -29,7 +26,7 @@ export const HomeScreen = (): JSX.Element => {
         images={[
           {
             id: uuid(),
-            data: JumboImg,
+            data: Ribs,
             alt: "",
           },
         ]}
@@ -70,7 +67,7 @@ export const HomeScreen = (): JSX.Element => {
             </Container>
           </InnerContainer>
           <InnerContainer>
-            <Image alt="" src={Gite6} />
+            <Image alt="" src={Ribs} />
           </InnerContainer>
         </SplitScreenWrapper>
       </SplitScreenContainer>
@@ -79,7 +76,7 @@ export const HomeScreen = (): JSX.Element => {
       <SplitScreenContainer>
         <SplitScreenWrapper>
           <InnerContainer>
-            <Image alt="" src={Pension} />
+            <Image alt="" src={Ribs} />
           </InnerContainer>
           <InnerContainer>
             <Container
@@ -112,7 +109,7 @@ export const HomeScreen = (): JSX.Element => {
             </Container>
           </InnerContainer>
           <InnerContainer>
-            <Image alt="" src={Gite1} />
+            <Image alt="" src={Ribs} />
           </InnerContainer>
         </SplitScreenWrapper>
       </SplitScreenContainer>

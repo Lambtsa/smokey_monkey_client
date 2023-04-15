@@ -10,7 +10,7 @@ import {
 } from "react";
 import { StyledBtn } from "./LanguageToggleBtn.styles";
 import { ReactComponent as EN } from "@assets/uk.svg";
-import { ReactComponent as DE } from "@assets/de.svg";
+// import { ReactComponent as DE } from "@assets/de.svg";
 import { ReactComponent as FR } from "@assets/fr.svg";
 
 type LocaleType = keyof typeof LOCALES;
@@ -35,9 +35,9 @@ export const LanguageToggleBtn = ({
       case "EN": {
         return EN;
       }
-      case "DE": {
-        return DE;
-      }
+      // case "DE": {
+      //   return DE;
+      // }
       case "FR": {
         return FR;
       }
