@@ -22,6 +22,7 @@ import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
 import { TypeOf } from "zod";
 import { Form } from "@components/Form";
 import { InputDate } from "@components/InputDate";
+import { config } from "config";
 
 export const GiteScreen = (): JSX.Element => {
   const { t } = useTranslation();
@@ -61,7 +62,8 @@ export const GiteScreen = (): JSX.Element => {
         message: t({ id: "gite.form.field.error.min" }, { field: "Email" }),
       })
       .trim(),
-    date: z.coerce.date().min(new Date(), { message: "Too old" }),
+    startDate: z.coerce.date().min(new Date(), { message: "Too old" }),
+    endDate: z.coerce.date().min(new Date(), { message: "Too old" }),
   });
 
   type FormFields = TypeOf<typeof validationSchema>;
@@ -70,7 +72,8 @@ export const GiteScreen = (): JSX.Element => {
     () => ({
       name: "",
       email: "",
-      date: new Date(),
+      startDate: new Date(),
+      endDate: new Date(),
     }),
     []
   );
@@ -137,19 +140,34 @@ export const GiteScreen = (): JSX.Element => {
       handleSubmit(
         async (formFields) => {
           setIsLoading(true);
-          // const response = await fetch(`${config.backendUrl}/api/email`, {
-          //   method: "POST",
-          //   headers: {
-          //     "Content-Type": "application/json",
-          //   },
-          //   body: JSON.stringify({
-          //     name: formFields.name,
-          //     email: formFields.email,
-          //     activities: selectedActivities,
-          //   }),
-          // });
+          const response = await fetch(`${config.frontendUrl}/api/email`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name: formFields.name,
+              email: formFields.email,
+            }),
+          });
 
-          console.log({ formFields });
+          if (!response.ok) {
+            addToast({
+              type: "danger",
+              title: "gite.form.submit.error.title",
+              message: "gite.form.submit.error.message",
+            });
+          } else {
+            addToast({
+              type: "success",
+              /* TODO: Make this success message */
+              title: "gite.form.submit.error.title",
+              message: "gite.form.submit.error.title",
+            });
+            /* Reset the forms after valid response */
+            reset(defaultValues, { keepDefaultValues: true });
+          }
+          setIsLoading(false);
         },
         (err) => {
           console.log({ err });
@@ -162,7 +180,7 @@ export const GiteScreen = (): JSX.Element => {
         }
       )();
     },
-    [addToast, handleSubmit, isLoading]
+    [addToast, defaultValues, handleSubmit, isLoading, reset]
   );
 
   return (
@@ -206,9 +224,16 @@ export const GiteScreen = (): JSX.Element => {
               placeholder={t({ id: "gite.form.email.placeholder" })}
             />
             <InputDate
-              name="date"
+              name="startDate"
               control={control}
-              error={formErrors.email}
+              error={formErrors.startDate}
+              setValue={setValue}
+              placeholder={t({ id: "gite.form.email.placeholder" })}
+            />
+            <InputDate
+              name="endDate"
+              control={control}
+              error={formErrors.endDate}
               setValue={setValue}
               placeholder={t({ id: "gite.form.email.placeholder" })}
             />

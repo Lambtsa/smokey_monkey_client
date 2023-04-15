@@ -17,6 +17,7 @@ export const FooterContainer = styled.footer`
   @media ${MEDIA.TABLET} {
     grid-template-columns: 1fr;
     gap: 48px;
+    padding: 48px 16px;
   }
 `;
 

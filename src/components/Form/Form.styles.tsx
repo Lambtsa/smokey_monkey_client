@@ -1,4 +1,4 @@
-import { CONTAINER } from "@constants/layout";
+import { CONTAINER, MEDIA } from "@constants/layout";
 import styled from "styled-components";
 
 export const FormContainer = styled.form`
@@ -9,6 +9,10 @@ export const FormContainer = styled.form`
   justify-content: center;
   padding: 48px;
   max-width: ${CONTAINER.MOBILE}px;
+
+  @media ${MEDIA.TABLET} {
+    padding: 48px 16px;
+  }
 `;
 
 export const TitleContainer = styled.div`

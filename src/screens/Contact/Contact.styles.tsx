@@ -1,3 +1,4 @@
+import { MEDIA } from "@constants/layout";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -6,6 +7,10 @@ export const InnerContainer = styled.div`
   grid-template-columns: minmax(300px, 1fr) 1fr 1fr;
   gap: 32px;
   width: 100%;
+
+  @media ${MEDIA.TABLET} {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -21,10 +26,10 @@ export const Wrapper = styled.div`
   border-radius: 7px;
 `;
 
-export const ContactContainer = styled.div`
+export const ContactContainer = styled.section`
   display: flex;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   gap: 32px;
   background-color: ${(props) => props.theme.colors.darkGreen};
   flex-direction: column;
