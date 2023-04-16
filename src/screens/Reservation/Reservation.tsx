@@ -19,6 +19,7 @@ import { TypeOf } from "zod";
 import { Form } from "@components/Form";
 import { InputDate } from "@components/InputDate";
 import { config } from "config";
+import { InputNumber } from "@components/InputNumber";
 
 export const ReservationScreen = (): JSX.Element => {
   const { t } = useTranslation();
@@ -36,30 +37,51 @@ export const ReservationScreen = (): JSX.Element => {
     name: z
       .string({
         required_error: t(
-          { id: "gite.form.field.error.required" },
+          { id: "reservation.form.field.error.required" },
           { field: "Name" }
         ),
       })
       .min(1, {
-        message: t({ id: "gite.form.field.error.min" }, { field: "Name" }),
+        message: t(
+          { id: "reservation.form.field.error.min" },
+          { field: "Name" }
+        ),
       })
       .trim(),
     email: z
       .string({
         required_error: t(
-          { id: "gite.form.field.error.required" },
+          { id: "reservation.form.field.error.required" },
           { field: "Email" }
         ),
       })
       .email({
-        message: t({ id: "gite.form.field.error.email" }, { field: "Email" }),
+        message: t(
+          { id: "reservation.form.field.error.email" },
+          { field: "Email" }
+        ),
       })
       .min(1, {
-        message: t({ id: "gite.form.field.error.min" }, { field: "Email" }),
+        message: t(
+          { id: "reservation.form.field.error.min" },
+          { field: "Email" }
+        ),
       })
       .trim(),
-    startDate: z.coerce.date().min(new Date(), { message: "Too old" }),
-    endDate: z.coerce.date().min(new Date(), { message: "Too old" }),
+    count: z
+      .number({
+        required_error: t(
+          { id: "reservation.form.field.error.required" },
+          { field: "Email" }
+        ),
+      })
+      .int()
+      .positive()
+      .min(1, {
+        message: t({ id: "reservation.form.field.error.min" }),
+      })
+      .max(10, { message: t({ id: "reservation.form.field.error.max" }) }),
+    date: z.coerce.date().min(new Date(), { message: "Too old" }),
   });
 
   type FormFields = TypeOf<typeof validationSchema>;
@@ -68,8 +90,8 @@ export const ReservationScreen = (): JSX.Element => {
     () => ({
       name: "",
       email: "",
-      startDate: new Date(),
-      endDate: new Date(),
+      count: 0,
+      date: new Date(),
     }),
     []
   );
@@ -150,15 +172,15 @@ export const ReservationScreen = (): JSX.Element => {
           if (!response.ok) {
             addToast({
               type: "danger",
-              title: "gite.form.submit.error.title",
-              message: "gite.form.submit.error.message",
+              title: "reservation.form.submit.error.title",
+              message: "reservation.form.submit.error.message",
             });
           } else {
             addToast({
               type: "success",
               /* TODO: Make this success message */
-              title: "gite.form.submit.error.title",
-              message: "gite.form.submit.error.title",
+              title: "reservation.form.submit.error.title",
+              message: "reservation.form.submit.error.title",
             });
             /* Reset the forms after valid response */
             reset(defaultValues, { keepDefaultValues: true });
@@ -169,8 +191,8 @@ export const ReservationScreen = (): JSX.Element => {
           console.log({ err });
           addToast({
             type: "danger",
-            title: "gite.form.submit.error.title",
-            message: "gite.form.submit.error.message",
+            title: "reservation.form.submit.error.title",
+            message: "reservation.form.submit.error.message",
           });
           setIsLoading(false);
         }
@@ -182,56 +204,55 @@ export const ReservationScreen = (): JSX.Element => {
   return (
     <>
       <Jumbotron
-        title="gite.title"
-        subtitle="gite.subtitle"
+        title="reservation.jumbotron.title"
+        subtitle="reservation.jumbotron.subtitle"
         images={images}
         type="dot"
-        link={{ text: "gite.btn", href: "#reservation" }}
+        link={{ text: "reservation.jumbotron.btn", href: "#reservation" }}
       />
       <SplitScreenContainer id="reservation">
         <SplitScreenWrapper>
           <InnerContainer>
             <Container
               alignment="left"
-              title="home.location.title"
-              subtitle="home.location.subtitle"
+              title="reservation.intro.title"
+              subtitle="reservation.intro.subtitle"
             >
               <Content alignment="left">
-                {t({ id: "home.gite.content" })}
+                {t({ id: "reservation.intro.content" })}
               </Content>
             </Container>
           </InnerContainer>
           <Form
-            title="gite.form.title"
-            subtitle="gite.form.subtitle"
-            btnText="gite.form.submit.btn.text"
+            title="reservation.form.title"
+            subtitle="reservation.form.subtitle"
+            btnText="reservation.form.submit.btn.text"
             onSubmit={onSubmit}
           >
             <InputText
               name="name"
               control={control}
               error={formErrors.name}
-              placeholder={t({ id: "gite.form.name.placeholder" })}
+              placeholder={t({ id: "reservation.form.name.placeholder" })}
             />
             <InputText
               name="email"
               control={control}
               error={formErrors.email}
-              placeholder={t({ id: "gite.form.email.placeholder" })}
+              placeholder={t({ id: "reservation.form.email.placeholder" })}
             />
             <InputDate
-              name="startDate"
+              name="date"
               control={control}
-              error={formErrors.startDate}
+              error={formErrors.date}
               setValue={setValue}
-              placeholder={t({ id: "gite.form.email.placeholder" })}
+              placeholder={t({ id: "reservation.form.email.placeholder" })}
             />
-            <InputDate
-              name="endDate"
+            <InputNumber
+              name="count"
               control={control}
-              error={formErrors.endDate}
-              setValue={setValue}
-              placeholder={t({ id: "gite.form.email.placeholder" })}
+              error={formErrors.count}
+              placeholder={t({ id: "reservation.form.count.placeholder" })}
             />
           </Form>
         </SplitScreenWrapper>

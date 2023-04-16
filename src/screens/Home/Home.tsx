@@ -3,16 +3,10 @@ import { v4 as uuid } from "uuid";
 import { Map } from "@components/Map";
 import Ribs from "@assets/images/ribs.webp";
 import { Image } from "@components/Image";
-import {
-  InnerContainer,
-  IntroList,
-  IntroListElement,
-  SplitScreenContainer,
-  SplitScreenWrapper,
-} from "./Home.styles";
 import { Container, Content } from "@components/Container";
 import { useTranslation } from "@hooks/useTranslation";
 import { LinkBtn } from "@components/LinkBtn";
+import { SplitScreen } from "@components/SplitScreen";
 
 export const HomeScreen = (): JSX.Element => {
   const { t } = useTranslation();
@@ -32,108 +26,70 @@ export const HomeScreen = (): JSX.Element => {
         ]}
       />
 
-      {/* Les copains de maui */}
-      <SplitScreenContainer>
-        <SplitScreenWrapper>
-          <InnerContainer>
-            <Container
-              alignment="left"
-              title="home.intro.title"
-              subtitle="home.intro.subtitle"
-            >
-              <Content alignment="left">
-                {t({ id: "home.intro.content" })}
-              </Content>
-              <IntroList>
-                <IntroListElement>
-                  {t({ id: "home.intro.list.surface" })}
-                </IntroListElement>
-                <IntroListElement>
-                  {t({ id: "home.intro.list.pension" })}
-                </IntroListElement>
-                <IntroListElement>
-                  {t({ id: "home.intro.list.parc" })}
-                </IntroListElement>
-                <IntroListElement>
-                  {t({ id: "home.intro.list.area" })}
-                </IntroListElement>
-                <IntroListElement>
-                  {t({ id: "home.intro.list.gite" })}
-                </IntroListElement>
-                <IntroListElement>
-                  {t({ id: "home.intro.list.garden" })}
-                </IntroListElement>
-              </IntroList>
-            </Container>
-          </InnerContainer>
-          <InnerContainer>
-            <Image alt="" src={Ribs} />
-          </InnerContainer>
-        </SplitScreenWrapper>
-      </SplitScreenContainer>
+      {/* Le Smoker */}
+      <SplitScreen
+        leftBlock={
+          <Container
+            alignment="left"
+            title="home.intro.title"
+            subtitle="home.intro.subtitle"
+          >
+            <Content alignment="left">
+              {t({ id: "home.intro.content" })}
+            </Content>
+            <LinkBtn href="" text="generic.findOutMore" />
+          </Container>
+        }
+        rightBlock={<Image alt="" src={Ribs} />}
+      />
 
-      {/* La Pension */}
-      <SplitScreenContainer>
-        <SplitScreenWrapper>
-          <InnerContainer>
-            <Image alt="" src={Ribs} />
-          </InnerContainer>
-          <InnerContainer>
-            <Container
-              alignment="left"
-              title="home.pension.title"
-              subtitle="home.pension.subtitle"
-            >
-              <Content alignment="left">
-                {t({ id: "home.pension.content" })}
-              </Content>
-              <LinkBtn href="" text="generic.findOutMore" />
-            </Container>
-          </InnerContainer>
-        </SplitScreenWrapper>
-      </SplitScreenContainer>
+      {/* Le Bar */}
+      <SplitScreen
+        leftBlock={<Image alt="" src={Ribs} />}
+        rightBlock={
+          <Container
+            alignment="left"
+            title="home.bar.title"
+            subtitle="home.bar.subtitle"
+          >
+            <Content alignment="left">{t({ id: "home.bar.content" })}</Content>
+            <LinkBtn href="" text="generic.findOutMore" />
+          </Container>
+        }
+      />
 
-      {/* Le Gite */}
-      <SplitScreenContainer>
-        <SplitScreenWrapper>
-          <InnerContainer>
-            <Container
-              alignment="left"
-              title="home.gite.title"
-              subtitle="home.gite.subtitle"
-            >
-              <Content alignment="left">
-                {t({ id: "home.gite.content" })}
-              </Content>
-              <LinkBtn href="" text="generic.findOutMore" />
-            </Container>
-          </InnerContainer>
-          <InnerContainer>
-            <Image alt="" src={Ribs} />
-          </InnerContainer>
-        </SplitScreenWrapper>
-      </SplitScreenContainer>
+      {/* Les Matches */}
+      <SplitScreen
+        leftBlock={
+          <Container
+            alignment="left"
+            title="home.sport.title"
+            subtitle="home.sport.subtitle"
+          >
+            <Content alignment="left">
+              {t({ id: "home.sport.content" })}
+            </Content>
+          </Container>
+        }
+        rightBlock={<Image alt="" src={Ribs} />}
+      />
 
       {/* Localisation */}
-      <SplitScreenContainer>
-        <SplitScreenWrapper>
-          <InnerContainer>
-            <Map />
-          </InnerContainer>
-          <InnerContainer>
-            <Container
-              alignment="left"
-              title="home.location.title"
-              subtitle="home.location.subtitle"
-            >
-              <Content alignment="left">
-                {t({ id: "home.location.content" })}
-              </Content>
-              <LinkBtn href="" text="home.location.btn.text" />
-            </Container>
-          </InnerContainer>
-        </SplitScreenWrapper>
-      </SplitScreenContainer>
+      <SplitScreen
+        leftBlock={<Map />}
+        rightBlock={
+          <Container
+            alignment="left"
+            title="home.location.title"
+            subtitle="home.location.subtitle"
+          >
+            <Content alignment="left">
+              {t({ id: "home.location.content" })}
+            </Content>
+            <LinkBtn href="" text="home.location.btn.text" />
+          </Container>
+        }
+      />
     </>
   );
 };

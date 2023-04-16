@@ -1,13 +1,21 @@
 import { v4 as uuid } from "uuid";
 import Ribs from "@assets/images/ribs.webp";
+import { Image } from "@components/Image";
 import { Jumbotron } from "@components/Jumbotron";
+import { SplitScreen } from "@components/SplitScreen";
+import { Container, Content } from "@components/Container";
+import { LinkBtn } from "@components/LinkBtn";
+import { useTranslation } from "@hooks/useTranslation";
+import { routes } from "@helpers/routes";
 
 export const BarScreen = (): JSX.Element => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Jumbotron
-        title="gite.title"
-        subtitle="gite.subtitle"
+        title="bar.jumbotron.title"
+        subtitle="bar.jumbotron.subtitle"
         images={[
           {
             id: uuid(),
@@ -15,7 +23,58 @@ export const BarScreen = (): JSX.Element => {
             alt: "",
           },
         ]}
-        link={{ text: "gite.btn", href: "#reservation" }}
+        link={{
+          text: "bar.jumbotron.btn",
+          href: routes.restaurant.reservation(),
+        }}
+      />
+
+      {/* Intro */}
+      <SplitScreen
+        leftBlock={
+          <Container
+            alignment="left"
+            title="bar.intro.title"
+            subtitle="bar.intro.subtitle"
+          >
+            <Content alignment="left">{t({ id: "bar.intro.content" })}</Content>
+          </Container>
+        }
+        rightBlock={<Image alt="" src={Ribs} />}
+      />
+
+      {/* Matches */}
+      <SplitScreen
+        leftBlock={<Image alt="" src={Ribs} />}
+        rightBlock={
+          <Container
+            alignment="left"
+            title="bar.matches.title"
+            subtitle="bar.matches.subtitle"
+          >
+            <Content alignment="left">
+              {t({ id: "bar.matches.content" })}
+            </Content>
+            <LinkBtn href="" text="generic.reserve" />
+          </Container>
+        }
+      />
+
+      {/* Le soirées spéciales */}
+      <SplitScreen
+        leftBlock={
+          <Container
+            alignment="left"
+            title="bar.specials.title"
+            subtitle="bar.specials.subtitle"
+          >
+            <Content alignment="left">
+              {t({ id: "bar.specials.content" })}
+            </Content>
+            <LinkBtn href="" text="generic.reserve" />
+          </Container>
+        }
+        rightBlock={<Image alt="" src={Ribs} />}
       />
     </>
   );

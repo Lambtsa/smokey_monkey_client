@@ -1,15 +1,11 @@
 import Ribs from "@assets/images/ribs.webp";
 import { v4 as uuid } from "uuid";
 import { useTranslation } from "@hooks/useTranslation";
-import {
-  SplitScreenContainer,
-  SplitScreenWrapper,
-  InnerContainer,
-} from "./Smoker.styles";
 import { Jumbotron } from "@components/Jumbotron";
 import { Container, Content } from "@components/Container";
 import { Image } from "@components/Image";
 import { Masonry } from "@components/Masonry";
+import { SplitScreen } from "@components/SplitScreen";
 
 export const SmokerScreen = (): JSX.Element => {
   const { t } = useTranslation();
@@ -19,8 +15,8 @@ export const SmokerScreen = (): JSX.Element => {
   return (
     <>
       <Jumbotron
-        title="team.jumbotron.title"
-        subtitle="team.jumbotron.subtitle"
+        title="smoker.jumbotron.title"
+        subtitle="smoker.jumbotron.subtitle"
         images={[
           {
             id: uuid(),
@@ -29,100 +25,38 @@ export const SmokerScreen = (): JSX.Element => {
           },
         ]}
       />
-      <SplitScreenContainer>
-        <SplitScreenWrapper>
-          <InnerContainer>
-            <Container
-              alignment="left"
-              title="team.olympe.title"
-              subtitle="team.olympe.subtitle"
-            >
-              <Content alignment="left">
-                {t({ id: "team.olympe.first.text" })}
-              </Content>
-            </Container>
-          </InnerContainer>
-          <InnerContainer>
-            <Image alt="" src={Ribs} />
-          </InnerContainer>
-        </SplitScreenWrapper>
-      </SplitScreenContainer>
 
-      <SplitScreenContainer>
-        <SplitScreenWrapper>
-          <InnerContainer>
-            <Image alt="" src={Ribs} />
-          </InnerContainer>
-          <InnerContainer>
-            <Container
-              alignment="left"
-              title="team.olympe.title"
-              subtitle="team.olympe.subtitle"
-            >
-              <Content alignment="left">
-                {t({ id: "team.olympe.second.text" })}
-              </Content>
-            </Container>
-          </InnerContainer>
-        </SplitScreenWrapper>
-      </SplitScreenContainer>
+      {/* l'histoire */}
+      <SplitScreen
+        leftBlock={
+          <Container
+            alignment="left"
+            title="smoker.intro.title"
+            subtitle="smoker.intro.subtitle"
+          >
+            <Content alignment="left">
+              {t({ id: "smoker.intro.content" })}
+            </Content>
+          </Container>
+        }
+        rightBlock={<Image alt="" src={Ribs} />}
+      />
 
-      <SplitScreenContainer>
-        <SplitScreenWrapper>
-          <InnerContainer>
-            <Container
-              alignment="left"
-              title="team.vincent.title"
-              subtitle="team.vincent.subtitle"
-            >
-              <Content alignment="left">
-                {t({ id: "team.vincent.first.text" })}
-              </Content>
-            </Container>
-          </InnerContainer>
-          <InnerContainer>
-            <Image alt="" src={Ribs} />
-          </InnerContainer>
-        </SplitScreenWrapper>
-      </SplitScreenContainer>
-
-      <SplitScreenContainer>
-        <SplitScreenWrapper>
-          <InnerContainer>
-            <Image alt="" src={Ribs} />
-          </InnerContainer>
-          <InnerContainer>
-            <Container
-              alignment="left"
-              title="team.vincent.title"
-              subtitle="team.vincent.subtitle"
-            >
-              <Content alignment="left">
-                {t({ id: "team.vincent.second.text" })}
-              </Content>
-            </Container>
-          </InnerContainer>
-        </SplitScreenWrapper>
-      </SplitScreenContainer>
-
-      <SplitScreenContainer>
-        <SplitScreenWrapper>
-          <InnerContainer>
-            <Container
-              alignment="left"
-              title="team.vincent.title"
-              subtitle="team.vincent.subtitle"
-            >
-              <Content alignment="left">
-                {t({ id: "team.vincent.third.text" })}
-              </Content>
-            </Container>
-          </InnerContainer>
-          <InnerContainer>
-            <Image alt="" src={Ribs} />
-          </InnerContainer>
-        </SplitScreenWrapper>
-      </SplitScreenContainer>
+      {/* l'histoire */}
+      <SplitScreen
+        leftBlock={<Image alt="" src={Ribs} />}
+        rightBlock={
+          <Container
+            alignment="left"
+            title="smoker.monkey.title"
+            subtitle="smoker.monkey.subtitle"
+          >
+            <Content alignment="left">
+              {t({ id: "smoker.monkey.content" })}
+            </Content>
+          </Container>
+        }
+      />
       <Masonry images={images} />
     </>
   );

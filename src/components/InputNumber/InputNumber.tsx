@@ -1,8 +1,7 @@
 import { FieldValues, Path, useController } from "react-hook-form";
-import { ControlledInputProps } from "@components/Input/Input.types";
-import { Input } from "../Input";
+import { ControlledInputProps, Input } from "../Input";
 
-export const InputText = <
+export const InputNumber = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends Path<TFieldValues> = Path<TFieldValues>
 >({
@@ -14,5 +13,5 @@ export const InputText = <
     field: { ref: _ref, ...fieldRest },
   } = useController({ control, name });
 
-  return <Input {...rest} {...fieldRest} type="text" />;
+  return <Input {...rest} {...fieldRest} type="number" />;
 };
