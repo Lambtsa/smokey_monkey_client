@@ -6,12 +6,13 @@ import {
   TitleContainer,
 } from "./Container.styles";
 import { ContainerProps } from "./Container.types";
+import { CONTAINER } from "@constants/layout";
 
 export const Container = ({
   title,
   subtitle,
   children,
-  maxWidth = "TV",
+  maxWidth = CONTAINER.TV,
   alignment = "center",
 }: ContainerProps): JSX.Element => {
   const { t } = useTranslation();

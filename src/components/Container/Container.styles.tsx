@@ -4,7 +4,7 @@ import { Alignment } from "./Container.types";
 
 export const StyledContainer = styled.div<{
   alignment: Alignment;
-  maxWidth: keyof typeof CONTAINER;
+  maxWidth: CONTAINER;
 }>`
   display: flex;
   width: 100%;
@@ -12,7 +12,7 @@ export const StyledContainer = styled.div<{
   gap: 32px;
   padding: 48px 32px;
   flex-direction: column;
-  max-width: ${(props) => `${CONTAINER[props.maxWidth]}px;`};
+  max-width: ${(props) => `${props.maxWidth}px;`};
 
   ${(props) => {
     switch (props.alignment) {

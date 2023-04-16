@@ -9,12 +9,11 @@ export const SplitScreenContainer = styled.section`
   align-items: center;
   background-color: ${(props) => props.theme.colors.darkGreen};
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   color: ${(props) => props.theme.colors.darkGreen};
 `;
 
 export const SplitScreenWrapper = styled.div`
-  position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
@@ -22,7 +21,7 @@ export const SplitScreenWrapper = styled.div`
   align-content: center;
   width: 100%;
   height: 100%;
-  /* overflow: hidden; */
+  overflow: hidden;
 
   @media ${MEDIA.TABLET} {
     grid-template-columns: 1fr;
@@ -32,6 +31,8 @@ export const SplitScreenWrapper = styled.div`
 export const InnerContainer = styled.div`
   position: relative;
   display: flex;
+  min-width: 100%;
+  min-height: 100%;
   height: 100%;
   width: 100%;
 `;

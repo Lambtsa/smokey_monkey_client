@@ -15,6 +15,7 @@ import {
 } from "./Contact.styles";
 import { Container, TitleContainer } from "@components/Container";
 import { details } from "@constants/details";
+import { CONTAINER } from "@constants/layout";
 
 export const ContactScreen = (): JSX.Element => {
   const { t } = useTranslation();
@@ -34,7 +35,7 @@ export const ContactScreen = (): JSX.Element => {
       />
       <ContactContainer>
         <Container
-          maxWidth="TV"
+          maxWidth={CONTAINER.TV}
           alignment="center"
           title="contact.details.title"
           subtitle="contact.details.subtitle"

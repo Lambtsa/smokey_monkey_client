@@ -9,5 +9,5 @@ export interface ContainerProps {
   subtitle: TranslationKey;
   children: ReactNode;
   alignment?: Alignment;
-  maxWidth?: keyof typeof CONTAINER;
+  maxWidth?: CONTAINER;
 }

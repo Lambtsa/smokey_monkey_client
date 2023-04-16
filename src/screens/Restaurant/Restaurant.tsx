@@ -3,25 +3,29 @@ import { v4 as uuid } from "uuid";
 import Ribs from "@assets/images/ribs.webp";
 import {
   InnerContainer,
-  PensionContainer,
+  RestaurantContainer,
   SplitScreenContainer,
   SplitScreenWrapper,
 } from "./Restaurant.styles";
 import { useTranslation } from "@hooks/useTranslation";
-import { Masonry } from "@components/Masonry";
 import { Container, Content } from "@components/Container";
 import { Image } from "@components/Image";
+import { routes } from "@helpers/routes";
+import { CONTAINER } from "@constants/layout";
+import { LinkBtn } from "@components/LinkBtn";
 
 export const RestaurantScreen = (): JSX.Element => {
   const { t } = useTranslation();
 
-  const images = [Ribs, Ribs, Ribs, Ribs, Ribs, Ribs, Ribs, Ribs, Ribs];
-
   return (
     <>
       <Jumbotron
-        title="pension.jumbotron.title"
-        subtitle="pension.jumbotron.subtitle"
+        title="restaurant.jumbotron.title"
+        subtitle="restaurant.jumbotron.subtitle"
+        link={{
+          text: "restaurant.jumbotron.btn",
+          href: routes.restaurant.reservation(),
+        }}
         images={[
           {
             id: uuid(),
@@ -30,27 +34,29 @@ export const RestaurantScreen = (): JSX.Element => {
           },
         ]}
       />
-      <PensionContainer>
+
+      <RestaurantContainer>
         <Container
-          maxWidth="TABLET"
-          title="pension.intro.title"
-          subtitle="pension.intro.subtitle"
+          maxWidth={CONTAINER.TABLET}
+          title="restaurant.intro.title"
+          subtitle="restaurant.intro.subtitle"
         >
           <Content alignment="center">
-            {t({ id: "pension.intro.content" })}
+            {t({ id: "restaurant.intro.content" })}
           </Content>
         </Container>
-      </PensionContainer>
+      </RestaurantContainer>
+
       <SplitScreenContainer>
         <SplitScreenWrapper>
           <InnerContainer>
             <Container
               alignment="left"
-              title="pension.intro.title"
-              subtitle="pension.intro.subtitle"
+              title="restaurant.starter.title"
+              subtitle="restaurant.starter.subtitle"
             >
               <Content alignment="left">
-                {t({ id: "pension.intro.content" })}
+                {t({ id: "restaurant.starter.content" })}
               </Content>
             </Container>
           </InnerContainer>
@@ -59,7 +65,45 @@ export const RestaurantScreen = (): JSX.Element => {
           </InnerContainer>
         </SplitScreenWrapper>
       </SplitScreenContainer>
-      <Masonry images={images} />
+
+      <SplitScreenContainer>
+        <SplitScreenWrapper>
+          <InnerContainer>
+            <Image alt="" src={Ribs} />
+          </InnerContainer>
+          <InnerContainer>
+            <Container
+              alignment="left"
+              title="restaurant.smoker.title"
+              subtitle="restaurant.smoker.subtitle"
+            >
+              <Content alignment="left">
+                {t({ id: "restaurant.smoker.content" })}
+              </Content>
+              <LinkBtn href="" text="restaurant.smoker.btn.text" />
+            </Container>
+          </InnerContainer>
+        </SplitScreenWrapper>
+      </SplitScreenContainer>
+
+      <SplitScreenContainer>
+        <SplitScreenWrapper>
+          <InnerContainer>
+            <Container
+              alignment="left"
+              title="restaurant.deserts.title"
+              subtitle="restaurant.deserts.subtitle"
+            >
+              <Content alignment="left">
+                {t({ id: "restaurant.deserts.content" })}
+              </Content>
+            </Container>
+          </InnerContainer>
+          <InnerContainer>
+            <Image alt="" src={Ribs} />
+          </InnerContainer>
+        </SplitScreenWrapper>
+      </SplitScreenContainer>
     </>
   );
 };

@@ -36,7 +36,7 @@ export const InnerContainer = styled.div`
   width: 100%;
 `;
 
-export const PensionContainer = styled.div`
+export const RestaurantContainer = styled.div`
   display: flex;
   width: 100%;
   height: 100vh;

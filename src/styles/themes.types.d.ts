@@ -34,6 +34,7 @@ interface Colors {
 interface Fonts {
   montserrat: string;
   notoSans: string;
+  royalSignage: string;
 }
 
 interface FontWeights {

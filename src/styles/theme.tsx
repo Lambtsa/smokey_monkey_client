@@ -39,6 +39,7 @@ const colors = {
 const fonts = {
   montserrat: "'Montserrat', sans-serif",
   notoSans: "'Noto Sans', sans-serif;",
+  royalSignage: "Royal signage, serif",
 };
 
 const fontWeights = {

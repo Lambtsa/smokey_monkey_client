@@ -1,4 +1,5 @@
 import Ribs from "@assets/images/ribs.webp";
+import { v4 as uuid } from "uuid";
 import { useTranslation } from "@hooks/useTranslation";
 import {
   SplitScreenContainer,
@@ -8,16 +9,25 @@ import {
 import { Jumbotron } from "@components/Jumbotron";
 import { Container, Content } from "@components/Container";
 import { Image } from "@components/Image";
+import { Masonry } from "@components/Masonry";
 
 export const SmokerScreen = (): JSX.Element => {
   const { t } = useTranslation();
+
+  const images = [Ribs, Ribs, Ribs, Ribs, Ribs, Ribs, Ribs, Ribs, Ribs];
 
   return (
     <>
       <Jumbotron
         title="team.jumbotron.title"
         subtitle="team.jumbotron.subtitle"
-        images={[]}
+        images={[
+          {
+            id: uuid(),
+            data: Ribs,
+            alt: "",
+          },
+        ]}
       />
       <SplitScreenContainer>
         <SplitScreenWrapper>
@@ -113,6 +123,7 @@ export const SmokerScreen = (): JSX.Element => {
           </InnerContainer>
         </SplitScreenWrapper>
       </SplitScreenContainer>
+      <Masonry images={images} />
     </>
   );
 };

@@ -71,7 +71,7 @@ export const Footer = (): JSX.Element => {
               <FooterLink
                 target="_blank"
                 rel="noopener noreferrer"
-                href={"https://goo.gl/maps/NW6S15bBEmMKvLkB6"}
+                href={details.googleMaps}
               >
                 {t({ id: "footer.contact.address.text" })}
               </FooterLink>

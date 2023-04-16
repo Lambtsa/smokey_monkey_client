@@ -7,8 +7,8 @@ export const TermsScreen = (): JSX.Element => {
   return (
     <>
       <Jumbotron
-        title="pension.jumbotron.title"
-        subtitle="pension.jumbotron.subtitle"
+        title="terms.jumbotron.title"
+        subtitle="terms.jumbotron.subtitle"
         images={[]}
       />
     </>
