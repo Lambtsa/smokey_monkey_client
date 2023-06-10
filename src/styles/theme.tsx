@@ -20,6 +20,7 @@ const colors = {
   eerieBlack40: "rgba(37, 36, 34, 0.4)",
   eerieBlack30: "rgba(37, 36, 34, 0.3)",
   eerieBlack20: "rgba(37, 36, 34, 0.2)",
+  moonstone: "rgba(80, 183, 205, 1)",
   night: "rgba(21, 21, 20, 1)",
   white: "rgba(255, 254, 235, 1)",
   white90: "rgba(255, 254, 235, 0.9)",

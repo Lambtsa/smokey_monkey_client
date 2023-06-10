@@ -2,6 +2,9 @@ import { Jumbotron } from "@components/Jumbotron";
 import { v4 as uuid } from "uuid";
 import { Map } from "@components/Map";
 import Ribs from "@assets/images/ribs.webp";
+import Background from "@assets/images/background-monkey.jpg";
+import Sports from "@assets/images/sports-monkey.jpg";
+import Cocktails from "@assets/images/bar-monkey.jpg";
 import { Image } from "@components/Image";
 import { Container, Content } from "@components/Container";
 import { useTranslation } from "@hooks/useTranslation";
@@ -20,7 +23,7 @@ export const HomeScreen = (): JSX.Element => {
         images={[
           {
             id: uuid(),
-            data: Ribs,
+            data: Background,
             alt: "",
           },
         ]}
@@ -45,7 +48,7 @@ export const HomeScreen = (): JSX.Element => {
 
       {/* Le Bar */}
       <SplitScreen
-        leftBlock={<Image alt="" src={Ribs} />}
+        leftBlock={<Image alt="" src={Cocktails} />}
         rightBlock={
           <Container
             alignment="left"
@@ -71,7 +74,7 @@ export const HomeScreen = (): JSX.Element => {
             </Content>
           </Container>
         }
-        rightBlock={<Image alt="" src={Ribs} />}
+        rightBlock={<Image alt="" src={Sports} />}
       />
 
       {/* Localisation */}

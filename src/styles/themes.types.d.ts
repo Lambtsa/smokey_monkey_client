@@ -16,6 +16,7 @@ interface Colors {
   eerieBlack40: string;
   eerieBlack30: string;
   eerieBlack20: string;
+  moonstone: string;
   night: string;
   white: string;
   white90: string;

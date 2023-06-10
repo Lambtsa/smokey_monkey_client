@@ -1,5 +1,8 @@
 import { v4 as uuid } from "uuid";
 import Ribs from "@assets/images/ribs.webp";
+import Prohibition from "@assets/images/prohibition-monkey.jpg";
+import Sports from "@assets/images/sports-monkey.jpg";
+import Elvis from "@assets/images/elvis-monkey.jpg";
 import { Image } from "@components/Image";
 import { Jumbotron } from "@components/Jumbotron";
 import { SplitScreen } from "@components/SplitScreen";
@@ -40,12 +43,12 @@ export const BarScreen = (): JSX.Element => {
             <Content alignment="left">{t({ id: "bar.intro.content" })}</Content>
           </Container>
         }
-        rightBlock={<Image alt="" src={Ribs} />}
+        rightBlock={<Image alt="" src={Prohibition} />}
       />
 
       {/* Matches */}
       <SplitScreen
-        leftBlock={<Image alt="" src={Ribs} />}
+        leftBlock={<Image alt="" src={Sports} />}
         rightBlock={
           <Container
             alignment="left"
@@ -74,7 +77,7 @@ export const BarScreen = (): JSX.Element => {
             <LinkBtn href="" text="generic.reserve" />
           </Container>
         }
-        rightBlock={<Image alt="" src={Ribs} />}
+        rightBlock={<Image alt="" src={Elvis} />}
       />
     </>
   );

@@ -1,5 +1,6 @@
 import { MEDIA } from "@constants/layout";
 import styled from "styled-components";
+import { BackgroundType } from "./SplitScreen.types";
 
 export const Container = styled.div`
   display: flex;
@@ -12,14 +13,29 @@ export const Container = styled.div`
   align-items: flex-start;
 `;
 
-export const SplitScreenContainer = styled.section`
+export const SplitScreenContainer = styled.section<{
+  background: BackgroundType;
+}>`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => props.theme.colors.darkGreen};
+  background-color: ${(props) => {
+    switch (props.background) {
+      case "black": {
+        return props.theme.colors.eerieBlack;
+      }
+      case "blue": {
+        return props.theme.colors.moonstone;
+      }
+      case "green": {
+        return props.theme.colors.darkGreen;
+      }
+    }
+  }};
   width: 100%;
-  height: 100vh;
+  height: fit-content;
+  min-height: 100vh;
   color: ${(props) => props.theme.colors.darkGreen};
 
   @media ${MEDIA.TABLET} {
@@ -35,6 +51,7 @@ export const SplitScreenWrapper = styled.div`
   align-content: center;
   width: 100%;
   height: 100%;
+  min-height: inherit;
   overflow: hidden;
 
   @media ${MEDIA.TABLET} {
@@ -45,8 +62,16 @@ export const SplitScreenWrapper = styled.div`
 export const InnerContainer = styled.div`
   position: relative;
   display: flex;
+  justify-content: center;
+  align-items: center;
   min-width: 100%;
   min-height: 100%;
   height: 100%;
   width: 100%;
+
+  @media ${MEDIA.TABLET} {
+    img {
+      display: none;
+    }
+  }
 `;

@@ -3,19 +3,16 @@ import {
   SplitScreenContainer,
   SplitScreenWrapper,
 } from "./SplitScreen.styles";
-import { ReactNode } from "react";
-
-interface SplitScreenProps {
-  leftBlock: ReactNode;
-  rightBlock: ReactNode;
-}
+import { SplitScreenProps } from "./SplitScreen.types";
 
 export const SplitScreen = ({
+  id,
   leftBlock,
   rightBlock,
+  background = "green",
 }: SplitScreenProps): JSX.Element => {
   return (
-    <SplitScreenContainer>
+    <SplitScreenContainer background={background} id={id}>
       <SplitScreenWrapper>
         <InnerContainer>{leftBlock}</InnerContainer>
         <InnerContainer>{rightBlock}</InnerContainer>
