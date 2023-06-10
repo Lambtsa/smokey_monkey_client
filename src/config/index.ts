@@ -18,7 +18,8 @@ export const configuration: ConfigType = {
   },
   prod: {
     backendUrl: "https://api.smokey-monkey.com/",
-    frontendUrl: "https://smokey-monkey.com/",
+    frontendUrl: "http://217.160.153.201/",
+    // frontendUrl: "https://smokey-monkey.com/",
   },
 };
 
