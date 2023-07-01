@@ -4,11 +4,6 @@ import * as z from "zod";
 import Ribs from "@assets/images/ribs.webp";
 import { useTranslation } from "@hooks/useTranslation";
 import { Jumbotron } from "@components/Jumbotron";
-import {
-  InnerContainer,
-  SplitScreenContainer,
-  SplitScreenWrapper,
-} from "./Reservation.styles";
 import { Container, Content } from "@components/Container";
 import { InputText } from "@components/InputText";
 import { useForm } from "react-hook-form";
@@ -20,6 +15,7 @@ import { Form } from "@components/Form";
 import { InputDate } from "@components/InputDate";
 import { config } from "config";
 import { InputNumber } from "@components/InputNumber";
+import { SplitScreen } from "@components/SplitScreen";
 
 export const ReservationScreen = (): JSX.Element => {
   const { t } = useTranslation();
@@ -90,7 +86,7 @@ export const ReservationScreen = (): JSX.Element => {
     () => ({
       name: "",
       email: "",
-      count: 0,
+      count: 1,
       date: new Date(),
     }),
     []
@@ -166,6 +162,8 @@ export const ReservationScreen = (): JSX.Element => {
             body: JSON.stringify({
               name: formFields.name,
               email: formFields.email,
+              date: formFields.date,
+              count: formFields.count,
             }),
           });
 
@@ -203,26 +201,28 @@ export const ReservationScreen = (): JSX.Element => {
 
   return (
     <>
+      {/* Jumbotron */}
       <Jumbotron
-        title="reservation.jumbotron.title"
-        subtitle="reservation.jumbotron.subtitle"
+        title="home.jumbotron.title"
+        subtitle="home.jumbotron.subtitle"
         images={images}
         type="dot"
         link={{ text: "reservation.jumbotron.btn", href: "#reservation" }}
       />
-      <SplitScreenContainer id="reservation">
-        <SplitScreenWrapper>
-          <InnerContainer>
-            <Container
-              alignment="left"
-              title="reservation.intro.title"
-              subtitle="reservation.intro.subtitle"
-            >
-              <Content alignment="left">
-                {t({ id: "reservation.intro.content" })}
-              </Content>
-            </Container>
-          </InnerContainer>
+      {/* Le Smoker */}
+      <SplitScreen
+        leftBlock={
+          <Container
+            alignment="left"
+            title="reservation.intro.title"
+            subtitle="reservation.intro.subtitle"
+          >
+            <Content alignment="left">
+              {t({ id: "reservation.intro.content" })}
+            </Content>
+          </Container>
+        }
+        rightBlock={
           <Form
             title="reservation.form.title"
             subtitle="reservation.form.subtitle"
@@ -255,8 +255,8 @@ export const ReservationScreen = (): JSX.Element => {
               placeholder={t({ id: "reservation.form.count.placeholder" })}
             />
           </Form>
-        </SplitScreenWrapper>
-      </SplitScreenContainer>
+        }
+      />
     </>
   );
 };

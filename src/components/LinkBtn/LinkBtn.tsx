@@ -1,13 +1,35 @@
 import { TranslationKey } from "@types";
 import { Btn } from "./LinkBtn.styles";
 import { useTranslation } from "@hooks/useTranslation";
+import { useMemo } from "react";
 
 interface LinkBtnProps {
   href: string;
   text: TranslationKey;
+  openInTab?: boolean;
 }
 
-export const LinkBtn = ({ href, text }: LinkBtnProps): JSX.Element => {
+export const LinkBtn = ({
+  href,
+  text,
+  openInTab,
+}: LinkBtnProps): JSX.Element => {
   const { t } = useTranslation();
-  return <Btn href={href}>{t({ id: text })}</Btn>;
+
+  const newTab = useMemo(
+    () =>
+      openInTab
+        ? {
+            target: "_blank",
+            rel: "noopener noreferrer",
+          }
+        : undefined,
+    [openInTab]
+  );
+
+  return (
+    <Btn href={href} {...newTab}>
+      {t({ id: text })}
+    </Btn>
+  );
 };

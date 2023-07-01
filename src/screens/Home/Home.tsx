@@ -5,11 +5,14 @@ import Ribs from "@assets/images/ribs.webp";
 import Background from "@assets/images/background-monkey.jpg";
 import Sports from "@assets/images/sports-monkey.jpg";
 import Cocktails from "@assets/images/bar-monkey.jpg";
+import Music from "@assets/images/music-monkeys.jpg";
 import { Image } from "@components/Image";
 import { Container, Content } from "@components/Container";
 import { useTranslation } from "@hooks/useTranslation";
 import { LinkBtn } from "@components/LinkBtn";
 import { SplitScreen } from "@components/SplitScreen";
+import { routes } from "@helpers/routes";
+import { details } from "@constants/details";
 
 export const HomeScreen = (): JSX.Element => {
   const { t } = useTranslation();
@@ -40,7 +43,7 @@ export const HomeScreen = (): JSX.Element => {
             <Content alignment="left">
               {t({ id: "home.intro.content" })}
             </Content>
-            <LinkBtn href="" text="generic.findOutMore" />
+            <LinkBtn href={routes.smoker()} text="generic.findOutMore" />
           </Container>
         }
         rightBlock={<Image alt="" src={Ribs} />}
@@ -48,6 +51,7 @@ export const HomeScreen = (): JSX.Element => {
 
       {/* Le Bar */}
       <SplitScreen
+        background="black"
         leftBlock={<Image alt="" src={Cocktails} />}
         rightBlock={
           <Container
@@ -56,7 +60,7 @@ export const HomeScreen = (): JSX.Element => {
             subtitle="home.bar.subtitle"
           >
             <Content alignment="left">{t({ id: "home.bar.content" })}</Content>
-            <LinkBtn href="" text="generic.findOutMore" />
+            <LinkBtn href={routes.bar()} text="generic.findOutMore" />
           </Container>
         }
       />
@@ -77,10 +81,27 @@ export const HomeScreen = (): JSX.Element => {
         rightBlock={<Image alt="" src={Sports} />}
       />
 
+      {/* Les Concerts */}
+      <SplitScreen
+        background="black"
+        rightBlock={
+          <Container
+            alignment="left"
+            title="home.music.title"
+            subtitle="home.music.subtitle"
+          >
+            <Content alignment="left">
+              {t({ id: "home.music.content" })}
+            </Content>
+          </Container>
+        }
+        leftBlock={<Image alt="" src={Music} />}
+      />
+
       {/* Localisation */}
       <SplitScreen
-        leftBlock={<Map />}
-        rightBlock={
+        rightBlock={<Map />}
+        leftBlock={
           <Container
             alignment="left"
             title="home.location.title"
@@ -89,7 +110,11 @@ export const HomeScreen = (): JSX.Element => {
             <Content alignment="left">
               {t({ id: "home.location.content" })}
             </Content>
-            <LinkBtn href="" text="home.location.btn.text" />
+            <LinkBtn
+              openInTab
+              href={details.googleMaps}
+              text="home.location.btn.text"
+            />
           </Container>
         }
       />

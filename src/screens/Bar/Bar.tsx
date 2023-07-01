@@ -48,6 +48,7 @@ export const BarScreen = (): JSX.Element => {
 
       {/* Matches */}
       <SplitScreen
+        background="black"
         leftBlock={<Image alt="" src={Sports} />}
         rightBlock={
           <Container
