@@ -60,7 +60,7 @@ export const Carousel = ({ images, type }: CarouselProps): JSX.Element => {
   }, [images.length]);
 
   const hasImages = useMemo(() => {
-    return !!images.length!;
+    return !!images.length;
   }, [images.length]);
 
   /* ############################## */

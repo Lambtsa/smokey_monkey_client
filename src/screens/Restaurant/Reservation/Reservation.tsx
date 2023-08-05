@@ -1,9 +1,6 @@
-import { v4 as uuid } from "uuid";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import Ribs from "@assets/images/ribs.webp";
 import { useTranslation } from "@hooks/useTranslation";
-import { Jumbotron } from "@components/Jumbotron";
 import { Container, Content } from "@components/Container";
 import { InputText } from "@components/InputText";
 import { useForm } from "react-hook-form";
@@ -17,7 +14,7 @@ import { config } from "config";
 import { InputNumber } from "@components/InputNumber";
 import { SplitScreen } from "@components/SplitScreen";
 
-export const ReservationScreen = (): JSX.Element => {
+export const ReservationSection = (): JSX.Element => {
   const { t } = useTranslation();
   // const { locale } = useLanguage();
   const { addToast } = useToast();
@@ -113,34 +110,6 @@ export const ReservationScreen = (): JSX.Element => {
     reset(defaultValues, { keepDefaultValues: true });
   }, [reset, defaultValues]);
 
-  const images = [
-    {
-      id: uuid(),
-      data: Ribs,
-      alt: "",
-    },
-    {
-      id: uuid(),
-      data: Ribs,
-      alt: "",
-    },
-    {
-      id: uuid(),
-      data: Ribs,
-      alt: "",
-    },
-    {
-      id: uuid(),
-      data: Ribs,
-      alt: "",
-    },
-    {
-      id: uuid(),
-      data: Ribs,
-      alt: "",
-    },
-  ];
-
   /* ################################################## */
   /* Actions */
   /* ################################################## */
@@ -200,63 +169,53 @@ export const ReservationScreen = (): JSX.Element => {
   );
 
   return (
-    <>
-      {/* Jumbotron */}
-      <Jumbotron
-        title="home.jumbotron.title"
-        subtitle="home.jumbotron.subtitle"
-        images={images}
-        type="dot"
-        link={{ text: "reservation.jumbotron.btn", href: "#reservation" }}
-      />
-      {/* Le Smoker */}
-      <SplitScreen
-        leftBlock={
-          <Container
-            alignment="left"
-            title="reservation.intro.title"
-            subtitle="reservation.intro.subtitle"
-          >
-            <Content alignment="left">
-              {t({ id: "reservation.intro.content" })}
-            </Content>
-          </Container>
-        }
-        rightBlock={
-          <Form
-            title="reservation.form.title"
-            subtitle="reservation.form.subtitle"
-            btnText="reservation.form.submit.btn.text"
-            onSubmit={onSubmit}
-          >
-            <InputText
-              name="name"
-              control={control}
-              error={formErrors.name}
-              placeholder={t({ id: "reservation.form.name.placeholder" })}
-            />
-            <InputText
-              name="email"
-              control={control}
-              error={formErrors.email}
-              placeholder={t({ id: "reservation.form.email.placeholder" })}
-            />
-            <InputDate
-              name="date"
-              control={control}
-              error={formErrors.date}
-              setValue={setValue}
-              placeholder={t({ id: "reservation.form.email.placeholder" })}
-            />
-            <InputNumber
-              name="count"
-              control={control}
-              error={formErrors.count}
-              placeholder={t({ id: "reservation.form.count.placeholder" })}
-            />
-          </Form>
-        }
-      />
-    </>
+    <SplitScreen
+      id="reservation"
+      leftBlock={
+        <Container
+          alignment="left"
+          title="reservation.intro.title"
+          subtitle="reservation.intro.subtitle"
+        >
+          <Content alignment="left">
+            {t({ id: "reservation.intro.content" })}
+          </Content>
+        </Container>
+      }
+      rightBlock={
+        <Form
+          title="reservation.form.title"
+          subtitle="reservation.form.subtitle"
+          btnText="reservation.form.submit.btn.text"
+          onSubmit={onSubmit}
+        >
+          <InputText
+            name="name"
+            control={control}
+            error={formErrors.name}
+            placeholder={t({ id: "reservation.form.name.placeholder" })}
+          />
+          <InputText
+            name="email"
+            control={control}
+            error={formErrors.email}
+            placeholder={t({ id: "reservation.form.email.placeholder" })}
+          />
+          <InputDate
+            name="date"
+            control={control}
+            error={formErrors.date}
+            setValue={setValue}
+            placeholder={t({ id: "reservation.form.email.placeholder" })}
+          />
+          <InputNumber
+            name="count"
+            control={control}
+            error={formErrors.count}
+            placeholder={t({ id: "reservation.form.count.placeholder" })}
+          />
+        </Form>
+      }
+    />
   );
 };

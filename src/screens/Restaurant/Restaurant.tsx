@@ -1,6 +1,9 @@
 import { Jumbotron } from "@components/Jumbotron";
 import { v4 as uuid } from "uuid";
 import Ribs from "@assets/images/ribs.webp";
+import Fingerfood from "@assets/images/fingerfood.jpeg";
+import Smoker from "@assets/images/smoker2.jpeg";
+import Dessert from "@assets/images/dessert.jpeg";
 import { RestaurantContainer } from "./Restaurant.styles";
 import { useTranslation } from "@hooks/useTranslation";
 import { Container, Content } from "@components/Container";
@@ -9,6 +12,7 @@ import { routes } from "@helpers/routes";
 import { CONTAINER } from "@constants/layout";
 import { LinkBtn } from "@components/LinkBtn";
 import { SplitScreen } from "@components/SplitScreen";
+import { ReservationSection } from "./Reservation";
 
 export const RestaurantScreen = (): JSX.Element => {
   const { t } = useTranslation();
@@ -57,12 +61,13 @@ export const RestaurantScreen = (): JSX.Element => {
             </Content>
           </Container>
         }
-        rightBlock={<Image alt="" src={Ribs} />}
+        rightBlock={<Image alt="" src={Fingerfood} />}
       />
 
       {/* Smoker */}
       <SplitScreen
-        leftBlock={<Image alt="" src={Ribs} />}
+        background="black"
+        leftBlock={<Image alt="" src={Smoker} />}
         rightBlock={
           <Container
             alignment="left"
@@ -79,6 +84,7 @@ export const RestaurantScreen = (): JSX.Element => {
 
       {/* Deserts */}
       <SplitScreen
+        background="red"
         leftBlock={
           <Container
             alignment="left"
@@ -90,8 +96,10 @@ export const RestaurantScreen = (): JSX.Element => {
             </Content>
           </Container>
         }
-        rightBlock={<Image alt="" src={Ribs} />}
+        rightBlock={<Image alt="" src={Dessert} />}
       />
+
+      <ReservationSection />
     </>
   );
 };

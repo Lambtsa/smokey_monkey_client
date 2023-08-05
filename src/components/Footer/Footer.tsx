@@ -41,6 +41,11 @@ export const Footer = (): JSX.Element => {
       },
       {
         id: uuid(),
+        label: "footer.links.reservation.title",
+        url: routes.restaurant.reservation(),
+      },
+      {
+        id: uuid(),
         label: "footer.links.bar.title",
         url: routes.bar(),
       },

@@ -105,8 +105,7 @@ export const Subtitle = styled.p<{
   color: ${(props) => props.theme.colors.white};
   font-weight: ${(props) => props.theme.fontWeights.bold};
   font-size: 32px;
-  line-height: 32px;
-  margin-bottom: 16px;
+  line-height: 40px;
 
   text-align: ${(props) => {
     switch (props.alignment) {

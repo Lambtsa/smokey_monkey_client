@@ -1,6 +1,7 @@
 import "styled-components";
 
 interface Colors {
+  chocolateCosmos: string;
   englishVermillion: string;
   greenPigment: string;
   pacificBlue: string;

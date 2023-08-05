@@ -1,4 +1,4 @@
-import { Container, Img } from "./Masonry.styles";
+import { Container, Img, InnerContainer } from "./Masonry.styles";
 import { StaticImageData } from "next/image";
 
 interface MasonryProps {
@@ -11,9 +11,11 @@ export const Masonry = ({ images }: MasonryProps): JSX.Element | null => {
   }
   return (
     <Container>
-      {images.map((image, index) => (
-        <Img key={index} alt="" src={image} />
-      ))}
+      <InnerContainer>
+        {images.map((image, index) => (
+          <Img key={index} alt="" src={image} />
+        ))}
+      </InnerContainer>
     </Container>
   );
 };

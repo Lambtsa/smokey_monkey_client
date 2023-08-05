@@ -43,23 +43,29 @@ export const Nav = ({ position }: NavProps): JSX.Element => {
 
   const links: NavLinkType[] = useMemo(
     () => [
+      // {
+      //   id: uuid(),
+      //   label: "nav.bar",
+      //   url: routes.bar(),
+      //   subLinks: [],
+      // },
       {
         id: uuid(),
-        label: "nav.bar",
-        url: routes.bar(),
+        label: "nav.home",
+        url: routes.index(),
         subLinks: [],
       },
       {
         id: uuid(),
         label: "nav.restaurant",
         url: routes.restaurant.index(),
-        subLinks: [
-          {
-            id: uuid(),
-            label: "nav.restaurant.reservation",
-            url: routes.restaurant.reservation(),
-          },
-        ],
+        subLinks: [],
+      },
+      {
+        id: uuid(),
+        label: "nav.reservation",
+        url: routes.restaurant.reservation(),
+        subLinks: [],
       },
       {
         id: uuid(),

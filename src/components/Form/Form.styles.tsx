@@ -7,7 +7,7 @@ export const FormContainer = styled.form`
   width: 100%;
   align-items: center;
   justify-content: center;
-  padding: 48px;
+  padding: 48px 16px;
   max-width: ${CONTAINER.MOBILE}px;
 
   @media ${MEDIA.TABLET} {

@@ -1,8 +1,7 @@
 import { config } from "config";
 
-const buildUrl = (path: string): string => {
-  return `${config.frontendUrl}${path}`;
-};
+const buildUrl = (path: string): string =>
+  new URL(path, config.frontendUrl).toString();
 
 export const routes = {
   index: () => buildUrl("/"),
@@ -10,7 +9,7 @@ export const routes = {
   bar: () => buildUrl("/bar"),
   restaurant: {
     index: () => buildUrl("/restaurant"),
-    reservation: () => buildUrl("/restaurant/reservation"),
+    reservation: () => buildUrl("/restaurant#reservation"),
   },
   contact: () => buildUrl("/contact"),
   terms: () => buildUrl("/terms"),

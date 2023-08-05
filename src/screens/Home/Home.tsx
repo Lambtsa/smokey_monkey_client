@@ -51,7 +51,7 @@ export const HomeScreen = (): JSX.Element => {
 
       {/* Le Bar */}
       <SplitScreen
-        background="black"
+        background="red"
         leftBlock={<Image alt="" src={Cocktails} />}
         rightBlock={
           <Container
@@ -67,6 +67,7 @@ export const HomeScreen = (): JSX.Element => {
 
       {/* Les Matches */}
       <SplitScreen
+        background="black"
         leftBlock={
           <Container
             alignment="left"
@@ -81,17 +82,17 @@ export const HomeScreen = (): JSX.Element => {
         rightBlock={<Image alt="" src={Sports} />}
       />
 
-      {/* Les Concerts */}
+      {/* Les events */}
       <SplitScreen
-        background="black"
+        background="blue"
         rightBlock={
           <Container
             alignment="left"
-            title="home.music.title"
-            subtitle="home.music.subtitle"
+            title="home.events.title"
+            subtitle="home.events.subtitle"
           >
             <Content alignment="left">
-              {t({ id: "home.music.content" })}
+              {t({ id: "home.events.content" })}
             </Content>
           </Container>
         }

@@ -7,4 +7,4 @@ export interface SplitScreenProps {
   background?: BackgroundType;
 }
 
-export type BackgroundType = "black" | "green" | "blue";
+export type BackgroundType = "black" | "green" | "blue" | "red";

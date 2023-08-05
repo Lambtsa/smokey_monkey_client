@@ -5,6 +5,7 @@ import type { DefaultTheme } from "styled-components";
  */
 const colors = {
   /* dcfffd,95d3e0,61ae46,336133,15361b */
+  chocolateCosmos: "rgba(77, 28, 28, 1)",
   englishVermillion: "#C64142",
   greenPigment: "#4BA457",
   pacificBlue: "#3CACC5",
@@ -20,7 +21,7 @@ const colors = {
   eerieBlack40: "rgba(37, 36, 34, 0.4)",
   eerieBlack30: "rgba(37, 36, 34, 0.3)",
   eerieBlack20: "rgba(37, 36, 34, 0.2)",
-  moonstone: "rgba(80, 183, 205, 1)",
+  moonstone: "rgba(2, 61, 95, 1)",
   night: "rgba(21, 21, 20, 1)",
   white: "rgba(255, 254, 235, 1)",
   white90: "rgba(255, 254, 235, 0.9)",

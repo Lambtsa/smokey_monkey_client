@@ -1,8 +1,8 @@
 import { v4 as uuid } from "uuid";
-import Ribs from "@assets/images/ribs.webp";
 import Prohibition from "@assets/images/prohibition-monkey.jpg";
 import Sports from "@assets/images/sports-monkey.jpg";
 import Elvis from "@assets/images/elvis-monkey.jpg";
+import Bar from "@assets/images/bar-monkey2.jpg";
 import { Image } from "@components/Image";
 import { Jumbotron } from "@components/Jumbotron";
 import { SplitScreen } from "@components/SplitScreen";
@@ -22,7 +22,7 @@ export const BarScreen = (): JSX.Element => {
         images={[
           {
             id: uuid(),
-            data: Ribs,
+            data: Bar,
             alt: "",
           },
         ]}
@@ -66,6 +66,7 @@ export const BarScreen = (): JSX.Element => {
 
       {/* Le soirées spéciales */}
       <SplitScreen
+        background="red"
         leftBlock={
           <Container
             alignment="left"
