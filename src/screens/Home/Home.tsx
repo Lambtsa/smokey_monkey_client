@@ -5,7 +5,7 @@ import Ribs from "@assets/images/ribs.webp";
 import Background from "@assets/images/background-monkey.jpg";
 import Sports from "@assets/images/sports-monkey.jpg";
 import Cocktails from "@assets/images/bar-monkey.jpg";
-import Music from "@assets/images/music-monkeys.jpg";
+import Elvis from "@assets/images/elvis-monkey.jpg";
 import { Image } from "@components/Image";
 import { Container, Content } from "@components/Container";
 import { useTranslation } from "@hooks/useTranslation";
@@ -34,6 +34,7 @@ export const HomeScreen = (): JSX.Element => {
 
       {/* Le Smoker */}
       <SplitScreen
+        showImage={false}
         leftBlock={
           <Container
             alignment="left"
@@ -60,13 +61,14 @@ export const HomeScreen = (): JSX.Element => {
             subtitle="home.bar.subtitle"
           >
             <Content alignment="left">{t({ id: "home.bar.content" })}</Content>
-            <LinkBtn href={routes.bar()} text="generic.findOutMore" />
+            {/* <LinkBtn href={routes.bar()} text="generic.findOutMore" /> */}
           </Container>
         }
       />
 
       {/* Les Matches */}
       <SplitScreen
+        order="reversed"
         background="black"
         leftBlock={
           <Container
@@ -96,11 +98,12 @@ export const HomeScreen = (): JSX.Element => {
             </Content>
           </Container>
         }
-        leftBlock={<Image alt="" src={Music} />}
+        leftBlock={<Image alt="" src={Elvis} />}
       />
 
       {/* Localisation */}
       <SplitScreen
+        order="reversed"
         rightBlock={<Map />}
         leftBlock={
           <Container

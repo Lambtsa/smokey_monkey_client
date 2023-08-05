@@ -19,7 +19,7 @@ export const SplitScreenContainer = styled.section`
   align-items: center;
   background-color: ${(props) => props.theme.colors.darkGreen};
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   color: ${(props) => props.theme.colors.darkGreen};
 `;
 

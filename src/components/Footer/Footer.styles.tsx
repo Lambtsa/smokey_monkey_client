@@ -28,10 +28,11 @@ export const CopyrightContainer = styled.footer`
   align-items: center;
   text-align: center;
   gap: 32px;
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.white80};
   background-color: ${(props) => props.theme.colors.night};
   padding: 16px;
   font-size: 12px;
+  line-height: 16px;
 `;
 
 export const Title = styled.h2`

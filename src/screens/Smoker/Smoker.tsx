@@ -48,6 +48,7 @@ export const SmokerScreen = (): JSX.Element => {
 
       {/* l'histoire */}
       <SplitScreen
+        order="reversed"
         leftBlock={
           <Container
             alignment="left"

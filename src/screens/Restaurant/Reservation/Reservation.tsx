@@ -61,20 +61,13 @@ export const ReservationSection = (): JSX.Element => {
         ),
       })
       .trim(),
-    count: z
-      .number({
-        required_error: t(
-          { id: "reservation.form.field.error.required" },
-          { field: "Email" }
-        ),
-      })
-      .int()
-      .positive()
-      .min(1, {
-        message: t({ id: "reservation.form.field.error.min" }),
-      })
-      .max(10, { message: t({ id: "reservation.form.field.error.max" }) }),
-    date: z.coerce.date().min(new Date(), { message: "Too old" }),
+    count: z.string({
+      required_error: t(
+        { id: "reservation.form.field.error.required" },
+        { field: "Email" }
+      ),
+    }),
+    date: z.string(),
   });
 
   type FormFields = TypeOf<typeof validationSchema>;
@@ -83,8 +76,8 @@ export const ReservationSection = (): JSX.Element => {
     () => ({
       name: "",
       email: "",
-      count: 1,
-      date: new Date(),
+      count: "1",
+      date: new Date().toISOString(),
     }),
     []
   );
@@ -170,6 +163,7 @@ export const ReservationSection = (): JSX.Element => {
 
   return (
     <SplitScreen
+      noImg
       id="reservation"
       leftBlock={
         <Container
@@ -210,6 +204,8 @@ export const ReservationSection = (): JSX.Element => {
           />
           <InputNumber
             name="count"
+            min={1}
+            max={10}
             control={control}
             error={formErrors.count}
             placeholder={t({ id: "reservation.form.count.placeholder" })}

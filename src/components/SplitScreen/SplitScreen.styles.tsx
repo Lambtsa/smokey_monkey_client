@@ -17,6 +17,7 @@ export const SplitScreenContainer = styled.section<{
   background: BackgroundType;
 }>`
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -38,7 +39,7 @@ export const SplitScreenContainer = styled.section<{
   }};
   width: 100%;
   height: fit-content;
-  min-height: 100vh;
+  min-height: 100dvh;
   color: ${(props) => props.theme.colors.darkGreen};
 
   @media ${MEDIA.TABLET} {
@@ -46,7 +47,10 @@ export const SplitScreenContainer = styled.section<{
   }
 `;
 
-export const SplitScreenWrapper = styled.div`
+export const SplitScreenWrapper = styled.div<{
+  showImage: boolean;
+  noImg: boolean;
+}>`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
@@ -59,10 +63,15 @@ export const SplitScreenWrapper = styled.div`
 
   @media ${MEDIA.TABLET} {
     grid-template-columns: 1fr;
+    grid-template-rows: ${(props) => {
+      return props.noImg ? "1fr 1fr" : props.showImage ? "1fr 2fr" : "1fr";
+    }};
   }
 `;
 
-export const InnerContainer = styled.div`
+export const InnerContainer = styled.div<{
+  order: number;
+}>`
   position: relative;
   display: flex;
   justify-content: center;
@@ -71,10 +80,12 @@ export const InnerContainer = styled.div`
   min-height: 100%;
   height: 100%;
   width: 100%;
-
+  
   @media ${MEDIA.TABLET} {
     img {
-      display: none;
+      min-height: 50vsh
+      height: 50%;
     }
+    order: ${(props) => props.order};
   }
 `;

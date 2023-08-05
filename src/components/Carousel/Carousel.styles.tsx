@@ -19,7 +19,7 @@ export const ContainerFilter = styled.div`
   top: 0;
   left: 0;
   z-index: 80;
-  background-color: ${(props) => props.theme.colors.eerieBlack50};
+  background-color: ${(props) => props.theme.colors.eerieBlack30};
 `;
 
 export const ImgContainer = styled.div<{

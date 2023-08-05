@@ -61,7 +61,7 @@ export const NavList = styled.ul<{
     background-color: ${(props) => props.theme.colors.night};
     z-index: 10;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     scroll-behavior: none;
 
     a {

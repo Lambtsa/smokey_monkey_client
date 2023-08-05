@@ -9,13 +9,20 @@ export const SplitScreen = ({
   id,
   leftBlock,
   rightBlock,
+  showImage = true,
+  order = "regular",
   background = "green",
+  noImg = false,
 }: SplitScreenProps): JSX.Element => {
   return (
     <SplitScreenContainer background={background} id={id}>
-      <SplitScreenWrapper>
-        <InnerContainer>{leftBlock}</InnerContainer>
-        <InnerContainer>{rightBlock}</InnerContainer>
+      <SplitScreenWrapper noImg={noImg} showImage={showImage}>
+        <InnerContainer order={order === "regular" ? 1 : 2}>
+          {leftBlock}
+        </InnerContainer>
+        <InnerContainer order={order === "regular" ? 2 : 1}>
+          {rightBlock}
+        </InnerContainer>
       </SplitScreenWrapper>
     </SplitScreenContainer>
   );

@@ -29,7 +29,7 @@ export const Wrapper = styled.div`
 export const ContactContainer = styled.section`
   display: flex;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   gap: 32px;
   background-color: ${(props) => props.theme.colors.darkGreen};
   flex-direction: column;

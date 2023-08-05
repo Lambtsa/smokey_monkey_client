@@ -50,6 +50,7 @@ export const RestaurantScreen = (): JSX.Element => {
 
       {/* Fingerfoods */}
       <SplitScreen
+        order="reversed"
         leftBlock={
           <Container
             alignment="left"
@@ -84,6 +85,7 @@ export const RestaurantScreen = (): JSX.Element => {
 
       {/* Deserts */}
       <SplitScreen
+        order="reversed"
         background="red"
         leftBlock={
           <Container

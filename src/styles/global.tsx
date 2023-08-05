@@ -48,7 +48,7 @@ export const GlobalStyle = createGlobalStyle`
   body,
   #__next {
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     scroll-behavior: smooth !important;
   }
 

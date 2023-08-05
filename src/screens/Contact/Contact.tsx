@@ -1,6 +1,6 @@
 import { Jumbotron } from "@components/Jumbotron";
 import { v4 as uuid } from "uuid";
-import Ribs from "@assets/images/ribs.webp";
+import Music from "@assets/images/music-monkeys.jpg";
 import { ReactComponent as Times } from "@assets/times.svg";
 import { ReactComponent as Mail } from "@assets/mail.svg";
 import { ReactComponent as Phone } from "@assets/phone.svg";
@@ -28,7 +28,7 @@ export const ContactScreen = (): JSX.Element => {
         images={[
           {
             id: uuid(),
-            data: Ribs,
+            data: Music,
             alt: "",
           },
         ]}
