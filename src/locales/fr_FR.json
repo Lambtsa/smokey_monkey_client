@@ -115,6 +115,8 @@
   "reservation.form.field.error.email": "Adresse mail invalide",
   "reservation.form.submit.error.title": "Oups! Il y a une erreur",
   "reservation.form.submit.error.message": "Malheureusement il y a eu une erreur. Veuillez essayer plus tard",
+  "reservation.form.submit.success.title": "Cool!",
+  "reservation.form.submit.success.message": "Nous avons reçu votre réservation. Nous allons vous contacter pour confirmer",
   "reservation.form.submit.btn.text": "Réserver",
 
   "bar.jumbotron.title": "Le bar",

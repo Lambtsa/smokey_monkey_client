@@ -140,8 +140,8 @@ export const ReservationSection = (): JSX.Element => {
             addToast({
               type: "success",
               /* TODO: Make this success message */
-              title: "reservation.form.submit.error.title",
-              message: "reservation.form.submit.error.title",
+              title: "reservation.form.submit.success.title",
+              message: "reservation.form.submit.success.message",
             });
             /* Reset the forms after valid response */
             reset(defaultValues, { keepDefaultValues: true });
