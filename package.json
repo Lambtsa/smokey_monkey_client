@@ -21,7 +21,6 @@
   },
   "dependencies": {
     "@hookform/resolvers": "3.0.1",
-    "dayjs": "1.11.7",
     "dotenv": "^16.0.3",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
@@ -44,6 +43,7 @@
     "@babel/preset-env": "^7.21.4",
     "@babel/preset-typescript": "^7.21.4",
     "@svgr/webpack": "^7.0.0",
+    "@types/jest": "^29.5.3",
     "@types/mapbox-gl": "^2.7.10",
     "@types/node": "^18.15.11",
     "@types/nodemailer": "^6.4.7",

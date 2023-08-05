@@ -16,6 +16,7 @@ export const StyledInput = styled.input`
     letter-spacing: normal;
     color: ${(props) => props.theme.colors.white70};
   }
+  color-scheme: dark;
 `;
 
 export const InputWrap = styled.div`

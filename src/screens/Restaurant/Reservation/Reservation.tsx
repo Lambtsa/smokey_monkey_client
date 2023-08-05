@@ -13,6 +13,7 @@ import { InputDate } from "@components/InputDate";
 import { config } from "config";
 import { InputNumber } from "@components/InputNumber";
 import { SplitScreen } from "@components/SplitScreen";
+import { formatDate } from "@helpers/formatDate";
 
 export const ReservationSection = (): JSX.Element => {
   const { t } = useTranslation();
@@ -77,7 +78,7 @@ export const ReservationSection = (): JSX.Element => {
       name: "",
       email: "",
       count: "1",
-      date: new Date().toISOString(),
+      date: formatDate(new Date()),
     }),
     []
   );
