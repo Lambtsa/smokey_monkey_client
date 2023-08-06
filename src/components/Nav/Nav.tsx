@@ -90,6 +90,11 @@ export const Nav = ({ position }: NavProps): JSX.Element => {
     setIsOpen(!isOpen);
   }, [isOpen]);
 
+  const handleLinkClick = useCallback(() => {
+    setIsOpen(false);
+    return true;
+  }, []);
+
   const hasLinks = !!links.length;
 
   return (
@@ -104,7 +109,11 @@ export const Nav = ({ position }: NavProps): JSX.Element => {
               <NavElement key={link.id}>
                 {isMobile && (
                   <>
-                    <NavLink href={link.url} isScrolled={isScrolled}>
+                    <NavLink
+                      href={link.url}
+                      onClick={handleLinkClick}
+                      isScrolled={isScrolled}
+                    >
                       {t({ id: link.label })}
                     </NavLink>
                     {!!link.subLinks.length && (
