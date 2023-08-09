@@ -4,6 +4,7 @@ import Ribs from "@assets/images/ribs.webp";
 import Fingerfood from "@assets/images/fingerfood.jpeg";
 import Smoker from "@assets/images/smoker2.jpeg";
 import Dessert from "@assets/images/dessert.jpeg";
+import Bar from "@assets/images/bar.jpg";
 import { RestaurantContainer } from "./Restaurant.styles";
 import { useTranslation } from "@hooks/useTranslation";
 import { Container, Content } from "@components/Container";
@@ -99,6 +100,24 @@ export const RestaurantScreen = (): JSX.Element => {
           </Container>
         }
         rightBlock={<Image alt="" src={Dessert} />}
+      />
+
+      {/* Le restaurant */}
+      <SplitScreen
+        order="reversed"
+        background="black"
+        rightBlock={
+          <Container
+            alignment="left"
+            title="restaurant.venue.title"
+            subtitle="restaurant.venue.subtitle"
+          >
+            <Content alignment="left">
+              {t({ id: "restaurant.venue.content" })}
+            </Content>
+          </Container>
+        }
+        leftBlock={<Image alt="" src={Bar} />}
       />
 
       <ReservationSection />
