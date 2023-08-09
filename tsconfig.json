@@ -34,6 +34,9 @@
     "plugins": [
       {
         "name": "typescript-styled-plugin"
+      },
+      {
+        "name": "next"
       }
     ],
     "typeRoots": ["./node_modules/@types", "./typings"],
@@ -47,7 +50,8 @@
     "next.config.js",
     "typings/**/*.ts",
     "src/**/*.ts",
-    "src/**/*.tsx"
+    "src/**/*.tsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }
