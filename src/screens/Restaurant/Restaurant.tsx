@@ -63,13 +63,21 @@ export const RestaurantScreen = (): JSX.Element => {
             </Content>
           </Container>
         }
-        rightBlock={<Image alt="" src={Fingerfood} />}
+        rightBlock={
+          <Image
+            alt=""
+            sizes="(max-width: 768px) 100vw, 50vw"
+            src={Fingerfood}
+          />
+        }
       />
 
       {/* Smoker */}
       <SplitScreen
         background="black"
-        leftBlock={<Image alt="" src={Smoker} />}
+        leftBlock={
+          <Image alt="" sizes="(max-width: 768px) 100vw, 50vw" src={Smoker} />
+        }
         rightBlock={
           <Container
             alignment="left"
@@ -99,7 +107,9 @@ export const RestaurantScreen = (): JSX.Element => {
             </Content>
           </Container>
         }
-        rightBlock={<Image alt="" src={Dessert} />}
+        rightBlock={
+          <Image alt="" sizes="(max-width: 768px) 100vw, 50vw" src={Dessert} />
+        }
       />
 
       {/* Le restaurant */}
@@ -117,7 +127,9 @@ export const RestaurantScreen = (): JSX.Element => {
             </Content>
           </Container>
         }
-        leftBlock={<Image alt="" src={Bar} />}
+        leftBlock={
+          <Image alt="" sizes="(max-width: 768px) 100vw, 50vw" src={Bar} />
+        }
       />
 
       <ReservationSection />

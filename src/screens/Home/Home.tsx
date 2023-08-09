@@ -47,13 +47,26 @@ export const HomeScreen = (): JSX.Element => {
             <LinkBtn href={routes.smoker()} text="generic.findOutMore" />
           </Container>
         }
-        rightBlock={<Image alt="" src={Ribs} />}
+        rightBlock={
+          <Image
+            priority={false}
+            alt=""
+            sizes="(max-width: 768px) 100vw, 50vw"
+            src={Ribs}
+          />
+        }
       />
 
       {/* Le Bar */}
       <SplitScreen
         background="red"
-        leftBlock={<Image alt="" src={Cocktails} />}
+        leftBlock={
+          <Image
+            alt=""
+            sizes="(max-width: 768px) 100vw, 50vw"
+            src={Cocktails}
+          />
+        }
         rightBlock={
           <Container
             alignment="left"
@@ -81,7 +94,9 @@ export const HomeScreen = (): JSX.Element => {
             </Content>
           </Container>
         }
-        rightBlock={<Image alt="" src={Sports} />}
+        rightBlock={
+          <Image alt="" sizes="(max-width: 768px) 100vw, 50vw" src={Sports} />
+        }
       />
 
       {/* Les events */}
@@ -98,7 +113,9 @@ export const HomeScreen = (): JSX.Element => {
             </Content>
           </Container>
         }
-        leftBlock={<Image alt="" src={Elvis} />}
+        leftBlock={
+          <Image alt="" sizes="(max-width: 768px) 100vw, 50vw" src={Elvis} />
+        }
       />
 
       {/* Localisation */}

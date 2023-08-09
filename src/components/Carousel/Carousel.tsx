@@ -75,7 +75,7 @@ export const Carousel = ({ images, type }: CarouselProps): JSX.Element => {
             imgPosition={calculateCurrentPosition(index)}
             key={image.id}
           >
-            <Image alt={image.alt} src={image.data} />
+            <Image alt={image.alt} sizes="100vw" src={image.data} />
           </ImgContainer>
         ))}
       {hasMultipleImages && type === "button" && (

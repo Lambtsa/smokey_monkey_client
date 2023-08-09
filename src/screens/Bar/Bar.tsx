@@ -43,13 +43,21 @@ export const BarScreen = (): JSX.Element => {
             <Content alignment="left">{t({ id: "bar.intro.content" })}</Content>
           </Container>
         }
-        rightBlock={<Image alt="" src={Prohibition} />}
+        rightBlock={
+          <Image
+            alt=""
+            sizes="(max-width: 768px) 100vw, 50vw"
+            src={Prohibition}
+          />
+        }
       />
 
       {/* Matches */}
       <SplitScreen
         background="black"
-        leftBlock={<Image alt="" src={Sports} />}
+        leftBlock={
+          <Image alt="" sizes="(max-width: 768px) 100vw, 50vw" src={Sports} />
+        }
         rightBlock={
           <Container
             alignment="left"
@@ -79,7 +87,9 @@ export const BarScreen = (): JSX.Element => {
             <LinkBtn href="" text="generic.reserve" />
           </Container>
         }
-        rightBlock={<Image alt="" src={Elvis} />}
+        rightBlock={
+          <Image alt="" sizes="(max-width: 768px) 100vw, 50vw" src={Elvis} />
+        }
       />
     </>
   );

@@ -60,7 +60,13 @@ export const SmokerScreen = (): JSX.Element => {
             </Content>
           </Container>
         }
-        rightBlock={<Image alt="" src={SmokerBob} />}
+        rightBlock={
+          <Image
+            alt=""
+            sizes="(max-width: 768px) 100vw, 50vw"
+            src={SmokerBob}
+          />
+        }
       />
 
       {/* l'histoire */}
