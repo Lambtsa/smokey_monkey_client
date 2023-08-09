@@ -17,6 +17,20 @@ export const StyledInput = styled.input`
     color: ${(props) => props.theme.colors.white70};
   }
   color-scheme: dark;
+
+  &[type="date"] {
+    border: none;
+    box-sizing: border-box;
+    outline: 0;
+    padding-left: 0.75rem;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 
 export const InputWrap = styled.div`

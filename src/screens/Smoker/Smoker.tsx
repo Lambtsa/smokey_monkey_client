@@ -64,7 +64,7 @@ export const SmokerScreen = (): JSX.Element => {
       />
 
       {/* l'histoire */}
-      <SplitScreen
+      {/* <SplitScreen
         background="black"
         leftBlock={<Image alt="" src={Ribs} />}
         rightBlock={
@@ -78,7 +78,7 @@ export const SmokerScreen = (): JSX.Element => {
             </Content>
           </Container>
         }
-      />
+      /> */}
       <Masonry images={images} />
     </>
   );

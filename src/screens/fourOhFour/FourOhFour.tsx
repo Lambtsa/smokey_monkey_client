@@ -6,6 +6,7 @@ import { useCallback } from "react";
 import {
   FourOhFourContainer,
   FourOhFourInnerContainer,
+  FourOhFourTitleContainer,
   Subtitle,
   Title,
 } from "./FourOhFour.styles";
@@ -21,10 +22,10 @@ export const FourOhFour = (): JSX.Element => {
   return (
     <FourOhFourContainer>
       <FourOhFourInnerContainer>
-        <div>
+        <FourOhFourTitleContainer>
           <Title>{t({ id: "fourOhFour.title" })}</Title>
           <Subtitle>{t({ id: "fourOhFour.subtitle" })}</Subtitle>
-        </div>
+        </FourOhFourTitleContainer>
         <Button type="button" onClick={handleOnClick} btnType="secondary">
           {t({ id: "fourOhFour.btn" })}
         </Button>

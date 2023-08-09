@@ -23,8 +23,15 @@ export const ButtonStyled = styled.button<{
       }
       case "secondary": {
         return css`
-          background-color: ${(props) => props.theme.colors.darkGreen};
+          background-color: transparent;
+          border: 1px solid ${(props) => props.theme.colors.white};
           color: ${(props) => props.theme.colors.white};
+
+          :hover {
+            background-color: ${(props) => props.theme.colors.white};
+            border: 1px solid ${(props) => props.theme.colors.white};
+            color: ${(props) => props.theme.colors.eerieBlack};
+          }
         `;
       }
     }

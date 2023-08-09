@@ -5,10 +5,16 @@ export const FourOhFourContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => props.theme.colors.white};
+  background-color: ${(props) => props.theme.colors.night};
   width: 100%;
   height: 100dvh;
   color: ${(props) => props.theme.colors.white};
+`;
+
+export const FourOhFourTitleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 `;
 
 export const FourOhFourInnerContainer = styled.div`
@@ -26,7 +32,7 @@ export const FourOhFourInnerContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: ${(props) => props.theme.colors.darkGreen};
+  color: ${(props) => props.theme.colors.white};
   font-weight: ${(props) => props.theme.fontWeights.bold};
   text-align: center;
   font-size: 72px;
@@ -40,7 +46,7 @@ export const Title = styled.h1`
 `;
 
 export const Subtitle = styled.p`
-  color: ${(props) => props.theme.colors.darkGreen};
+  color: ${(props) => props.theme.colors.white80};
   font-weight: ${(props) => props.theme.fontWeights.regular};
   text-align: center;
   font-size: 16px;
