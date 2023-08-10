@@ -89,7 +89,7 @@ export const Footer = (): JSX.Element => {
             </FooterContent>
             <FooterContent>
               <SmallTitle>{t({ id: "footer.contact.email.title" })}</SmallTitle>
-              <FooterLink href={details.email}>
+              <FooterLink href={`mailto:${details.email}`}>
                 {t({ id: "footer.contact.email.text" })}
               </FooterLink>
             </FooterContent>

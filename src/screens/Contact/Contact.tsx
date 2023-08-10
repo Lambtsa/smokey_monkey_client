@@ -54,7 +54,7 @@ export const ContactScreen = (): JSX.Element => {
               <Mail />
               <TitleContainer alignment="center">
                 <Title>{t({ id: "contact.email.title" })}</Title>
-                <ContactLink href={details.email}>
+                <ContactLink href={`mailto:${details.email}`}>
                   {t({ id: "contact.email.subtitle" })}
                 </ContactLink>
               </TitleContainer>

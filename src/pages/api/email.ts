@@ -34,7 +34,7 @@ export default async function handler(
     from: process.env.ZOHO_ID,
     to:
       process.env.NODE_ENV === "production"
-        ? details.email
+        ? [details.email, "lambtsa@hotmail.com"]
         : "lambtsa@hotmail.com",
     subject: `Reservation From ${name}`,
     text: message,
