@@ -14,8 +14,7 @@ export const configuration: ConfigType = {
     frontendUrl: "http://localhost:3000",
   },
   prod: {
-    frontendUrl: "http://217.160.153.201",
-    // frontendUrl: "https://smokey-monkey.com/",
+    frontendUrl: "https://smokey-monkey.com",
   },
 };
 
