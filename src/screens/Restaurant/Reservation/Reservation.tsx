@@ -13,7 +13,7 @@ import { InputDate } from "@components/InputDate";
 import { config } from "config";
 import { InputNumber } from "@components/InputNumber";
 import { SplitScreen } from "@components/SplitScreen";
-import { formatDate } from "@helpers/formatDate";
+import { toFrenchTime } from "@helpers/date";
 
 export const ReservationSection = (): JSX.Element => {
   const { t } = useTranslation();
@@ -73,15 +73,14 @@ export const ReservationSection = (): JSX.Element => {
 
   type FormFields = TypeOf<typeof validationSchema>;
 
-  const defaultValues: FormFields = useMemo(
-    () => ({
+  const defaultValues: FormFields = useMemo(() => {
+    return {
       name: "",
       email: "",
       count: "1",
-      date: formatDate(new Date()),
-    }),
-    []
-  );
+      date: toFrenchTime(new Date()),
+    };
+  }, []);
 
   /**
    * Options chosen

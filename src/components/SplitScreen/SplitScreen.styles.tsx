@@ -80,10 +80,10 @@ export const InnerContainer = styled.div<{
   min-height: 100%;
   height: 100%;
   width: 100%;
-  
+
   @media ${MEDIA.TABLET} {
     img {
-      min-height: 50vsh
+      min-height: 50svh;
       height: 50%;
     }
     order: ${(props) => props.order};
