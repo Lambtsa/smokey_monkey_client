@@ -4,7 +4,7 @@ import { CSSProperties } from "styled-components";
 export type NavPosition = NonNullable<CSSProperties["position"]>;
 
 export interface NavProps {
-  position: NavPosition;
+  position?: NavPosition;
 }
 
 export interface NavLinkType {

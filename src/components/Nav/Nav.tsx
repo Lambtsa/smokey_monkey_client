@@ -1,4 +1,4 @@
-import { ReactComponent as Logo } from "@assets/images/logo.svg";
+// import { ReactComponent as Logo } from "@assets/images/logo.svg";
 import { ReactComponent as BurgerMenu } from "@assets/burger.svg";
 import { ReactComponent as CloseMenu } from "@assets/close24.svg";
 import {
@@ -7,6 +7,7 @@ import {
   DropdownContainer,
   DropdownContent,
   DropdownLink,
+  HomeButton,
   MobileNavContainer,
   NavContainer,
   NavElement,
@@ -20,11 +21,11 @@ import { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "@hooks/useTranslation";
 import { LanguageToggle } from "@components/LanguageToggle";
 import { useMedia, useWindowScroll } from "react-use";
-import Link from "next/link";
+// import Link from "next/link";
 import type { NavLinkType, NavProps } from "./Nav.types";
 import { MEDIA } from "@constants/layout";
 
-export const Nav = ({ position }: NavProps): JSX.Element => {
+export const Nav = ({ position = "fixed" }: NavProps): JSX.Element => {
   const { t } = useTranslation();
   const { y } = useWindowScroll();
   const isMobile = useMedia(MEDIA.TABLET, false);
@@ -99,9 +100,7 @@ export const Nav = ({ position }: NavProps): JSX.Element => {
 
   return (
     <NavContainer position={position} isScrolled={isScrolled}>
-      <Link href={routes.index()}>
-        <Logo />
-      </Link>
+      <HomeButton href={routes.index()}>{/* <Logo /> */}</HomeButton>
       <NavList isOpen={isOpen}>
         {hasLinks &&
           links.map((link) => {

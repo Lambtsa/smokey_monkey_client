@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { createTransport } from "nodemailer";
 import dotenv from "dotenv";
 import { details } from "@constants/details";
+import { dateToString } from "@helpers/date";
 
 dotenv.config();
 
@@ -24,8 +25,10 @@ export default async function handler(
     secure: true,
   });
 
+  const formattedDate = dateToString(date);
+
   const message = `
-    ${name} (${email}) est intéressé(e) pour réserver une table le ${date} pour ${count} ${
+    ${name} (${email}) est intéressé(e) pour réserver une table le ${formattedDate} pour ${count} ${
     count > 1 ? "personnes" : "personne"
   }.
   `;

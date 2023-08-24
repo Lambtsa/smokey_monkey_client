@@ -13,7 +13,7 @@ import { InputDate } from "@components/InputDate";
 import { config } from "config";
 import { InputNumber } from "@components/InputNumber";
 import { SplitScreen } from "@components/SplitScreen";
-import { toFrenchTime } from "@helpers/date";
+import { formatTime } from "@helpers/date";
 
 export const ReservationSection = (): JSX.Element => {
   const { t } = useTranslation();
@@ -78,7 +78,7 @@ export const ReservationSection = (): JSX.Element => {
       name: "",
       email: "",
       count: "1",
-      date: toFrenchTime(new Date()),
+      date: formatTime(new Date()),
     };
   }, []);
 

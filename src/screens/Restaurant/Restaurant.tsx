@@ -114,7 +114,7 @@ export const RestaurantScreen = (): JSX.Element => {
 
       {/* Le restaurant */}
       <SplitScreen
-        order="reversed"
+        order="regular"
         background="black"
         rightBlock={
           <Container

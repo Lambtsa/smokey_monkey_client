@@ -77,7 +77,7 @@ export const InnerContainer = styled.div<{
   justify-content: center;
   align-items: center;
   min-width: 100%;
-  min-height: 100%;
+  min-height: inherit;
   height: 100%;
   width: 100%;
 

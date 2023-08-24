@@ -10,10 +10,7 @@ interface LayoutProps {
   position?: NavPosition;
 }
 
-export const Layout = ({
-  children,
-  position = "fixed",
-}: LayoutProps): JSX.Element => {
+export const Layout = ({ children, position }: LayoutProps): JSX.Element => {
   return (
     <LayoutContainer>
       <Nav position={position} />

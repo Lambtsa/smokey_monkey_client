@@ -2,7 +2,7 @@ import { FieldValues, Path, PathValue, useController } from "react-hook-form";
 import { Input } from "../Input";
 import { FormEvent, useCallback, useMemo } from "react";
 import { InputDateProps } from "./InputDate.types";
-import { toFrenchTime } from "@helpers/date";
+import { formatTime } from "@helpers/date";
 
 export const InputDate = <
   TFieldValues extends FieldValues = FieldValues,
@@ -17,14 +17,14 @@ export const InputDate = <
   } = useController({ control, name });
 
   const minDate = useMemo(() => {
-    return toFrenchTime(new Date());
+    return formatTime(new Date());
   }, []);
 
   const maxDate = useMemo(() => {
-    const newDate = new Date(minDate);
+    const newDate = new Date();
     newDate.setFullYear(newDate.getFullYear() + 1);
-    return toFrenchTime(newDate);
-  }, [minDate]);
+    return formatTime(newDate);
+  }, []);
   /* ############################## */
   /* Actions */
   /* ############################## */
@@ -41,6 +41,7 @@ export const InputDate = <
       {...fieldRest}
       min={minDate}
       max={maxDate}
+      step={60 * 30}
       onChange={handleOnChange}
     />
   );
