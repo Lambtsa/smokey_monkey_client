@@ -82,10 +82,10 @@ export const InnerContainer = styled.div<{
   width: 100%;
 
   @media ${MEDIA.TABLET} {
-    img {
+    /* img {
       min-height: 50svh;
       height: 50%;
-    }
+    } */
     order: ${(props) => props.order};
   }
 `;
