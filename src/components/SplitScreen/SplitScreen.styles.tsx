@@ -58,7 +58,7 @@ export const SplitScreenWrapper = styled.div<{
   align-content: center;
   width: 100%;
   height: 100%;
-  min-height: inherit;
+  min-height: 100%;
   overflow: hidden;
 
   @media ${MEDIA.TABLET} {
@@ -77,7 +77,7 @@ export const InnerContainer = styled.div<{
   justify-content: center;
   align-items: center;
   min-width: 100%;
-  min-height: inherit;
+  min-height: 100%;
   height: 100%;
   width: 100%;
 
