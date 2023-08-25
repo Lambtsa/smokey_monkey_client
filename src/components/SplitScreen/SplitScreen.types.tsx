@@ -2,13 +2,13 @@ import { ReactNode } from "react";
 
 export interface SplitScreenProps {
   id?: string;
-  showImage?: boolean;
-  leftBlock: ReactNode;
-  showImg?: boolean;
-  rightBlock: ReactNode;
+  imgBlock: ReactNode;
+  contentBlock: ReactNode;
   background?: BackgroundType;
+  /* Show image on mobile */
+  showImage?: boolean;
   order?: MobileOrder;
-  noImg?: boolean;
+  isForm?: boolean;
 }
 
 export type BackgroundType = "black" | "green" | "blue" | "red";

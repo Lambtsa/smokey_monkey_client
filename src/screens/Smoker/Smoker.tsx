@@ -48,8 +48,8 @@ export const SmokerScreen = (): JSX.Element => {
 
       {/* l'histoire */}
       <SplitScreen
-        order="reversed"
-        leftBlock={
+        showImage={false}
+        contentBlock={
           <Container
             alignment="left"
             title="smoker.intro.title"
@@ -60,7 +60,7 @@ export const SmokerScreen = (): JSX.Element => {
             </Content>
           </Container>
         }
-        rightBlock={
+        imgBlock={
           <Image
             alt=""
             sizes="(max-width: 768px) 100vw, 50vw"

@@ -8,10 +8,12 @@ export const FormContainer = styled.form`
   align-items: center;
   justify-content: center;
   padding: 48px 16px;
+  height: 100%;
   max-width: ${CONTAINER.MOBILE}px;
 
   @media ${MEDIA.TABLET} {
     padding: 48px 16px;
+    justify-content: flex-start;
   }
 `;
 

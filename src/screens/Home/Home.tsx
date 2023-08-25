@@ -35,7 +35,7 @@ export const HomeScreen = (): JSX.Element => {
       {/* Le Smoker */}
       <SplitScreen
         showImage={false}
-        leftBlock={
+        contentBlock={
           <Container
             alignment="left"
             title="home.intro.title"
@@ -47,7 +47,7 @@ export const HomeScreen = (): JSX.Element => {
             <LinkBtn href={routes.smoker()} text="generic.findOutMore" />
           </Container>
         }
-        rightBlock={
+        imgBlock={
           <Image
             priority={false}
             alt=""
@@ -59,15 +59,16 @@ export const HomeScreen = (): JSX.Element => {
 
       {/* Le Bar */}
       <SplitScreen
+        order="reversed"
         background="red"
-        leftBlock={
+        imgBlock={
           <Image
             alt=""
             sizes="(max-width: 768px) 100vw, 50vw"
             src={Cocktails}
           />
         }
-        rightBlock={
+        contentBlock={
           <Container
             alignment="left"
             title="home.bar.title"
@@ -81,9 +82,8 @@ export const HomeScreen = (): JSX.Element => {
 
       {/* Les Matches */}
       <SplitScreen
-        order="reversed"
         background="black"
-        leftBlock={
+        contentBlock={
           <Container
             alignment="left"
             title="home.sport.title"
@@ -94,15 +94,16 @@ export const HomeScreen = (): JSX.Element => {
             </Content>
           </Container>
         }
-        rightBlock={
+        imgBlock={
           <Image alt="" sizes="(max-width: 768px) 100vw, 50vw" src={Sports} />
         }
       />
 
       {/* Les events */}
       <SplitScreen
+        order="reversed"
         background="blue"
-        rightBlock={
+        contentBlock={
           <Container
             alignment="left"
             title="home.events.title"
@@ -113,16 +114,15 @@ export const HomeScreen = (): JSX.Element => {
             </Content>
           </Container>
         }
-        leftBlock={
+        imgBlock={
           <Image alt="" sizes="(max-width: 768px) 100vw, 50vw" src={Elvis} />
         }
       />
 
       {/* Localisation */}
       <SplitScreen
-        order="reversed"
-        rightBlock={<Map />}
-        leftBlock={
+        imgBlock={<Map />}
+        contentBlock={
           <Container
             alignment="left"
             title="home.location.title"

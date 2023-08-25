@@ -163,9 +163,10 @@ export const ReservationSection = (): JSX.Element => {
 
   return (
     <SplitScreen
-      noImg
+      order="reversed"
+      isForm
       id="reservation"
-      leftBlock={
+      imgBlock={
         <Container
           alignment="left"
           title="reservation.intro.title"
@@ -176,7 +177,7 @@ export const ReservationSection = (): JSX.Element => {
           </Content>
         </Container>
       }
-      rightBlock={
+      contentBlock={
         <Form
           title="reservation.form.title"
           subtitle="reservation.form.subtitle"

@@ -1,4 +1,5 @@
 import {
+  ImgContainer,
   InnerContainer,
   SplitScreenContainer,
   SplitScreenWrapper,
@@ -7,22 +8,28 @@ import { SplitScreenProps } from "./SplitScreen.types";
 
 export const SplitScreen = ({
   id,
-  leftBlock,
-  rightBlock,
+  imgBlock,
+  contentBlock,
+  isForm = false,
   showImage = true,
   order = "regular",
   background = "green",
-  noImg = false,
 }: SplitScreenProps): JSX.Element => {
   return (
     <SplitScreenContainer background={background} id={id}>
-      <SplitScreenWrapper noImg={noImg} showImage={showImage}>
-        <InnerContainer order={order === "regular" ? 1 : 2}>
-          {leftBlock}
-        </InnerContainer>
-        <InnerContainer order={order === "regular" ? 2 : 1}>
-          {rightBlock}
-        </InnerContainer>
+      <SplitScreenWrapper isForm={isForm} showImage={showImage}>
+        {order === "reversed" && (
+          <>
+            <ImgContainer>{imgBlock}</ImgContainer>
+            <InnerContainer>{contentBlock}</InnerContainer>
+          </>
+        )}
+        {order === "regular" && (
+          <>
+            <InnerContainer>{contentBlock}</InnerContainer>
+            <ImgContainer>{imgBlock}</ImgContainer>
+          </>
+        )}
       </SplitScreenWrapper>
     </SplitScreenContainer>
   );

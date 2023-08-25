@@ -34,7 +34,7 @@ export const BarScreen = (): JSX.Element => {
 
       {/* Intro */}
       <SplitScreen
-        leftBlock={
+        contentBlock={
           <Container
             alignment="left"
             title="bar.intro.title"
@@ -43,7 +43,7 @@ export const BarScreen = (): JSX.Element => {
             <Content alignment="left">{t({ id: "bar.intro.content" })}</Content>
           </Container>
         }
-        rightBlock={
+        imgBlock={
           <Image
             alt=""
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -55,10 +55,10 @@ export const BarScreen = (): JSX.Element => {
       {/* Matches */}
       <SplitScreen
         background="black"
-        leftBlock={
+        imgBlock={
           <Image alt="" sizes="(max-width: 768px) 100vw, 50vw" src={Sports} />
         }
-        rightBlock={
+        contentBlock={
           <Container
             alignment="left"
             title="bar.matches.title"
@@ -75,7 +75,7 @@ export const BarScreen = (): JSX.Element => {
       {/* Le soirées spéciales */}
       <SplitScreen
         background="red"
-        leftBlock={
+        contentBlock={
           <Container
             alignment="left"
             title="bar.specials.title"
@@ -87,7 +87,7 @@ export const BarScreen = (): JSX.Element => {
             <LinkBtn href="" text="generic.reserve" />
           </Container>
         }
-        rightBlock={
+        imgBlock={
           <Image alt="" sizes="(max-width: 768px) 100vw, 50vw" src={Elvis} />
         }
       />

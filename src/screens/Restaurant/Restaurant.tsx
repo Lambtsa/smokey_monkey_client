@@ -51,8 +51,7 @@ export const RestaurantScreen = (): JSX.Element => {
 
       {/* Fingerfoods */}
       <SplitScreen
-        order="reversed"
-        leftBlock={
+        contentBlock={
           <Container
             alignment="left"
             title="restaurant.starter.title"
@@ -63,7 +62,7 @@ export const RestaurantScreen = (): JSX.Element => {
             </Content>
           </Container>
         }
-        rightBlock={
+        imgBlock={
           <Image
             alt=""
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -74,11 +73,12 @@ export const RestaurantScreen = (): JSX.Element => {
 
       {/* Smoker */}
       <SplitScreen
+        order="reversed"
         background="black"
-        leftBlock={
+        imgBlock={
           <Image alt="" sizes="(max-width: 768px) 100vw, 50vw" src={Smoker} />
         }
-        rightBlock={
+        contentBlock={
           <Container
             alignment="left"
             title="restaurant.smoker.title"
@@ -94,9 +94,8 @@ export const RestaurantScreen = (): JSX.Element => {
 
       {/* Deserts */}
       <SplitScreen
-        order="reversed"
         background="red"
-        leftBlock={
+        contentBlock={
           <Container
             alignment="left"
             title="restaurant.deserts.title"
@@ -107,16 +106,16 @@ export const RestaurantScreen = (): JSX.Element => {
             </Content>
           </Container>
         }
-        rightBlock={
+        imgBlock={
           <Image alt="" sizes="(max-width: 768px) 100vw, 50vw" src={Dessert} />
         }
       />
 
       {/* Le restaurant */}
       <SplitScreen
-        order="regular"
+        order="reversed"
         background="black"
-        rightBlock={
+        contentBlock={
           <Container
             alignment="left"
             title="restaurant.venue.title"
@@ -127,7 +126,7 @@ export const RestaurantScreen = (): JSX.Element => {
             </Content>
           </Container>
         }
-        leftBlock={
+        imgBlock={
           <Image alt="" sizes="(max-width: 768px) 100vw, 50vw" src={Bar} />
         }
       />
