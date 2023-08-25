@@ -18,7 +18,7 @@ export const StyledInput = styled.input`
   }
   color-scheme: dark;
 
-  &[type="date"] {
+  &[type="datetime-local"] {
     border: none;
     box-sizing: border-box;
     outline: 0;
