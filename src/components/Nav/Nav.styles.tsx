@@ -4,10 +4,10 @@ import { NavPosition } from "./Nav.types";
 import { MEDIA } from "@constants/layout";
 
 export const NavContainer = styled.div<{
-  isScrolled: boolean;
-  position: NavPosition;
+  $isScrolled: boolean;
+  $position: NavPosition;
 }>`
-  position: ${(props) => props.position};
+  position: ${(props) => props.$position};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,10 +17,10 @@ export const NavContainer = styled.div<{
   width: 100%;
   z-index: 1000;
   ${(props) => {
-    switch (props.position) {
+    switch (props.$position) {
       case "fixed": {
         return css`
-          background-color: ${props.isScrolled
+          background-color: ${props.$isScrolled
             ? props.theme.colors.eerieBlack80
             : "transparent"};
         `;
@@ -35,7 +35,7 @@ export const NavContainer = styled.div<{
       }
       default: {
         return css`
-          background-color: ${props.isScrolled
+          background-color: ${props.$isScrolled
             ? props.theme.colors.eerieBlack80
             : "transparent"};
         `;
@@ -45,7 +45,7 @@ export const NavContainer = styled.div<{
 `;
 
 export const NavList = styled.ul<{
-  isOpen: boolean;
+  $isOpen: boolean;
 }>`
   display: flex;
   justify-content: center;
@@ -54,7 +54,7 @@ export const NavList = styled.ul<{
 
   @media ${MEDIA.TABLET} {
     position: fixed;
-    display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+    display: ${({ $isOpen }) => ($isOpen ? "flex" : "none")};
     left: 0;
     top: 0;
     flex-direction: column;
@@ -85,9 +85,7 @@ export const NavLanguages = styled.div`
   align-items: center;
 `;
 
-export const NavLink = styled.a<{
-  isScrolled: boolean;
-}>`
+export const NavLink = styled.a`
   color: ${(props) => props.theme.colors.white};
   font-weight: ${(props) => props.theme.fontWeights.regular};
   text-align: center;
@@ -211,7 +209,7 @@ export const BurgerMenuBtn = styled.button`
 `;
 
 export const CloseBtn = styled.button<{
-  isOpen: boolean;
+  $isOpen: boolean;
 }>`
   display: none;
   position: fixed;
@@ -226,6 +224,6 @@ export const CloseBtn = styled.button<{
   }
 
   @media ${MEDIA.TABLET} {
-    display: ${({ isOpen }) => (isOpen ? "block" : "none")};
+    display: ${({ $isOpen }) => ($isOpen ? "block" : "none")};
   }
 `;

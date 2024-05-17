@@ -43,7 +43,7 @@ export const ContactScreen = (): JSX.Element => {
           <InnerContainer>
             <Wrapper>
               <Phone />
-              <TitleContainer alignment="center">
+              <TitleContainer $alignment="center">
                 <Title>{t({ id: "contact.phone.title" })}</Title>
                 <ContactLink href={details.mobile}>
                   {t({ id: "contact.phone.subtitle" })}
@@ -52,7 +52,7 @@ export const ContactScreen = (): JSX.Element => {
             </Wrapper>
             <Wrapper>
               <Mail />
-              <TitleContainer alignment="center">
+              <TitleContainer $alignment="center">
                 <Title>{t({ id: "contact.email.title" })}</Title>
                 <ContactLink href={`mailto:${details.email}`}>
                   {t({ id: "contact.email.subtitle" })}
@@ -61,7 +61,7 @@ export const ContactScreen = (): JSX.Element => {
             </Wrapper>
             <Wrapper>
               <Times />
-              <TitleContainer alignment="center">
+              <TitleContainer $alignment="center">
                 <Title>{t({ id: "contact.times.title" })}</Title>
                 <Content>{t({ id: "contact.times.subtitle" })}</Content>
               </TitleContainer>

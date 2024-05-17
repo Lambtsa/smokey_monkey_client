@@ -25,7 +25,7 @@ interface LanguageProviderProps {
 }
 
 const LanguageContext = createContext<LanguageContextShape | undefined>(
-  undefined
+  undefined,
 );
 
 const LanguageProvider = ({ children }: LanguageProviderProps) => {

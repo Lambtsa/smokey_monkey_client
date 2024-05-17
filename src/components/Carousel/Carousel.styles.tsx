@@ -23,17 +23,17 @@ export const ContainerFilter = styled.div`
 `;
 
 export const ImgContainer = styled.div<{
-  imgPosition: number;
+  $imgPosition: number;
 }>`
   width: 100%;
   height: 100%;
   position: absolute;
   transition: all 0.5s;
-  transform: ${(props) => `translateX(${props.imgPosition * 100}%)`};
+  transform: ${(props) => `translateX(${props.$imgPosition * 100}%)`};
 `;
 
 export const ImgBtn = styled.button<{
-  btnType: "previous" | "next";
+  $btnType: "previous" | "next";
 }>`
   position: absolute;
   display: flex;
@@ -77,7 +77,7 @@ export const ImgBtn = styled.button<{
   }
 
   ${(props) => {
-    switch (props.btnType) {
+    switch (props.$btnType) {
       case "next": {
         return css`
           right: 32px;
@@ -114,7 +114,7 @@ export const DotBtnContainer = styled.div`
 `;
 
 export const DotBtn = styled.button<{
-  active: boolean;
+  $active: boolean;
 }>`
   width: 5px;
   height: 5px;
@@ -123,8 +123,8 @@ export const DotBtn = styled.button<{
   cursor: pointer;
   border: 1.5px solid
     ${(props) =>
-      props.active ? props.theme.colors.white80 : props.theme.colors.white50};
+      props.$active ? props.theme.colors.white80 : props.theme.colors.white50};
   background-color: ${(props) =>
-    props.active ? props.theme.colors.white80 : props.theme.colors.white30};
+    props.$active ? props.theme.colors.white80 : props.theme.colors.white30};
   z-index: 20;
 `;

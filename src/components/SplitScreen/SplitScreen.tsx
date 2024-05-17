@@ -16,8 +16,8 @@ export const SplitScreen = ({
   background = "green",
 }: SplitScreenProps): JSX.Element => {
   return (
-    <SplitScreenContainer background={background} id={id}>
-      <SplitScreenWrapper isForm={isForm} showImage={showImage}>
+    <SplitScreenContainer $background={background} id={id}>
+      <SplitScreenWrapper $isForm={isForm} $showImage={showImage}>
         {order === "reversed" && (
           <>
             <ImgContainer>{imgBlock}</ImgContainer>

@@ -43,7 +43,7 @@ export const RestaurantScreen = (): JSX.Element => {
           title="restaurant.intro.title"
           subtitle="restaurant.intro.subtitle"
         >
-          <Content alignment="center">
+          <Content $alignment="center">
             {t({ id: "restaurant.intro.content" })}
           </Content>
         </Container>
@@ -57,7 +57,7 @@ export const RestaurantScreen = (): JSX.Element => {
             title="restaurant.starter.title"
             subtitle="restaurant.starter.subtitle"
           >
-            <Content alignment="left">
+            <Content $alignment="left">
               {t({ id: "restaurant.starter.content" })}
             </Content>
           </Container>
@@ -84,7 +84,7 @@ export const RestaurantScreen = (): JSX.Element => {
             title="restaurant.smoker.title"
             subtitle="restaurant.smoker.subtitle"
           >
-            <Content alignment="left">
+            <Content $alignment="left">
               {t({ id: "restaurant.smoker.content" })}
             </Content>
             <LinkBtn href="" text="restaurant.smoker.btn.text" />
@@ -101,7 +101,7 @@ export const RestaurantScreen = (): JSX.Element => {
             title="restaurant.deserts.title"
             subtitle="restaurant.deserts.subtitle"
           >
-            <Content alignment="left">
+            <Content $alignment="left">
               {t({ id: "restaurant.deserts.content" })}
             </Content>
           </Container>
@@ -121,7 +121,7 @@ export const RestaurantScreen = (): JSX.Element => {
             title="restaurant.venue.title"
             subtitle="restaurant.venue.subtitle"
           >
-            <Content alignment="left">
+            <Content $alignment="left">
               {t({ id: "restaurant.venue.content" })}
             </Content>
           </Container>

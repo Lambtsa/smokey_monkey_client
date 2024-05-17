@@ -32,13 +32,13 @@ export const ReservationSection = (): JSX.Element => {
       .string({
         required_error: t(
           { id: "reservation.form.field.error.required" },
-          { field: "Name" }
+          { field: "Name" },
         ),
       })
       .min(1, {
         message: t(
           { id: "reservation.form.field.error.min" },
-          { field: "Name" }
+          { field: "Name" },
         ),
       })
       .trim(),
@@ -46,26 +46,26 @@ export const ReservationSection = (): JSX.Element => {
       .string({
         required_error: t(
           { id: "reservation.form.field.error.required" },
-          { field: "Email" }
+          { field: "Email" },
         ),
       })
       .email({
         message: t(
           { id: "reservation.form.field.error.email" },
-          { field: "Email" }
+          { field: "Email" },
         ),
       })
       .min(1, {
         message: t(
           { id: "reservation.form.field.error.min" },
-          { field: "Email" }
+          { field: "Email" },
         ),
       })
       .trim(),
     count: z.string({
       required_error: t(
         { id: "reservation.form.field.error.required" },
-        { field: "Email" }
+        { field: "Email" },
       ),
     }),
     date: z.string(),
@@ -155,10 +155,10 @@ export const ReservationSection = (): JSX.Element => {
             message: "reservation.form.submit.error.message",
           });
           setIsLoading(false);
-        }
+        },
       )();
     },
-    [addToast, defaultValues, handleSubmit, isLoading, reset]
+    [addToast, defaultValues, handleSubmit, isLoading, reset],
   );
 
   return (
@@ -172,7 +172,7 @@ export const ReservationSection = (): JSX.Element => {
           title="reservation.intro.title"
           subtitle="reservation.intro.subtitle"
         >
-          <Content alignment="left">
+          <Content $alignment="left">
             {t({ id: "reservation.intro.content" })}
           </Content>
         </Container>

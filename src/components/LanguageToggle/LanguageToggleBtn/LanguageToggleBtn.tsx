@@ -52,7 +52,7 @@ export const LanguageToggleBtn = ({
       }
       setLocale(id);
     },
-    [currentLocale, locale, setIsOpen, setLocale]
+    [currentLocale, locale, setIsOpen, setLocale],
   );
 
   return (

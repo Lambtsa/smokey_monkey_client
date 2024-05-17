@@ -14,7 +14,7 @@ export const Container = styled.div`
 `;
 
 export const SplitScreenContainer = styled.section<{
-  background: BackgroundType;
+  $background: BackgroundType;
 }>`
   display: flex;
   flex-wrap: wrap;
@@ -22,7 +22,7 @@ export const SplitScreenContainer = styled.section<{
   justify-content: center;
   align-items: center;
   background-color: ${(props) => {
-    switch (props.background) {
+    switch (props.$background) {
       case "black": {
         return props.theme.colors.eerieBlack;
       }
@@ -47,8 +47,8 @@ export const SplitScreenContainer = styled.section<{
 `;
 
 export const SplitScreenWrapper = styled.div<{
-  showImage: boolean;
-  isForm: boolean;
+  $showImage: boolean;
+  $isForm: boolean;
 }>`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -63,7 +63,7 @@ export const SplitScreenWrapper = styled.div<{
   @media ${MEDIA.TABLET} {
     grid-template-columns: 1fr;
     grid-template-rows: ${(props) =>
-      props.isForm ? "1fr" : props.showImage ? "1fr 2fr" : "1fr"};
+      props.$isForm ? "1fr" : props.$showImage ? "1fr 2fr" : "1fr"};
   }
 `;
 

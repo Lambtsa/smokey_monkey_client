@@ -39,7 +39,7 @@ export const Toast = ({
   }, [type]);
 
   return (
-    <ToastContainer type={type}>
+    <ToastContainer $type={type}>
       <ToastCloseBtn onClick={onClose}>
         <Close />
       </ToastCloseBtn>

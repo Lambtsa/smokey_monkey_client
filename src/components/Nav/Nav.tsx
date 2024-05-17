@@ -81,7 +81,7 @@ export const Nav = ({ position = "fixed" }: NavProps): JSX.Element => {
         subLinks: [],
       },
     ],
-    []
+    [],
   );
 
   /* ######################################## */
@@ -99,30 +99,22 @@ export const Nav = ({ position = "fixed" }: NavProps): JSX.Element => {
   const hasLinks = !!links.length;
 
   return (
-    <NavContainer position={position} isScrolled={isScrolled}>
+    <NavContainer $position={position} $isScrolled={isScrolled}>
       <HomeButton href={routes.index()}>{/* <Logo /> */}</HomeButton>
-      <NavList isOpen={isOpen}>
+      <NavList $isOpen={isOpen}>
         {hasLinks &&
           links.map((link) => {
             return (
               <NavElement key={link.id}>
                 {isMobile && (
                   <>
-                    <NavLink
-                      href={link.url}
-                      onClick={handleLinkClick}
-                      isScrolled={isScrolled}
-                    >
+                    <NavLink href={link.url} onClick={handleLinkClick}>
                       {t({ id: link.label })}
                     </NavLink>
                     {!!link.subLinks.length && (
                       <MobileNavContainer>
                         {link.subLinks.map((subLink) => (
-                          <NavLink
-                            isScrolled={isScrolled}
-                            key={subLink.id}
-                            href={subLink.url}
-                          >
+                          <NavLink key={subLink.id} href={subLink.url}>
                             {t({ id: subLink.label })}
                           </NavLink>
                         ))}
@@ -132,9 +124,7 @@ export const Nav = ({ position = "fixed" }: NavProps): JSX.Element => {
                 )}
                 {!isMobile && (
                   <DropdownContainer>
-                    <NavLink href={link.url} isScrolled={isScrolled}>
-                      {t({ id: link.label })}
-                    </NavLink>
+                    <NavLink href={link.url}>{t({ id: link.label })}</NavLink>
                     {!!link.subLinks.length && (
                       <DropdownContent>
                         {link.subLinks.map((subLink) => (
@@ -156,7 +146,7 @@ export const Nav = ({ position = "fixed" }: NavProps): JSX.Element => {
       <BurgerMenuBtn>
         <BurgerMenu onClick={handleOnClick} />
       </BurgerMenuBtn>
-      <CloseBtn onClick={handleOnClick} isOpen={isOpen}>
+      <CloseBtn onClick={handleOnClick} $isOpen={isOpen}>
         <CloseMenu />
       </CloseBtn>
     </NavContainer>

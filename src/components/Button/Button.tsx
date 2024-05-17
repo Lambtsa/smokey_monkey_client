@@ -8,7 +8,7 @@ export const Button = ({
   ...rest
 }: ButtonProps): JSX.Element => {
   return (
-    <ButtonStyled {...rest} btnType={btnType}>
+    <ButtonStyled {...rest} $btnType={btnType}>
       {children}
     </ButtonStyled>
   );

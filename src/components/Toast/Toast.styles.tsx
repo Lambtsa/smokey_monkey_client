@@ -12,7 +12,7 @@ const ToastInRight = keyframes`
 `;
 
 export const ToastContainer = styled.div<{
-  type: ToastType;
+  $type: ToastType;
 }>`
   position: relative;
   display: grid;
@@ -22,7 +22,7 @@ export const ToastContainer = styled.div<{
   min-height: 100px;
   width: 100%;
   background-color: ${(props) => {
-    switch (props.type) {
+    switch (props.$type) {
       case "danger": {
         return props.theme.colors.englishVermillion;
       }

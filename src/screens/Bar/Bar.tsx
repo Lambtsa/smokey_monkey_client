@@ -40,7 +40,9 @@ export const BarScreen = (): JSX.Element => {
             title="bar.intro.title"
             subtitle="bar.intro.subtitle"
           >
-            <Content alignment="left">{t({ id: "bar.intro.content" })}</Content>
+            <Content $alignment="left">
+              {t({ id: "bar.intro.content" })}
+            </Content>
           </Container>
         }
         imgBlock={
@@ -64,7 +66,7 @@ export const BarScreen = (): JSX.Element => {
             title="bar.matches.title"
             subtitle="bar.matches.subtitle"
           >
-            <Content alignment="left">
+            <Content $alignment="left">
               {t({ id: "bar.matches.content" })}
             </Content>
             <LinkBtn href="" text="generic.reserve" />
@@ -81,7 +83,7 @@ export const BarScreen = (): JSX.Element => {
             title="bar.specials.title"
             subtitle="bar.specials.subtitle"
           >
-            <Content alignment="left">
+            <Content $alignment="left">
               {t({ id: "bar.specials.content" })}
             </Content>
             <LinkBtn href="" text="generic.reserve" />

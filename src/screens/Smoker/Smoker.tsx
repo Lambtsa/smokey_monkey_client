@@ -55,7 +55,7 @@ export const SmokerScreen = (): JSX.Element => {
             title="smoker.intro.title"
             subtitle="smoker.intro.subtitle"
           >
-            <Content alignment="left">
+            <Content $alignment="left">
               {t({ id: "smoker.intro.content" })}
             </Content>
           </Container>

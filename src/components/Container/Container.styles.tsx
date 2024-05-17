@@ -3,8 +3,8 @@ import styled, { css } from "styled-components";
 import { Alignment } from "./Container.types";
 
 export const StyledContainer = styled.div<{
-  alignment: Alignment;
-  maxWidth: CONTAINER;
+  $alignment: Alignment;
+  $maxWidth: CONTAINER;
 }>`
   display: flex;
   width: 100%;
@@ -12,10 +12,10 @@ export const StyledContainer = styled.div<{
   gap: 32px;
   padding: 48px 32px;
   flex-direction: column;
-  max-width: ${(props) => `${props.maxWidth}px;`};
+  max-width: ${(props) => `${props.$maxWidth}px;`};
 
   ${(props) => {
-    switch (props.alignment) {
+    switch (props.$alignment) {
       case "left": {
         return css`
           justify-content: center;
@@ -43,7 +43,7 @@ export const StyledContainer = styled.div<{
 `;
 
 export const TitleContainer = styled.div<{
-  alignment: Alignment;
+  $alignment: Alignment;
 }>`
   display: flex;
   flex-direction: column;
@@ -51,7 +51,7 @@ export const TitleContainer = styled.div<{
   width: 100%;
 
   ${(props) => {
-    switch (props.alignment) {
+    switch (props.$alignment) {
       case "left": {
         return css`
           justify-content: center;
@@ -75,7 +75,7 @@ export const TitleContainer = styled.div<{
 `;
 
 export const Title = styled.h2<{
-  alignment: Alignment;
+  $alignment: Alignment;
 }>`
   color: ${(props) => props.theme.colors.white50};
   font-weight: ${(props) => props.theme.fontWeights.bold};
@@ -85,7 +85,7 @@ export const Title = styled.h2<{
   font-family: ${(props) => props.theme.fonts.notoSans};
 
   text-align: ${(props) => {
-    switch (props.alignment) {
+    switch (props.$alignment) {
       case "left": {
         return "left";
       }
@@ -100,7 +100,7 @@ export const Title = styled.h2<{
 `;
 
 export const Subtitle = styled.p<{
-  alignment: Alignment;
+  $alignment: Alignment;
 }>`
   color: ${(props) => props.theme.colors.white};
   font-weight: ${(props) => props.theme.fontWeights.bold};
@@ -108,7 +108,7 @@ export const Subtitle = styled.p<{
   line-height: 40px;
 
   text-align: ${(props) => {
-    switch (props.alignment) {
+    switch (props.$alignment) {
       case "left": {
         return "left";
       }
@@ -123,7 +123,7 @@ export const Subtitle = styled.p<{
 `;
 
 export const Content = styled.p<{
-  alignment: Alignment;
+  $alignment: Alignment;
 }>`
   color: ${(props) => props.theme.colors.white};
   font-weight: ${(props) => props.theme.fontWeights.regular};
@@ -135,7 +135,7 @@ export const Content = styled.p<{
   font-family: ${(props) => props.theme.fonts.montserrat};
 
   text-align: ${(props) => {
-    switch (props.alignment) {
+    switch (props.$alignment) {
       case "left": {
         return "left";
       }

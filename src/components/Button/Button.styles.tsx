@@ -2,10 +2,10 @@ import styled, { css } from "styled-components";
 import { ButtonType } from "./Button.types";
 
 export const ButtonStyled = styled.button<{
-  btnType: ButtonType;
+  $btnType: ButtonType;
 }>`
   ${(props) => {
-    switch (props.btnType) {
+    switch (props.$btnType) {
       case "primary": {
         return css`
           background-color: ${(props) => props.theme.colors.white};

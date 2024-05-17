@@ -3,7 +3,7 @@ import { ControlledInputProps, Input } from "../Input";
 
 export const InputNumber = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends Path<TFieldValues> = Path<TFieldValues>
+  TName extends Path<TFieldValues> = Path<TFieldValues>,
 >({
   control,
   name,

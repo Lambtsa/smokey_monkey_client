@@ -6,7 +6,7 @@ import { formatTime } from "@helpers/date";
 
 export const InputDate = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends Path<TFieldValues> = Path<TFieldValues>
+  TName extends Path<TFieldValues> = Path<TFieldValues>,
 >({
   control,
   name,
@@ -32,7 +32,7 @@ export const InputDate = <
     (e: FormEvent<HTMLInputElement>) => {
       setValue(name, e.currentTarget.value as PathValue<TFieldValues, TName>);
     },
-    [name, setValue]
+    [name, setValue],
   );
 
   return (

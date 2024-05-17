@@ -24,7 +24,7 @@ export const LinkBtn = ({
             rel: "noopener noreferrer",
           }
         : undefined,
-    [openInTab]
+    [openInTab],
   );
 
   return (

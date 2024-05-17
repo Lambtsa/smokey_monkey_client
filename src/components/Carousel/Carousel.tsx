@@ -52,7 +52,7 @@ export const Carousel = ({ images, type }: CarouselProps): JSX.Element => {
     (index: number) => {
       return index - current;
     },
-    [current]
+    [current],
   );
 
   const hasMultipleImages = useMemo(() => {
@@ -72,7 +72,7 @@ export const Carousel = ({ images, type }: CarouselProps): JSX.Element => {
       {hasImages &&
         images.map((image, index) => (
           <ImgContainer
-            imgPosition={calculateCurrentPosition(index)}
+            $imgPosition={calculateCurrentPosition(index)}
             key={image.id}
           >
             <Image alt={image.alt} sizes="100vw" src={image.data} />
@@ -82,14 +82,14 @@ export const Carousel = ({ images, type }: CarouselProps): JSX.Element => {
         <>
           <ImgBtn
             disabled={current === maxImageIndex}
-            btnType="next"
+            $btnType="next"
             onClick={handleNext}
           >
             <Caret />
           </ImgBtn>
           <ImgBtn
             disabled={current === 0}
-            btnType="previous"
+            $btnType="previous"
             onClick={handlePrevious}
           >
             <Caret />
@@ -100,7 +100,7 @@ export const Carousel = ({ images, type }: CarouselProps): JSX.Element => {
         <DotBtnContainer>
           {images.map((image, index) => (
             <DotBtn
-              active={current === index}
+              $active={current === index}
               key={image.id}
               onClick={() => setCurrent(index)}
             />

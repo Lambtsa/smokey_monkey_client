@@ -34,7 +34,7 @@ const ToastProvider = ({ children }: ToastContextProviderProps) => {
     if (toasts.length > 0) {
       const timer = setTimeout(
         () => setToasts((toasts) => toasts.slice(1)),
-        4000
+        4000,
       );
       return () => clearTimeout(timer);
     }

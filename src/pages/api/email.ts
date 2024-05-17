@@ -8,7 +8,7 @@ dotenv.config();
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   const { name, email, date, count } = req.body;
 
@@ -29,8 +29,8 @@ export default async function handler(
 
   const message = `
     ${name} (${email}) est intéressé(e) pour réserver une table le ${formattedDate} pour ${count} ${
-    count > 1 ? "personnes" : "personne"
-  }.
+      count > 1 ? "personnes" : "personne"
+    }.
   `;
 
   const mailData = {

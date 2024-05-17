@@ -60,7 +60,7 @@ export const Footer = (): JSX.Element => {
         url: routes.terms(),
       },
     ],
-    []
+    [],
   );
 
   return (

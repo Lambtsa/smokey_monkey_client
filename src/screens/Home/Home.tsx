@@ -41,7 +41,7 @@ export const HomeScreen = (): JSX.Element => {
             title="home.intro.title"
             subtitle="home.intro.subtitle"
           >
-            <Content alignment="left">
+            <Content $alignment="left">
               {t({ id: "home.intro.content" })}
             </Content>
             <LinkBtn href={routes.smoker()} text="generic.findOutMore" />
@@ -74,7 +74,7 @@ export const HomeScreen = (): JSX.Element => {
             title="home.bar.title"
             subtitle="home.bar.subtitle"
           >
-            <Content alignment="left">{t({ id: "home.bar.content" })}</Content>
+            <Content $alignment="left">{t({ id: "home.bar.content" })}</Content>
             {/* <LinkBtn href={routes.bar()} text="generic.findOutMore" /> */}
           </Container>
         }
@@ -89,7 +89,7 @@ export const HomeScreen = (): JSX.Element => {
             title="home.sport.title"
             subtitle="home.sport.subtitle"
           >
-            <Content alignment="left">
+            <Content $alignment="left">
               {t({ id: "home.sport.content" })}
             </Content>
           </Container>
@@ -109,7 +109,7 @@ export const HomeScreen = (): JSX.Element => {
             title="home.events.title"
             subtitle="home.events.subtitle"
           >
-            <Content alignment="left">
+            <Content $alignment="left">
               {t({ id: "home.events.content" })}
             </Content>
           </Container>
@@ -128,7 +128,7 @@ export const HomeScreen = (): JSX.Element => {
             title="home.location.title"
             subtitle="home.location.subtitle"
           >
-            <Content alignment="left">
+            <Content $alignment="left">
               {t({ id: "home.location.content" })}
             </Content>
             <LinkBtn

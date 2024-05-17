@@ -17,10 +17,10 @@ export const Container = ({
 }: ContainerProps): JSX.Element => {
   const { t } = useTranslation();
   return (
-    <StyledContainer maxWidth={maxWidth} alignment={alignment}>
-      <TitleContainer alignment={alignment}>
-        <Title alignment={alignment}>{t({ id: title })}</Title>
-        <Subtitle alignment={alignment}>{t({ id: subtitle })}</Subtitle>
+    <StyledContainer $maxWidth={maxWidth} $alignment={alignment}>
+      <TitleContainer $alignment={alignment}>
+        <Title $alignment={alignment}>{t({ id: title })}</Title>
+        <Subtitle $alignment={alignment}>{t({ id: subtitle })}</Subtitle>
       </TitleContainer>
       {children}
     </StyledContainer>
