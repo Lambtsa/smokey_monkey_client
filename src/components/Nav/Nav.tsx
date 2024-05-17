@@ -64,6 +64,13 @@ export const Nav = ({ position = "fixed" }: NavProps): JSX.Element => {
       },
       {
         id: uuid(),
+        label: "nav.menu",
+        url: routes.menu(),
+        subLinks: [],
+        newTab: true,
+      },
+      {
+        id: uuid(),
         label: "nav.reservation",
         url: routes.restaurant.reservation(),
         subLinks: [],
@@ -96,6 +103,11 @@ export const Nav = ({ position = "fixed" }: NavProps): JSX.Element => {
     return true;
   }, []);
 
+  const newTabAttributes = {
+    target: "_blank",
+    rel: "noopener noreferrer",
+  };
+
   const hasLinks = !!links.length;
 
   return (
@@ -108,7 +120,11 @@ export const Nav = ({ position = "fixed" }: NavProps): JSX.Element => {
               <NavElement key={link.id}>
                 {isMobile && (
                   <>
-                    <NavLink href={link.url} onClick={handleLinkClick}>
+                    <NavLink
+                      {...(link.newTab && newTabAttributes)}
+                      href={link.url}
+                      onClick={handleLinkClick}
+                    >
                       {t({ id: link.label })}
                     </NavLink>
                     {!!link.subLinks.length && (
@@ -124,7 +140,12 @@ export const Nav = ({ position = "fixed" }: NavProps): JSX.Element => {
                 )}
                 {!isMobile && (
                   <DropdownContainer>
-                    <NavLink href={link.url}>{t({ id: link.label })}</NavLink>
+                    <NavLink
+                      {...(link.newTab && newTabAttributes)}
+                      href={link.url}
+                    >
+                      {t({ id: link.label })}
+                    </NavLink>
                     {!!link.subLinks.length && (
                       <DropdownContent>
                         {link.subLinks.map((subLink) => (

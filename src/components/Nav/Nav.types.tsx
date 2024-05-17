@@ -11,6 +11,7 @@ export interface NavLinkType {
   id: string;
   label: TranslationKey;
   url: string;
+  newTab?: boolean;
   subLinks: {
     id: string;
     label: TranslationKey;

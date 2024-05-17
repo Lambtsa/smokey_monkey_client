@@ -1,13 +1,14 @@
 {
   "generic.findOutMore": "Learn more",
-  "generic.reserve": "Réserver",
+  "generic.reserve": "Reserve",
   "nav.home": "Home",
   "nav.smoker": "The smoker",
   "nav.bar": "Bar",
   "nav.restaurant": "Restaurant",
   "nav.reservation": "Reservation",
   "nav.contact": "Contact",
-  "nav.media": "Médias",
+  "nav.media": "Media",
+  "nav.menu": "Menu",
 
   "metadata.index.title": "The Smokey Monkey | Accueil",
   "metadata.index.description": "Pub - BBQ House Strasbourg",

@@ -13,4 +13,5 @@ export const routes = {
   },
   contact: () => buildUrl("/contact"),
   terms: () => buildUrl("/terms"),
+  menu: () => buildUrl("/menu.pdf"),
 };
