@@ -30,7 +30,9 @@ export const InputDate = <
   /* ############################## */
   const handleOnChange = useCallback(
     (e: FormEvent<HTMLInputElement>) => {
-      setValue(name, e.currentTarget.value as PathValue<TFieldValues, TName>);
+      const test = formatTime(new Date(e.currentTarget.value));
+      console.log({ test, value: e.currentTarget.value });
+      setValue(name, test.toString() as PathValue<TFieldValues, TName>);
     },
     [name, setValue],
   );

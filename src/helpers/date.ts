@@ -1,26 +1,22 @@
-import utc from "dayjs/plugin/utc";
-import dayjs from "dayjs";
-import timezone from "dayjs/plugin/timezone";
-import LocalizedFormat from "dayjs/plugin/localizedFormat";
-import fr from "dayjs/locale/fr";
-
-dayjs.locale(fr);
-dayjs.extend(utc);
-dayjs.extend(timezone);
-dayjs.extend(LocalizedFormat);
-
-dayjs.tz.setDefault("Europe/Paris");
+import { fr } from "date-fns/locale/fr";
+import { format, roundToNearestMinutes } from "date-fns";
 
 /**
  *
  */
 export const formatTime = (date: Date): string => {
-  return dayjs(date).format("YYYY-MM-DD[T]HH:mm");
+  const newDate = roundToNearestMinutes(date, {
+    nearestTo: 30,
+    roundingMethod: "ceil",
+  });
+  return format(newDate, "yyyy-MM-dd'T'HH:mm");
 };
 
 /**
  *
  */
 export const dateToString = (date: Date): string => {
-  return dayjs(date).format("LLLL");
+  return format(date, "cccc d MMMM yyyy HH:mm", {
+    locale: fr,
+  });
 };
