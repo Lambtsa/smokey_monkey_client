@@ -1,0 +1,54 @@
+name: Temporary verification
+
+# Throwaway: generates the lockfile and records test/lint/build output and
+# screenshots on this branch. Deleted once the migration is checked.
+on:
+  push:
+    branches:
+      - tmp/verify-redesign
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24.14.0
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+        with:
+          version: 11
+      - name: Install (writes the lockfile)
+        run: |
+          mkdir -p ci-out
+          pnpm install --no-frozen-lockfile > ci-out/install.txt 2>&1; echo "exit $?" >> ci-out/install.txt
+      - name: Checks
+        run: |
+          set +e
+          for step in test lint lint:tsc build; do
+            f="ci-out/$(echo $step | tr ':' '_').txt"
+            pnpm $step > "$f" 2>&1; echo "exit $?" >> "$f"
+          done
+          tail -n 1 ci-out/*.txt > ci-out/summary.txt
+      - name: Screenshots
+        run: |
+          set +e
+          mkdir -p /tmp/pw && cd /tmp/pw && npm init -y > /dev/null && npm i playwright@1.55.0 > /dev/null 2>&1
+          cp "$GITHUB_WORKSPACE/.ci-verify/shots.mjs" /tmp/pw/
+          cd "$GITHUB_WORKSPACE"
+          cp -r .next/static .next/standalone/.next/static && cp -r public .next/standalone/public
+          (PORT=8080 node .next/standalone/server.js > ci-out/server.txt 2>&1 &) ; sleep 8
+          mkdir -p ci-out/shots
+          node /tmp/pw/shots.mjs http://localhost:8080 ci-out/shots/new > ci-out/shots-new.txt 2>&1 || true
+      - name: Save results on this branch
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898732+github-actions[bot]@users.noreply.github.com"
+          git add -f pnpm-lock.yaml ci-out
+          git commit -m "chore: verification results [skip ci]" || true
+          git push origin HEAD:tmp/verify-redesign
