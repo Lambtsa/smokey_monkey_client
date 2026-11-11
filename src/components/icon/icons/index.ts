@@ -1,0 +1,10 @@
+export { BurgerIcon } from "./BurgerIcon";
+export { CaretIcon } from "./CaretIcon";
+export { CloseIcon } from "./CloseIcon";
+export { EnFlagIcon } from "./EnFlagIcon";
+export { FacebookIcon } from "./FacebookIcon";
+export { FrFlagIcon } from "./FrFlagIcon";
+export { InstagramIcon } from "./InstagramIcon";
+export { MailIcon } from "./MailIcon";
+export { PhoneIcon } from "./PhoneIcon";
+export { TimesIcon } from "./TimesIcon";
