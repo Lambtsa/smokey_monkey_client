@@ -12,7 +12,7 @@
     --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
     /* Small titles */
     --font-display: "Noto Sans", ui-sans-serif, system-ui, sans-serif;
-    /* Page titles */
+    /* Page titles (public/fonts/royal_signage.otf, declared below) */
     --font-signage: "Royal Signage", serif;
 
     /* --- Custom Color Palette ---
@@ -26,6 +26,12 @@
     --color-eerie-black: #252422;
     --color-ivory: #FFFEEB;
     --color-seashell: #FFF9F4;
+}
+
+@font-face {
+    font-family: "Royal Signage";
+    src: url("/fonts/royal_signage.otf") format("opentype");
+    font-display: swap;
 }
 
 /* Base styles */
