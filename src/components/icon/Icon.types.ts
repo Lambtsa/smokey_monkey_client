@@ -1,24 +1,17 @@
-import { type ReactNode, type SVGProps } from "react";
+import type { ReactNode, SVGProps } from "react";
 
-export interface IconProps extends SVGProps<SVGSVGElement> {
-  height?: number;
-  width?: number;
-  color?: string;
-  opacity?: number;
-  viewBox?: string;
-  xmlns?: string;
-  fill?: string;
+export interface IconProps extends Omit<SVGProps<SVGSVGElement>, "width" | "height"> {
+  /* Width and height in px (default 24) */
+  size?: number;
   children: ReactNode;
 }
 
 export type IconType =
   | "burger"
-  | "caret"
+  | "clock"
   | "close"
-  | "en"
   | "facebook"
-  | "fr"
   | "instagram"
   | "mail"
   | "phone"
-  | "times";
+  | "pin";

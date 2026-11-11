@@ -2,7 +2,6 @@
 
 import { type ReactElement, useCallback } from "react";
 
-import { Icon, type IconType } from "@/components/icon";
 import type { LocaleType } from "@/constants/locales";
 import { useLanguage } from "@/stores/language.store";
 
@@ -11,9 +10,9 @@ interface LanguageToggleBtnProps {
   onSelect: () => void;
 }
 
-const FLAGS: Record<LocaleType, IconType> = {
-  EN: "en",
-  FR: "fr",
+const NAMES: Record<LocaleType, string> = {
+  EN: "English",
+  FR: "Français",
 };
 
 export const LanguageToggleBtn = ({
@@ -31,8 +30,15 @@ export const LanguageToggleBtn = ({
   }, [currentLocale, locale, onSelect, setLocale]);
 
   return (
-    <button type="button" aria-label={locale} aria-pressed={currentLocale === locale} onClick={handleOnClick}>
-      <Icon icon={FLAGS[locale]} className="block" />
+    <button
+      type="button"
+      lang={locale.toLowerCase()}
+      aria-label={NAMES[locale]}
+      aria-pressed={currentLocale === locale}
+      onClick={handleOnClick}
+      className={`min-h-11 px-1 caps ${currentLocale === locale ? "text-brass" : "text-stone hover:text-cream"}`}
+    >
+      {locale}
     </button>
   );
 };

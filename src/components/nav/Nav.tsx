@@ -15,10 +15,6 @@ import type { NavLinkType } from "./Nav.types";
 
 const links: NavLinkType[] = [
   {
-    label: "nav.home",
-    url: routes.index(),
-  },
-  {
     label: "nav.restaurant",
     url: routes.restaurant.index(),
   },
@@ -28,12 +24,12 @@ const links: NavLinkType[] = [
     newTab: true,
   },
   {
-    label: "nav.reservation",
-    url: routes.restaurant.reservation(),
-  },
-  {
     label: "nav.smoker",
     url: routes.smoker(),
+  },
+  {
+    label: "nav.bar",
+    url: routes.bar(),
   },
   {
     label: "nav.contact",
@@ -46,8 +42,10 @@ const newTabProps = {
   rel: "noopener noreferrer",
 };
 
-const navLinkClassName = "font-normal text-center text-base leading-4 text-ivory hover:underline";
-
+/*
+ * Fixed at the top: transparent over the hero photo, dark green once the page
+ * scrolls. On small screens the links open in a full-screen menu.
+ */
 export const Nav = (): ReactElement => {
   const { t } = useTranslation();
   const { y } = useWindowScroll();
@@ -56,10 +54,7 @@ export const Nav = (): ReactElement => {
   /* State */
   /* ######################################## */
   const [isOpen, setIsOpen] = useState(false);
-  const isScrolled = y !== 0;
-  const homeLabel = t({
-    id: "nav.home",
-  });
+  const isScrolled = y > 8;
 
   /* ######################################## */
   /* Actions */
@@ -73,36 +68,56 @@ export const Nav = (): ReactElement => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 flex justify-between items-center w-full p-4 z-1000 ${isScrolled ? "bg-eerie-black/80" : "bg-transparent"}`}>
-      {/* No logo for now: an empty link home keeps the menu on the right */}
-      <Link href={routes.index()} onClick={handleClose} aria-label={homeLabel} />
-      <ul className={`${isOpen ? "flex" : "hidden"} fixed top-0 left-0 flex-col justify-center items-center gap-4 w-screen h-dvh z-10 bg-night md:static md:flex md:flex-row md:w-auto md:h-auto md:bg-transparent`}>
-        {links.map((link) => (
-          <li key={link.url} className="flex flex-col justify-center items-center gap-2">
-            <Link
-              href={link.url}
-              onClick={handleClose}
-              className={navLinkClassName}
-              {...(link.newTab ? newTabProps : {})}
-            >
-              {t({
-                id: link.label,
-              })}
-            </Link>
-          </li>
-        ))}
-        <li className="flex justify-center items-center px-2">
+    <header className={`fixed top-0 left-0 w-full z-1000 transition-colors ${isScrolled ? "bg-forest/95 border-b border-brass/20" : "bg-transparent"}`}>
+      <div className="flex justify-between items-center gap-6 max-w-[1280px] mx-auto px-5 py-4 md:px-10 md:py-6">
+        <Link href={routes.index()} onClick={handleClose} className="font-display text-[21px] md:text-[26px] tracking-[0.02em] text-cream hover:text-brass-light">
+          The Smokey Monkey
+        </Link>
+        <nav
+          aria-label={t({
+            id: "nav.label",
+          })}
+          className={`${isOpen ? "flex" : "hidden"} fixed inset-0 flex-col justify-center items-center gap-8 bg-forest md:static md:flex md:flex-row md:gap-8 md:bg-transparent`}
+        >
+          <ul className="flex flex-col md:flex-row items-center gap-7 md:gap-8">
+            {links.map((link) => (
+              <li key={link.url}>
+                <Link
+                  href={link.url}
+                  onClick={handleClose}
+                  className="caps text-lg md:text-[15px] text-cream hover:text-brass"
+                  {...(link.newTab ? newTabProps : {})}
+                >
+                  {t({
+                    id: link.label,
+                  })}
+                </Link>
+              </li>
+            ))}
+          </ul>
           <LanguageToggle onSelect={handleClose} />
-        </li>
-      </ul>
-      <button type="button" aria-label="Menu" onClick={handleToggle} className="block md:hidden">
-        <Icon icon="burger" />
-      </button>
-      {isOpen && (
-        <button type="button" aria-label="Close" onClick={handleClose} className="fixed top-4 right-4 z-20 md:hidden">
-          <Icon icon="close" />
+          <Link
+            href={routes.restaurant.reservation()}
+            onClick={handleClose}
+            className="inline-flex items-center min-h-11 px-5 border border-brass caps text-sm text-brass hover:bg-brass hover:text-forest"
+          >
+            {t({
+              id: "generic.reserve",
+            })}
+          </Link>
+        </nav>
+        <button
+          type="button"
+          aria-label={t({
+            id: isOpen ? "nav.close" : "nav.open",
+          })}
+          aria-expanded={isOpen}
+          onClick={handleToggle}
+          className="relative z-10 flex justify-center items-center size-11 border border-brass/60 text-brass md:hidden"
+        >
+          <Icon icon={isOpen ? "close" : "burger"} size={20} />
         </button>
-      )}
-    </nav>
+      </div>
+    </header>
   );
 };

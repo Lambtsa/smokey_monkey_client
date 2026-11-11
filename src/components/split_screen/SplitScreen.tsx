@@ -2,49 +2,41 @@ import type { ReactElement } from "react";
 
 import type { BackgroundType, SplitScreenProps } from "./SplitScreen.types";
 
-const BACKGROUND: Record<BackgroundType, string> = {
-  black: "bg-eerie-black",
-  blue: "bg-moonstone",
-  green: "bg-dark-green",
-  red: "bg-chocolate-cosmos",
+export const BACKGROUND: Record<BackgroundType, string> = {
+  forest: "bg-forest",
+  bottle: "bg-bottle",
+  cellar: "bg-cellar",
+  burgundy: "bg-burgundy",
 };
 
-const halfClassName = "relative flex justify-center items-center w-full min-w-full md:order-none md:h-screen";
-
 /*
- * A full-height section in two halves: some content and a picture.
- * On small screens the halves are stacked, picture on top (unless showImage
- * is false or the content is a form).
+ * A section in two halves: some text and a picture (or a map).
+ * On small screens the halves are stacked, picture on top unless showImage
+ * is false.
  */
 export const SplitScreen = ({
   id,
   imgBlock,
   contentBlock,
-  isForm = false,
   showImage = true,
   order = "regular",
-  background = "green",
+  background = "bottle",
 }: SplitScreenProps): ReactElement => {
-  const hasMobileImage = showImage && !isForm;
-
   const content = (
-    <div className={`${halfClassName} order-2 min-h-screen`}>
+    <div className="relative flex justify-center items-center w-full order-2 md:order-none">
       {contentBlock}
     </div>
   );
 
   const image = (
-    <div className={`${halfClassName} order-1 ${hasMobileImage ? "h-[50vh]" : "hidden md:flex"}`}>
+    <div className={`relative w-full order-1 md:order-none md:h-auto md:min-h-[640px] ${showImage ? "h-[56vw] min-h-64" : "hidden md:block"}`}>
       {imgBlock}
     </div>
   );
 
   return (
-    <section
-      id={id}
-      className={`flex flex-col flex-wrap justify-center items-center w-full h-full text-dark-green ${BACKGROUND[background]}`}
-    >
-      <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center content-center w-full h-full overflow-hidden">
+    <section id={id} className={`w-full text-cream ${BACKGROUND[background]}`}>
+      <div className="grid grid-cols-1 md:grid-cols-2 w-full overflow-hidden">
         {order === "reversed" ? (
           <>
             {image}

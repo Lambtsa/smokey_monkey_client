@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
 import {
   type FormEvent, type ReactElement, useCallback, useEffect, useMemo, useState,
 } from "react";
@@ -8,12 +9,12 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
 
-import { Container, Content } from "@/components/container";
 import { Form } from "@/components/form";
+import { Icon } from "@/components/icon";
 import { InputDate } from "@/components/input_date";
 import { InputNumber } from "@/components/input_number";
 import { InputText } from "@/components/input_text";
-import { SplitScreen } from "@/components/split_screen";
+import { details } from "@/constants/details";
 import { useTranslation } from "@/hooks/useTranslation";
 import { MAX_GUESTS } from "@/schemas/reservation.schema";
 import { formatTime } from "@/utils/date";
@@ -65,7 +66,9 @@ export const ReservationSection = (): ReactElement => {
         }),
       }),
       date: z.string().min(1, {
-        error: required("Date"),
+        error: required(t({
+          id: "reservation.form.date.label",
+        })),
       }),
     });
   }, [t]);
@@ -148,64 +151,95 @@ export const ReservationSection = (): ReactElement => {
   );
 
   return (
-    <SplitScreen
-      order="reversed"
-      isForm
-      id="reservation"
-      imgBlock={(
-        <Container
-          alignment="left"
-          title="reservation.intro.title"
-          subtitle="reservation.intro.subtitle"
-        >
-          <Content alignment="left">
+    <section id="reservation" className="px-6 py-20 md:px-10 md:py-32 bg-bottle">
+      <div className="flex flex-wrap gap-12 md:gap-18 max-w-[1180px] mx-auto">
+        <div className="flex flex-col gap-6 flex-[1_1_340px]">
+          <p className="eyebrow">
+            {t({
+              id: "reservation.intro.title",
+            })}
+          </p>
+          <h2 className="font-display font-normal text-4xl md:text-[60px] leading-[1.05]">
+            {t({
+              id: "reservation.intro.subtitle",
+            })}
+          </h2>
+          <p className="text-lg leading-relaxed font-light text-parchment">
             {t({
               id: "reservation.intro.content",
             })}
-          </Content>
-        </Container>
-      )}
-      contentBlock={(
-        <Form
-          title="reservation.form.title"
-          subtitle="reservation.form.subtitle"
-          btnText="reservation.form.submit.btn.text"
-          onSubmit={onSubmit}
-        >
-          <InputText
-            name="name"
-            control={control}
-            error={formState.errors.name}
-            placeholder={t({
-              id: "reservation.form.name.placeholder",
+          </p>
+          <ul className="flex flex-col gap-4 mt-2 text-lg">
+            <li className="flex items-start gap-3.5">
+              <Icon icon="pin" size={22} className="shrink-0 mt-0.5 text-brass" />
+              <Link target="_blank" rel="noopener noreferrer" href={details.googleMaps} className="whitespace-pre-line hover:text-brass">
+                {t({
+                  id: "reservation.intro.address",
+                })}
+              </Link>
+            </li>
+            <li className="flex items-center gap-3.5">
+              <Icon icon="phone" size={22} className="shrink-0 text-brass" />
+              <Link href={details.mobile} className="hover:text-brass">
+                {t({
+                  id: "footer.contact.phone.text",
+                })}
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="flex-[1_1_460px]">
+          <Form
+            btnText="reservation.form.submit.btn.text"
+            isLoading={isLoading}
+            onSubmit={onSubmit}
+            aria-label={t({
+              id: "reservation.intro.subtitle",
             })}
-          />
-          <InputText
-            name="email"
-            control={control}
-            error={formState.errors.email}
-            placeholder={t({
-              id: "reservation.form.email.placeholder",
-            })}
-          />
-          <InputDate
-            name="date"
-            control={control}
-            error={formState.errors.date}
-            setValue={setValue}
-          />
-          <InputNumber
-            name="count"
-            min={1}
-            max={MAX_GUESTS}
-            control={control}
-            error={formState.errors.count}
-            placeholder={t({
-              id: "reservation.form.count.placeholder",
-            })}
-          />
-        </Form>
-      )}
-    />
+          >
+            <InputText
+              name="name"
+              autoComplete="given-name"
+              className="md:col-span-2"
+              control={control}
+              error={formState.errors.name}
+              label={t({
+                id: "reservation.form.name.placeholder",
+              })}
+            />
+            <InputText
+              name="email"
+              type="email"
+              autoComplete="email"
+              className="md:col-span-2"
+              control={control}
+              error={formState.errors.email}
+              label={t({
+                id: "reservation.form.email.placeholder",
+              })}
+            />
+            <InputDate
+              name="date"
+              control={control}
+              error={formState.errors.date}
+              setValue={setValue}
+              label={t({
+                id: "reservation.form.date.label",
+              })}
+            />
+            <InputNumber
+              name="count"
+              min={1}
+              max={MAX_GUESTS}
+              control={control}
+              error={formState.errors.count}
+              label={t({
+                id: "reservation.form.count.placeholder",
+              })}
+            />
+          </Form>
+        </div>
+      </div>
+    </section>
   );
 };

@@ -4,6 +4,8 @@ import type {
 } from "react-hook-form";
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  /* The visible label above the field */
+  label: string;
   error?: FieldError | undefined;
 }
 

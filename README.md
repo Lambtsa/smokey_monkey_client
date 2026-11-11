@@ -46,7 +46,7 @@ Create a `.env.local` with:
 
 | Variable | Used for |
 | --- | --- |
-| `MAPBOX_TOKEN` | The map on the home page, read when pages are served |
+| `MAPBOX_TOKEN` | The map on the contact page, read when pages are served |
 | `GTAG` | Google Analytics id (optional), read when pages are served |
 | `ZOHO_ID`, `ZOHO_PASSWORD` | SMTP account used by `POST /api/v1/email` (table reservations) |
 | `APP_LOG_LEVEL` | Log level (optional): `debug` in development, `info` otherwise |

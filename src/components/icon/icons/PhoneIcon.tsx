@@ -4,16 +4,10 @@ import type { IconProps } from "@/components/icon/Icon.types";
 
 import { BaseIcon } from "./BaseIcon";
 
-export const PhoneIcon = ({
-  color = "#252422",
-  width = 60,
-  height = 60,
-  ...props
-}: Omit<IconProps, "children">): ReactElement => {
+export const PhoneIcon = (props: Omit<IconProps, "children">): ReactElement => {
   return (
-    <BaseIcon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" width={width} height={height} {...props}>
-      <rect width="60" height="60" rx="10" fill="#FFFEEB" />
-      <path d="M37.2267 12.3576L31.0339 13.2285C30.3612 13.3236 29.8505 13.8899 29.8215 14.5663L29.5476 21.7007C29.5236 22.325 29.9182 22.8952 30.5129 23.0874L34.8693 24.5281C34.5106 29.4796 32.4096 34.2903 28.8971 37.9419L24.9115 35.6685C24.3652 35.3573 23.6828 35.4435 23.235 35.879L18.1164 40.8564C17.6297 41.3382 17.5506 42.0966 17.9301 42.6601L21.4267 47.8451C21.7902 48.3833 22.4791 48.6084 23.0972 48.3711C37.1061 42.9936 44.1214 27.2778 38.7355 13.247C38.5003 12.6344 37.8754 12.2655 37.2267 12.3576Z" fill={color} />
+    <BaseIcon {...props}>
+      <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
     </BaseIcon>
   );
 };

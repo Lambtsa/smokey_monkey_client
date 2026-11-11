@@ -10,7 +10,7 @@ declare namespace NodeJS {
     /* Google tag manager (optional), read when pages are served */
     readonly GTAG?: string;
 
-    /* Mapbox access token for the map on the home page, read when pages are served */
+    /* Mapbox access token for the map on the contact page, read when pages are served */
     readonly MAPBOX_TOKEN?: string;
 
     /* Zoho SMTP account used by the reservation email API route */
