@@ -3,20 +3,27 @@
 import Link from "next/link";
 import type { ReactElement } from "react";
 
+import { buttonClassName } from "@/components/button";
+import type { ButtonType } from "@/components/button/Button.types";
 import { useTranslation } from "@/hooks/useTranslation";
 import type { TranslationKey } from "@/types/translations";
+
+/* A button-shaped link, or "arrow": brass capitals followed by an arrow */
+type LinkBtnVariant = ButtonType | "arrow";
 
 interface LinkBtnProps {
   href: string;
   text: TranslationKey;
+  variant?: LinkBtnVariant;
   newTab?: boolean;
 }
 
-export const linkBtnClassName = "px-6 py-3 rounded-[7px] bg-ivory text-dark-green hover:bg-eerie-black hover:text-ivory";
+const arrowClassName = "inline-flex items-center gap-2 min-h-11 caps text-sm font-semibold text-brass hover:text-brass-light";
 
 export const LinkBtn = ({
   href,
   text,
+  variant = "arrow",
   newTab = false,
 }: LinkBtnProps): ReactElement => {
   const { t } = useTranslation();
@@ -24,7 +31,7 @@ export const LinkBtn = ({
   return (
     <Link
       href={href}
-      className={linkBtnClassName}
+      className={variant === "arrow" ? arrowClassName : buttonClassName(variant)}
       {...(newTab ? {
         target: "_blank",
         rel: "noopener noreferrer",
@@ -33,6 +40,7 @@ export const LinkBtn = ({
       {t({
         id: text,
       })}
+      {variant === "arrow" && <span aria-hidden="true">→</span>}
     </Link>
   );
 };

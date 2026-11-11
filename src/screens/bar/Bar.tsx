@@ -7,8 +7,8 @@ import Elvis from "@/assets/images/elvis-monkey.jpg";
 import Prohibition from "@/assets/images/prohibition-monkey.jpg";
 import Sports from "@/assets/images/sports-monkey.jpg";
 import { Container, Content } from "@/components/container";
+import { Hero } from "@/components/hero";
 import { Image } from "@/components/image";
-import { Jumbotron } from "@/components/jumbotron";
 import { LinkBtn } from "@/components/link_btn";
 import { SplitScreen } from "@/components/split_screen";
 import { useTranslation } from "@/hooks/useTranslation";
@@ -21,20 +21,16 @@ export const BarScreen = (): ReactElement => {
 
   return (
     <>
-      <Jumbotron
+      <Hero
         title="bar.jumbotron.title"
         subtitle="bar.jumbotron.subtitle"
-        images={[
+        image={Bar}
+        links={[
           {
-            id: "bar",
-            data: Bar,
-            alt: "",
+            text: "generic.reserveTable",
+            href: routes.restaurant.reservation(),
           },
         ]}
-        link={{
-          text: "bar.jumbotron.btn",
-          href: routes.restaurant.reservation(),
-        }}
       />
 
       {/* Intro */}
@@ -57,7 +53,7 @@ export const BarScreen = (): ReactElement => {
 
       {/* Matches */}
       <SplitScreen
-        background="black"
+        background="forest"
         imgBlock={<Image alt="" sizes={HALF} src={Sports} />}
         contentBlock={(
           <Container
@@ -70,14 +66,14 @@ export const BarScreen = (): ReactElement => {
                 id: "bar.matches.content",
               })}
             </Content>
-            <LinkBtn href={routes.restaurant.reservation()} text="generic.reserve" />
+            <LinkBtn href={routes.restaurant.reservation()} text="generic.reserveTable" />
           </Container>
         )}
       />
 
       {/* Les soirées spéciales */}
       <SplitScreen
-        background="red"
+        background="burgundy"
         contentBlock={(
           <Container
             alignment="left"
@@ -89,7 +85,7 @@ export const BarScreen = (): ReactElement => {
                 id: "bar.specials.content",
               })}
             </Content>
-            <LinkBtn href={routes.restaurant.reservation()} text="generic.reserve" />
+            <LinkBtn href={routes.restaurant.reservation()} text="generic.reserveTable" />
           </Container>
         )}
         imgBlock={<Image alt="" sizes={HALF} src={Elvis} />}

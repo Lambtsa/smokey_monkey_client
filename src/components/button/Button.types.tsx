@@ -1,6 +1,7 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
-export type ButtonType = "primary" | "secondary";
+/* primary: filled brass; outline: a cream border */
+export type ButtonType = "primary" | "outline";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   btnType: ButtonType;

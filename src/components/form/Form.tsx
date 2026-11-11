@@ -13,36 +13,29 @@ type FormProps = DetailedHTMLProps<
   HTMLFormElement
 > & {
   children: ReactNode;
-  title: TranslationKey;
-  subtitle: TranslationKey;
   btnText: TranslationKey;
+  isLoading?: boolean;
 };
 
+/* A brass-framed form in two columns; give a field md:col-span-2 to use both */
 export const Form = ({
   children,
-  title,
-  subtitle,
   btnText,
+  isLoading = false,
   onSubmit,
+  ...rest
 }: FormProps): ReactElement => {
   const { t } = useTranslation();
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col justify-start md:justify-center items-center w-full h-full max-w-[460px] px-4 py-12">
-      <div className="flex flex-col justify-center items-start gap-2 w-full mb-4">
-        <h2 className="font-display font-bold uppercase text-left text-sm leading-4 text-ivory/50">
-          {t({
-            id: title,
-          })}
-        </h2>
-        <p className="font-bold text-left text-[32px] leading-8 mb-4 text-ivory">
-          {t({
-            id: subtitle,
-          })}
-        </p>
-      </div>
+    <form
+      {...rest}
+      noValidate
+      onSubmit={onSubmit}
+      className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 w-full p-6 md:p-11 border border-brass/50 bg-forest"
+    >
       {children}
-      <Button type="submit" btnType="primary">
+      <Button type="submit" btnType="primary" disabled={isLoading} aria-busy={isLoading} className="w-full mt-4 md:col-span-2">
         {t({
           id: btnText,
         })}

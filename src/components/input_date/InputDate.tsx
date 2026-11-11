@@ -21,6 +21,7 @@ export const InputDate = <
   name,
   error,
   setValue,
+  ...rest
 }: InputDateProps<TFieldValues, TName>): ReactElement => {
   const { field: { ref: _ref, ...fieldRest }, } = useController({
     control,
@@ -54,6 +55,7 @@ export const InputDate = <
 
   return (
     <Input
+      {...rest}
       type="datetime-local"
       {...fieldRest}
       error={error}

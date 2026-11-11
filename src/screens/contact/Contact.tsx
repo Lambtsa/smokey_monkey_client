@@ -4,88 +4,114 @@ import Link from "next/link";
 import type { ReactElement } from "react";
 
 import Music from "@/assets/images/music-monkeys.jpg";
-import { Container, TitleContainer } from "@/components/container";
-import { Icon } from "@/components/icon";
-import { Jumbotron } from "@/components/jumbotron";
+import { Container, Content } from "@/components/container";
+import { Hero } from "@/components/hero";
+import { Icon, type IconType } from "@/components/icon";
+import { LinkBtn } from "@/components/link_btn";
+import { Map } from "@/components/map";
+import { SplitScreen } from "@/components/split_screen";
 import { details } from "@/constants/details";
 import { useTranslation } from "@/hooks/useTranslation";
+import type { TranslationKey } from "@/types/translations";
 
-const cardClassName = "flex flex-col flex-1 justify-start items-center gap-4 w-full px-4 py-12 rounded-[7px] bg-ivory/20";
-const titleClassName = "font-display font-bold uppercase text-center text-sm leading-4 text-ivory/50";
-const linkClassName = "font-normal text-left text-base leading-5 text-ivory hover:underline";
+interface ContactCard {
+  icon: IconType;
+  title: TranslationKey;
+  text: TranslationKey;
+  href?: string;
+}
 
-export const ContactScreen = (): ReactElement => {
+const cards: ContactCard[] = [
+  {
+    icon: "phone",
+    title: "contact.phone.title",
+    text: "contact.phone.subtitle",
+    href: details.mobile,
+  },
+  {
+    icon: "mail",
+    title: "contact.email.title",
+    text: "contact.email.subtitle",
+    href: `mailto:${details.email}`,
+  },
+  {
+    icon: "clock",
+    title: "contact.times.title",
+    text: "contact.times.subtitle",
+  },
+];
+
+interface ContactScreenProps {
+  mapboxToken: string;
+}
+
+export const ContactScreen = ({ mapboxToken }: ContactScreenProps): ReactElement => {
   const { t } = useTranslation();
 
   return (
     <>
-      <Jumbotron
+      <Hero
         title="contact.jumbotron.title"
         subtitle="contact.jumbotron.subtitle"
-        images={[
-          {
-            id: "music",
-            data: Music,
-            alt: "",
-          },
-        ]}
+        image={Music}
       />
-      <section className="flex flex-col justify-center items-center gap-8 w-full min-h-dvh bg-dark-green">
+
+      <section className="flex justify-center w-full bg-forest">
         <Container
-          maxWidth="TV"
-          alignment="center"
+          maxWidth="PC"
           title="contact.details.title"
           subtitle="contact.details.subtitle"
         >
-          <div className="grid grid-cols-1 md:grid-cols-[minmax(300px,1fr)_1fr_1fr] gap-8 w-full">
-            <div className={cardClassName}>
-              <Icon icon="phone" />
-              <TitleContainer alignment="center">
-                <h2 className={titleClassName}>
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full mt-4">
+            {cards.map((card) => (
+              <li key={card.title} className="flex flex-col items-center gap-4 px-6 py-10 text-center border border-brass/40 bg-bottle">
+                <Icon icon={card.icon} size={32} className="text-brass" />
+                <h3 className="eyebrow">
                   {t({
-                    id: "contact.phone.title",
+                    id: card.title,
                   })}
-                </h2>
-                <Link href={details.mobile} className={linkClassName}>
-                  {t({
-                    id: "contact.phone.subtitle",
-                  })}
-                </Link>
-              </TitleContainer>
-            </div>
-            <div className={cardClassName}>
-              <Icon icon="mail" />
-              <TitleContainer alignment="center">
-                <h2 className={titleClassName}>
-                  {t({
-                    id: "contact.email.title",
-                  })}
-                </h2>
-                <Link href={`mailto:${details.email}`} className={linkClassName}>
-                  {t({
-                    id: "contact.email.subtitle",
-                  })}
-                </Link>
-              </TitleContainer>
-            </div>
-            <div className={cardClassName}>
-              <Icon icon="times" />
-              <TitleContainer alignment="center">
-                <h2 className={titleClassName}>
-                  {t({
-                    id: "contact.times.title",
-                  })}
-                </h2>
-                <p className="w-full whitespace-pre-line font-normal text-center text-base leading-5 text-ivory">
-                  {t({
-                    id: "contact.times.subtitle",
-                  })}
-                </p>
-              </TitleContainer>
-            </div>
-          </div>
+                </h3>
+                {card.href ? (
+                  <Link href={card.href} className="text-lg break-all text-cream hover:text-brass">
+                    {t({
+                      id: card.text,
+                    })}
+                  </Link>
+                ) : (
+                  <p className="whitespace-pre-line text-lg text-cream">
+                    {t({
+                      id: card.text,
+                    })}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
         </Container>
       </section>
+
+      {/* Venez nous retrouver */}
+      <SplitScreen
+        imgBlock={<Map accessToken={mapboxToken} />}
+        contentBlock={(
+          <Container
+            alignment="left"
+            title="home.location.title"
+            subtitle="home.location.subtitle"
+          >
+            <Content alignment="left">
+              {t({
+                id: "home.location.content",
+              })}
+            </Content>
+            <LinkBtn
+              newTab
+              href={details.googleMaps}
+              text="home.location.btn.text"
+            />
+          </Container>
+        )}
+      />
     </>
   );
 };

@@ -5,7 +5,7 @@ import type { ReactElement } from "react";
 import { useTranslation } from "@/hooks/useTranslation";
 
 import type {
-  AlignedProps,   Alignment, ContainerProps,
+  AlignedProps, Alignment, ContainerProps,
 } from "./Container.types";
 
 const MAX_WIDTH: Record<NonNullable<ContainerProps["maxWidth"]>, string> = {
@@ -27,20 +27,33 @@ const TEXT: Record<Alignment, string> = {
   center: "text-center",
 };
 
-/* Title and subtitle block, also used on its own by the contact cards */
+/* Label and title block, also used on its own by the contact cards */
 export const TitleContainer = ({ alignment, children }: AlignedProps): ReactElement => (
-  <div className={`flex flex-col justify-center gap-2 w-full ${ITEMS[alignment]}`}>
+  <div className={`flex flex-col justify-center gap-4 w-full ${ITEMS[alignment]} ${TEXT[alignment]}`}>
     {children}
   </div>
 );
 
 /* A paragraph of body text; "\n" in translations makes a new line */
 export const Content = ({ alignment, children }: AlignedProps): ReactElement => (
-  <p className={`w-full whitespace-pre-line text-base leading-6 font-normal text-ivory ${TEXT[alignment]}`}>
+  <p className={`w-full max-w-[560px] whitespace-pre-line text-lg leading-relaxed font-light text-parchment ${TEXT[alignment]}`}>
     {children}
   </p>
 );
 
+/* The art deco rule under a centred title: two lines and a diamond */
+export const Ornament = (): ReactElement => (
+  <span aria-hidden="true" className="flex items-center gap-3">
+    <span className="block w-20 h-px bg-brass" />
+    <span className="block size-2 rotate-45 border border-brass" />
+    <span className="block w-20 h-px bg-brass" />
+  </span>
+);
+
+/*
+ * A block of text: a brass label (title), a display title (subtitle), then
+ * the children (paragraphs, a link).
+ */
 export const Container = ({
   title,
   subtitle,
@@ -51,18 +64,19 @@ export const Container = ({
   const { t } = useTranslation();
 
   return (
-    <div className={`flex flex-col justify-center gap-8 w-full h-full px-4 py-12 md:px-8 ${MAX_WIDTH[maxWidth]} ${ITEMS[alignment]}`}>
+    <div className={`flex flex-col justify-center gap-7 w-full h-full px-6 py-16 md:px-16 md:py-24 ${MAX_WIDTH[maxWidth]} ${ITEMS[alignment]}`}>
       <TitleContainer alignment={alignment}>
-        <h2 className={`font-display font-bold uppercase text-sm leading-4 text-ivory/50 ${TEXT[alignment]}`}>
+        <p className="eyebrow">
           {t({
             id: title,
           })}
-        </h2>
-        <p className={`font-bold text-[32px] leading-10 text-ivory ${TEXT[alignment]}`}>
+        </p>
+        <h2 className="font-display font-normal text-4xl leading-tight md:text-[56px] md:leading-[1.05] text-cream">
           {t({
             id: subtitle,
           })}
-        </p>
+        </h2>
+        {alignment === "center" && <Ornament />}
       </TitleContainer>
       {children}
     </div>

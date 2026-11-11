@@ -2,14 +2,15 @@ import type { ReactElement } from "react";
 
 import type { ButtonProps, ButtonType } from "./Button.types";
 
+/* Shared with links that look like buttons (LinkBtn) */
 export const buttonClassName = (btnType: ButtonType): string => {
-  const base = "w-full px-6 py-3.5 rounded-[7px]";
+  const base = "inline-flex justify-center items-center min-h-12 px-7 py-4 caps text-sm font-bold leading-none transition-colors disabled:opacity-60";
   switch (btnType) {
     case "primary": {
-      return `${base} bg-ivory text-dark-green hover:bg-eerie-black hover:text-ivory`;
+      return `${base} bg-brass text-forest hover:bg-brass-light`;
     }
-    case "secondary": {
-      return `${base} border border-ivory bg-transparent text-ivory hover:bg-ivory hover:text-eerie-black`;
+    case "outline": {
+      return `${base} border border-cream/50 text-cream hover:border-brass hover:text-brass`;
     }
   }
 };

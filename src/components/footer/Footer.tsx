@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { ReactElement } from "react";
 
+import { Icon } from "@/components/icon";
 import { SocialIcons } from "@/components/social_icons";
 import { details } from "@/constants/details";
 import { useTranslation } from "@/hooks/useTranslation";
@@ -41,109 +42,87 @@ const links: FooterLinkType[] = [
   },
 ];
 
-const titleClassName = "font-bold text-center text-2xl leading-6 text-ivory";
-const smallTitleClassName = "font-bold text-left text-sm leading-[14px] uppercase text-ivory";
-const linkClassName = "font-normal text-left text-base leading-5 text-ivory hover:underline";
-const sectionClassName = "flex flex-col justify-start items-start gap-12 w-full h-full";
-const contentClassName = "flex flex-col justify-start items-start gap-3";
+const linkClassName = "text-parchment hover:text-brass";
 
 export const Footer = (): ReactElement => {
   const { t } = useTranslation();
 
   return (
-    <footer>
-      <div className="grid grid-cols-1 gap-12 px-4 py-12 md:grid-cols-[3fr_2fr] md:gap-8 md:p-12 items-center text-xs text-ivory bg-eerie-black">
-        <div className={sectionClassName}>
-          <h2 className={titleClassName}>
+    <footer className="bg-cellar text-cream border-t border-brass/30">
+      <div className="grid grid-cols-1 md:grid-cols-[1.3fr_1fr_1fr] gap-12 max-w-[1280px] mx-auto px-6 py-16 md:px-10">
+        <div className="flex flex-col gap-4">
+          <p className="font-display text-[32px] leading-tight">The Smokey Monkey</p>
+          <p className="text-[15px] text-stone">
+            {t({
+              id: "home.jumbotron.subtitle",
+            })}
+          </p>
+          <SocialIcons />
+        </div>
+        <div className="flex flex-col gap-5">
+          <h2 className="eyebrow">
             {t({
               id: "footer.contact.title",
             })}
           </h2>
-          <div className="flex flex-wrap justify-start items-center gap-8">
-            <div className={contentClassName}>
-              <h3 className={smallTitleClassName}>
-                {t({
-                  id: "footer.contact.address.title",
-                })}
-              </h3>
-              <Link
-                target="_blank"
-                rel="noopener noreferrer"
-                href={details.googleMaps}
-                className={linkClassName}
-              >
+          <ul className="flex flex-col gap-4 text-base">
+            <li className="flex items-start gap-3">
+              <Icon icon="pin" size={20} className="shrink-0 mt-0.5 text-brass" />
+              <Link target="_blank" rel="noopener noreferrer" href={details.googleMaps} className={linkClassName}>
                 {t({
                   id: "footer.contact.address.text",
                 })}
               </Link>
-            </div>
-            <div className={contentClassName}>
-              <h3 className={smallTitleClassName}>
-                {t({
-                  id: "footer.contact.phone.title",
-                })}
-              </h3>
+            </li>
+            <li className="flex items-center gap-3">
+              <Icon icon="phone" size={20} className="shrink-0 text-brass" />
               <Link href={details.mobile} className={linkClassName}>
                 {t({
                   id: "footer.contact.phone.text",
                 })}
               </Link>
-            </div>
-            <div className={contentClassName}>
-              <h3 className={smallTitleClassName}>
-                {t({
-                  id: "footer.contact.email.title",
-                })}
-              </h3>
-              <Link href={`mailto:${details.email}`} className={linkClassName}>
+            </li>
+            <li className="flex items-center gap-3">
+              <Icon icon="mail" size={20} className="shrink-0 text-brass" />
+              <Link href={`mailto:${details.email}`} className={`${linkClassName} break-all`}>
                 {t({
                   id: "footer.contact.email.text",
                 })}
               </Link>
-            </div>
-          </div>
-          <div className={contentClassName}>
-            <h3 className={`${smallTitleClassName} mb-4`}>
-              {t({
-                id: "footer.contact.social.title",
-              })}
-            </h3>
-            <SocialIcons />
-          </div>
+            </li>
+          </ul>
         </div>
-        <div className={sectionClassName}>
-          <h2 className={titleClassName}>
+        <nav
+          aria-label={t({
+            id: "footer.links.subtitle",
+          })}
+          className="flex flex-col gap-5"
+        >
+          <h2 className="eyebrow">
             {t({
-              id: "footer.links.title",
+              id: "footer.links.subtitle",
             })}
           </h2>
-          <div className={contentClassName}>
-            <h3 className={smallTitleClassName}>
-              {t({
-                id: "footer.links.subtitle",
-              })}
-            </h3>
-            <ul className="flex flex-col gap-3 list-none">
-              {links.map((link) => (
-                <li key={link.url} className="font-normal text-left text-base leading-4 text-ivory">
-                  <Link href={link.url} className={linkClassName}>
-                    {t({
-                      id: link.label,
-                    })}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+          <ul className="flex flex-col gap-3 text-base">
+            {links.map((link) => (
+              <li key={link.url}>
+                <Link href={link.url} className={linkClassName}>
+                  {t({
+                    id: link.label,
+                  })}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
-      <div className="flex justify-center items-center gap-8 p-4 text-center text-xs leading-4 text-ivory/80 bg-night">
+      <p className="px-6 py-5 text-center text-xs leading-5 text-stone border-t border-cream/10">
         {t({
           id: "footer.copyright",
         }, {
           date: new Date().getFullYear(),
         })}
-      </div>
+      </p>
     </footer>
   );
 };

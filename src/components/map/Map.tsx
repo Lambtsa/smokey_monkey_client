@@ -9,8 +9,8 @@ import {
 
 import { details } from "@/constants/details";
 
-/* --color-dark-green in globals.css: the marker colour is set in JavaScript */
-const DARK_GREEN = "#15361B";
+/* --color-brass in globals.css: the marker colour is set in JavaScript */
+const BRASS = "#C9A15B";
 
 interface MapProps {
   accessToken: string;
@@ -34,7 +34,7 @@ export const Map = ({ accessToken }: MapProps): ReactElement => {
     const mapboxMap = new mapboxgl.Map({
       container: node,
       accessToken,
-      style: "mapbox://styles/mapbox/streets-v11",
+      style: "mapbox://styles/mapbox/dark-v11",
       center: [longitude, latitude],
       zoom: 15,
       minZoom: 7,
@@ -42,7 +42,7 @@ export const Map = ({ accessToken }: MapProps): ReactElement => {
     });
 
     new mapboxgl.Marker({
-      color: DARK_GREEN,
+      color: BRASS,
     })
       .setLngLat([longitude, latitude])
       .addTo(mapboxMap);
@@ -52,5 +52,5 @@ export const Map = ({ accessToken }: MapProps): ReactElement => {
     };
   }, [accessToken, latitude, longitude]);
 
-  return <div ref={mapNode} className="w-full h-full min-h-[300px] md:min-h-dvh" />;
+  return <div ref={mapNode} className="absolute inset-0" />;
 };

@@ -14,11 +14,12 @@ import Smoker7 from "@/assets/images/smoker7.jpeg";
 import Smoker8 from "@/assets/images/smoker8.jpeg";
 import Smoker9 from "@/assets/images/smoker9.jpeg";
 import { Container, Content } from "@/components/container";
+import { Hero } from "@/components/hero";
 import { Image } from "@/components/image";
-import { Jumbotron } from "@/components/jumbotron";
 import { Masonry } from "@/components/masonry";
 import { SplitScreen } from "@/components/split_screen";
 import { useTranslation } from "@/hooks/useTranslation";
+import { routes } from "@/utils/routes";
 
 const images = [
   Smoker1,
@@ -40,14 +41,14 @@ export const SmokerScreen = (): ReactElement => {
 
   return (
     <>
-      <Jumbotron
+      <Hero
         title="smoker.jumbotron.title"
         subtitle="smoker.jumbotron.subtitle"
-        images={[
+        image={Ribs}
+        links={[
           {
-            id: "ribs",
-            data: Ribs,
-            alt: "",
+            text: "generic.reserveTable",
+            href: routes.restaurant.reservation(),
           },
         ]}
       />

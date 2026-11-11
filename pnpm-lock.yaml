@@ -8,10 +8,10 @@ importers:
 
   .:
     dependencies:
-      '@fontsource/montserrat':
+      '@fontsource/josefin-sans':
         specifier: ^5.1.0
         version: 5.3.0
-      '@fontsource/noto-sans':
+      '@fontsource/limelight':
         specifier: ^5.1.0
         version: 5.3.0
       '@hookform/resolvers':
@@ -412,11 +412,11 @@ packages:
       '@noble/hashes':
         optional: true
 
-  '@fontsource/montserrat@5.3.0':
-    resolution: {integrity: sha512-iQPDtZOnmM5ih4JBGaMSXisRap0ixb9bAUw2hDtY7EjVfaqiiNlKtVuJl9XclxUwtwMMHNcWXfQR6zI9x05+Tg==}
+  '@fontsource/josefin-sans@5.3.0':
+    resolution: {integrity: sha512-N2xY1l8gBCNrlRa0tMnjUtbSJb/rqWmPLgLSMq6H+EY2/uerAHtbyoHsQQKwhMA8hJat7S+OSk6saxGMceKKvA==}
 
-  '@fontsource/noto-sans@5.3.0':
-    resolution: {integrity: sha512-fBCog2PY7DiVVTEEqtI/Qdinx/knobHYfoGpjFXdfBX5RoJaBp1Prw2G75p0OIsdlMZg3cLo0c+YbIUYOxnQJw==}
+  '@fontsource/limelight@5.3.0':
+    resolution: {integrity: sha512-jiuuCdbk9/u0TA/bIZfp35cvJrfz1CJFSEFh4lk5Ma8Nh42897GbF0ny85emdYiJ6WJQjnD/BK/X0D5Oe6bxbg==}
 
   '@formatjs/fast-memoize@3.1.7':
     resolution: {integrity: sha512-zXfhLpvA6T7+efdt9JLbBwZ00tT7NsBMDVnDu8rpHeNNv8KfRZAMo2gkG0k9lK/Nzc//3kJ9pImsfuJxk3KhUA==}
@@ -3117,6 +3117,7 @@ packages:
 
   tldts-core@7.4.20:
     resolution: {integrity: sha512-C630TWXZCZmLq0F2bW4QqwnaaxCQ/svpAqvJwnC4JvgEM5ohhBnGsEzTLSOXcN+xjz+kEaHS5uoWIw2klnqd0A==}
+    deprecated: Partial release, see https://github.com/remusao/tldts/issues/2735. Use >=7.4.22.
 
   tldts@7.4.19:
     resolution: {integrity: sha512-48dH6aSpQnpbzDUc4vIQZ1VjB8tkK+e8c1yx05/SZK+rkssgjEOlxDd/yU8/a4vGYQ9vRgJr9dwMq9TJ0b3X2Q==}
@@ -3738,9 +3739,9 @@ snapshots:
 
   '@exodus/bytes@1.16.0': {}
 
-  '@fontsource/montserrat@5.3.0': {}
+  '@fontsource/josefin-sans@5.3.0': {}
 
-  '@fontsource/noto-sans@5.3.0': {}
+  '@fontsource/limelight@5.3.0': {}
 
   '@formatjs/fast-memoize@3.1.7': {}
 

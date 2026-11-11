@@ -4,15 +4,10 @@ import type { IconProps } from "@/components/icon/Icon.types";
 
 import { BaseIcon } from "./BaseIcon";
 
-export const BurgerIcon = ({
-  color = "#FFFEEB",
-  width = 30,
-  height = 30,
-  ...props
-}: Omit<IconProps, "children">): ReactElement => {
+export const BurgerIcon = (props: Omit<IconProps, "children">): ReactElement => {
   return (
-    <BaseIcon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none" width={width} height={height} {...props}>
-      <path d="M3 12.75C1.75736 12.75 0.75 13.7574 0.75 15C0.75 16.2426 1.75736 17.25 3 17.25V12.75ZM27 17.25C28.2426 17.25 29.25 16.2426 29.25 15C29.25 13.7574 28.2426 12.75 27 12.75V17.25ZM3 20.75C1.75736 20.75 0.75 21.7574 0.75 23C0.75 24.2426 1.75736 25.25 3 25.25V20.75ZM27 25.25C28.2426 25.25 29.25 24.2426 29.25 23C29.25 21.7574 28.2426 20.75 27 20.75V25.25ZM3 4.75C1.75736 4.75 0.75 5.75736 0.75 7C0.75 8.24264 1.75736 9.25 3 9.25V4.75ZM27 9.25C28.2426 9.25 29.25 8.24264 29.25 7C29.25 5.75736 28.2426 4.75 27 4.75V9.25ZM3 17.25H27V12.75H3V17.25ZM3 25.25H27V20.75H3V25.25ZM3 9.25H27V4.75H3V9.25Z" fill={color} />
+    <BaseIcon {...props}>
+      <path d="M4 7h16M4 12h16M4 17h16" />
     </BaseIcon>
   );
 };

@@ -8,8 +8,8 @@ import Fingerfood from "@/assets/images/fingerfood.jpeg";
 import Ribs from "@/assets/images/ribs.webp";
 import Smoker from "@/assets/images/smoker2.jpeg";
 import { Container, Content } from "@/components/container";
+import { Hero } from "@/components/hero";
 import { Image } from "@/components/image";
-import { Jumbotron } from "@/components/jumbotron";
 import { LinkBtn } from "@/components/link_btn";
 import { SplitScreen } from "@/components/split_screen";
 import { useTranslation } from "@/hooks/useTranslation";
@@ -24,24 +24,25 @@ export const RestaurantScreen = (): ReactElement => {
 
   return (
     <>
-      <Jumbotron
+      <Hero
         title="restaurant.jumbotron.title"
         subtitle="restaurant.jumbotron.subtitle"
-        link={{
-          text: "restaurant.jumbotron.btn",
-          href: routes.restaurant.reservation(),
-        }}
-        images={[
+        image={Ribs}
+        links={[
           {
-            id: "ribs",
-            data: Ribs,
-            alt: "",
+            text: "generic.reserveTable",
+            href: routes.restaurant.reservation(),
+          },
+          {
+            text: "home.jumbotron.menu",
+            href: routes.menu(),
+            newTab: true,
           },
         ]}
       />
 
       {/* Intro */}
-      <div className="flex flex-col justify-center items-center gap-8 w-full h-dvh bg-eerie-black">
+      <div className="flex flex-col justify-center items-center w-full bg-forest">
         <Container
           maxWidth="TABLET"
           title="restaurant.intro.title"
@@ -76,7 +77,7 @@ export const RestaurantScreen = (): ReactElement => {
       {/* Smoker */}
       <SplitScreen
         order="reversed"
-        background="black"
+        background="forest"
         imgBlock={<Image alt="" sizes={HALF} src={Smoker} />}
         contentBlock={(
           <Container
@@ -96,7 +97,7 @@ export const RestaurantScreen = (): ReactElement => {
 
       {/* Desserts */}
       <SplitScreen
-        background="red"
+        background="burgundy"
         contentBlock={(
           <Container
             alignment="left"
@@ -116,7 +117,7 @@ export const RestaurantScreen = (): ReactElement => {
       {/* Le restaurant */}
       <SplitScreen
         order="reversed"
-        background="black"
+        background="forest"
         contentBlock={(
           <Container
             alignment="left"
