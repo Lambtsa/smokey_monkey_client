@@ -8,15 +8,20 @@ on:
     types:
       - published
 
+# Default token permissions for every job: read the code, nothing else
+permissions:
+  contents: read
+  # Push the image to ghcr.io
+  packages: write
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   build_for_prod:
-    name: Build - Test for PROD
+    name: Build for PROD
     uses: ./.github/workflows/project_build.yaml
     with:
-      deploy-env: prod
       publish: true
     secrets: inherit

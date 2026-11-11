@@ -1,0 +1,56 @@
+@import '@fontsource/montserrat/300.css';
+@import '@fontsource/montserrat/400.css';
+@import '@fontsource/montserrat/400-italic.css';
+@import '@fontsource/montserrat/700.css';
+@import '@fontsource/noto-sans/400.css';
+@import '@fontsource/noto-sans/700.css';
+
+@import "tailwindcss";
+
+@theme {
+    /* --- Fonts (loaded by the @fontsource imports above) --- */
+    --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+    /* Small titles */
+    --font-display: "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+    /* Page titles (public/fonts/royal_signage.otf, declared below) */
+    --font-signage: "Royal Signage", serif;
+
+    /* --- Custom Color Palette ---
+     * Use opacity modifiers for the transparent shades, e.g. bg-ivory/20, text-eerie-black/70
+     */
+    --color-chocolate-cosmos: #4D1C1C;
+    --color-dark-green: #15361B;
+    --color-hunter-green: #336133;
+    --color-moonstone: #023D5F;
+    --color-night: #151514;
+    --color-eerie-black: #252422;
+    --color-ivory: #FFFEEB;
+    --color-seashell: #FFF9F4;
+}
+
+@font-face {
+    font-family: "Royal Signage";
+    src: url("/fonts/royal_signage.otf") format("opentype");
+    font-display: swap;
+}
+
+/* Base styles */
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: var(--font-sans);
+        line-height: 1;
+        background-color: var(--color-seashell);
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    button:not(:disabled) {
+        cursor: pointer;
+    }
+}

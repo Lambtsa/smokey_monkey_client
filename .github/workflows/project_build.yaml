@@ -7,10 +7,6 @@ on:
         required: false
         type: number
         default: 60
-      deploy-env:
-        required: true
-        type: string
-        default: qual
       publish:
         required: true
         type: boolean
@@ -20,39 +16,29 @@ jobs:
   project_build:
     runs-on: ubuntu-latest
     timeout-minutes: ${{ inputs.timeout-minutes }}
-    environment: ${{ inputs.deploy-env }}
-    permissions:
-      id-token: write
-      contents: read
-      actions: read
-      checks: write
-      deployments: write
-      issues: write
-      packages: write
-      pull-requests: write
-      repository-projects: write
-      security-events: write
-      statuses: write
+    # No permissions here: the job gets the caller's. Pull requests grant
+    # contents: read only; the Release workflow adds packages: write so the
+    # image can be pushed to GitHub's registry.
 
     steps:
-      ##############################
-      # Build & deploy
-      ##############################
-      # Get access to github repository
-      - uses: actions/checkout@v4
+      # Actions are pinned to full commit SHAs: a tag like v4 can be moved to
+      # other code, a SHA can't. Dependabot updates the SHA and the comment.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         id: checkout
         with:
           fetch-depth: 0
+          # Don't leave the GitHub token in .git/config for later steps
+          persist-credentials: false
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v4.0.4
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: 20
+          node-version: 24.14.0
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4.0.0
+        uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
         with:
-          version: 9
+          version: 11
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -66,36 +52,48 @@ jobs:
         run: pnpm lint
         shell: bash
 
+      - name: Check types
+        run: pnpm lint:tsc
+        shell: bash
+
       - name: Run build
-        env:
-          GTAG: ${{ secrets.GTAG }}
-          MAPBOX_TOKEN: ${{ secrets.MAPBOX_TOKEN }}
-          ZOHO_ID: ${{ secrets.ZOHO_ID }}
-          ZOHO_PASSWORD: ${{ secrets.ZOHO_PASSWORD }}
-          NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
+        # On release the Docker image build below compiles the app instead
+        if: ${{ inputs.publish != true }}
         run: pnpm build
         shell: bash
 
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      # --- RELEASE: build a Docker image and push it to GitHub's registry ---
 
-      - name: Deploy to VPS
+      - name: Image name
         if: ${{ inputs.publish == true }}
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 700 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.SSH_IP }} >> ~/.ssh/known_hosts
-          echo "Pushing the build app to the remote server"
-          scp -o StrictHostKeyChecking=yes -r ./.next/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }}:/home/${{ secrets.SSH_USER }}/${{ inputs.deploy-env }}/.next
+        # Registry names must be lowercase (Lambtsa -> lambtsa)
+        run: echo "IMAGE=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_ENV"
         shell: bash
 
-      - name: Restart the smokey-${{ inputs.deploy-env }} process on server
+      - name: Set up Docker Buildx
         if: ${{ inputs.publish == true }}
-        run: |
-          echo "Restarting the smokey-${{ inputs.deploy-env }} process on server..."
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }} "source ~/.nvm/nvm.sh; cd ${{ inputs.deploy-env }}; git pull; pnpm i; pm2 restart smokey-${{ inputs.deploy-env }}; exit"
-        shell: bash
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+
+      - name: Log in to GitHub Container Registry
+        if: ${{ inputs.publish == true }}
+        uses: docker/login-action@8aa5831fb8d48d8f76594c7ddde61ae58019f550 # v4.8.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push image
+        if: ${{ inputs.publish == true }}
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ env.IMAGE }}:${{ github.sha }}
+            ${{ env.IMAGE }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # That's the whole release. The server checks ghcr.io every few minutes
+      # and switches to the new :latest image itself, so this workflow needs
+      # no SSH key and no API keys (they live on the server).

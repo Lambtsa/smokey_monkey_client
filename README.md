@@ -1,38 +1,103 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# The Smokey Monkey
+
+Website of [The Smokey Monkey](https://www.smokey-monkey.com): pub and BBQ house in Strasbourg.
+
+Built with [Next.js](https://nextjs.org/) (App Router), Tailwind CSS v4 and react-intl (French, English).
+
+## Requirements
+
+### NodeJS
+You must use nvm to install NodeJS (version in `.nvmrc`).
+To install [nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+
+### Pnpm
+Pnpm is the node package manager used on this project.
+To install pnpm, please run
+
+```bash
+$ npm install -g pnpm
+```
+
+## Installation
+
+### Clone project
+
+```bash
+$ git clone https://github.com/Lambtsa/smokey_monkey_client.git
+```
+
+### Install dependencies
+
+```bash
+$ pnpm install
+```
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:8080](http://localhost:8080) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Environment variables
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Create a `.env.local` with:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+| Variable | Used for |
+| --- | --- |
+| `MAPBOX_TOKEN` | The map on the home page, read when pages are served |
+| `GTAG` | Google Analytics id (optional), read when pages are served |
+| `ZOHO_ID`, `ZOHO_PASSWORD` | SMTP account used by `POST /api/v1/email` (table reservations) |
+| `APP_LOG_LEVEL` | Log level (optional): `debug` in development, `info` otherwise |
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Project structure
 
-## Learn More
+```
+src/
+  app/          routes (App Router): one page.tsx per URL, the root layout and API routes
+  screens/      the content of each page
+  components/   shared components, one folder each (snake_case), styled with Tailwind
+  stores/       zustand stores (the visitor's language)
+  schemas/      zod schemas shared by the reservation form and its API route
+  locales/      translations (fr-FR is the reference for the TranslationKey type)
+  utils/        helpers (routes, metadata, logger, …)
+  assets/       pictures
+public/         files served as they are (the menu PDF, fonts, icons)
+```
 
-To learn more about Next.js, take a look at the following resources:
+Colours and fonts are defined in `src/app/globals.css` (`@theme`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The menu ("La carte" in the navigation) is `public/menu.pdf`: replace that file to update it.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Tests and lint
 
-## Deploy on Vercel
+```bash
+pnpm test      # vitest
+pnpm lint      # eslint
+pnpm lint:tsc  # type-check
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Commits follow [conventional commits](https://www.conventionalcommits.org) (checked by commitlint in a git hook).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Releases
+
+Versions and the changelog are managed by [release-please](https://github.com/googleapis/release-please) (`release-please-config.json`, `.release-please-manifest.json`):
+
+1. Merge pull requests into `main` with conventional commit messages (with squash merging, the **PR title** is the commit message): `feat: …` bumps the minor version, `fix: …` the patch, `feat!: …` or a `BREAKING CHANGE:` footer the major.
+2. After each push to `main`, the **Release Please** workflow opens or updates a `chore(main): release x.y.z` pull request with the new version in `package.json` and the notes in `CHANGELOG.md`.
+3. Merging that pull request creates the `vx.y.z` tag and a **draft** GitHub release.
+4. Review the draft (Releases → Edit), then **Publish release** to deploy it (below).
+
+## Deployment
+
+Publishing a GitHub release runs the **Release** workflow: tests and lint run as usual, then the `Dockerfile` builds the app (Next.js standalone) into an image pushed to `ghcr.io/lambtsa/smokey_monkey_client` with two tags: the commit SHA and `latest`.
+
+The image has no build-time settings, so the same image runs anywhere: the environment variables above are read from the server's environment when the container runs, and the site's own address (for link previews) from each request.
+
+**Run the production image locally:**
+
+```bash
+docker build -t smokey-monkey .
+docker run --rm -p 8080:8080 --env-file .env.local smokey-monkey
+```

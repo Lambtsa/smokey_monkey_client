@@ -1,0 +1,37 @@
+name: Release Please
+
+# On every push to main, release-please reads the conventional commits since
+# the last release and keeps a "chore(main): release x.y.z" pull request up to
+# date (version bump in package.json + CHANGELOG.md).
+# Merging that pull request creates the tag and a DRAFT GitHub release.
+# Publishing the draft (Releases -> Edit -> Publish release) runs the Release
+# workflow, which builds the Docker image the server pulls.
+
+on:
+  push:
+    branches:
+      - main
+
+# Default token permissions: read the code, nothing else
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    permissions:
+      # Commit the version bump, create tags and draft releases
+      contents: write
+      # Open and update the release pull request
+      pull-requests: write
+      # Label the release pull request
+      issues: write
+    steps:
+      - uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json

@@ -1,6 +1,6 @@
 export const details = {
   mobile: "tel:+33369484392",
-  /* TODO: Change email address */
+  /* Without "mailto:": also the address the reservation emails go to */
   email: "michel.smokeymonkey@gmail.com",
   googleMaps: "https://goo.gl/maps/bt1nqYN3RSHz1jmGA",
   facebook: "https://www.facebook.com/The-Smokey-Monkey-111006998042016",
