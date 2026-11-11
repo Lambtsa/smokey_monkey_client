@@ -1,0 +1,14 @@
+==> ci-out/build.txt <==
+exit 0
+
+==> ci-out/install.txt <==
+exit 0
+
+==> ci-out/lint.txt <==
+exit 0
+
+==> ci-out/lint_tsc.txt <==
+exit 0
+
+==> ci-out/test.txt <==
+exit 0

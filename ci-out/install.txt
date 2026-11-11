@@ -1,0 +1,75 @@
+? Verifying lockfile against supply-chain policies (700 entries)...
+✓ Lockfile passes supply-chain policies (700 entries in 3s)
+Progress: resolved 1, reused 0, downloaded 0, added 0
+[WARN] deprecated eslint@9.39.5
+Progress: resolved 44, reused 0, downloaded 42, added 0
+Progress: resolved 215, reused 0, downloaded 148, added 0
+Progress: resolved 226, reused 0, downloaded 217, added 0
+Progress: resolved 231, reused 0, downloaded 222, added 0
+Progress: resolved 395, reused 0, downloaded 335, added 0
+Progress: resolved 435, reused 0, downloaded 391, added 0
+Progress: resolved 669, reused 0, downloaded 598, added 0
+Progress: resolved 670, reused 0, downloaded 598, added 0
+[WARN] 2 deprecated subdependencies found: git-raw-commits@5.0.1, tldts-core@7.4.20
+Packages: +602
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 700, reused 0, downloaded 604, added 0
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: /home/runner/setup-pnpm/node_modules/.bin/store/v11
+  Virtual store is at:             node_modules/.pnpm
+Progress: resolved 700, reused 0, downloaded 604, added 602, done
+. prepare$ husky install
+. prepare: husky - install command is DEPRECATED
+. prepare: Done
+
+dependencies:
++ @fontsource/josefin-sans 5.3.0
++ @fontsource/limelight 5.3.0
++ @hookform/resolvers 5.9.2 (7.0.5 is available)
++ date-fns 4.4.0
++ mapbox-gl 3.34.2
++ nodemailer 6.9.1 (10.5.0 is available)
++ pino 10.4.0
++ react 19.2.6 (19.3.1 is available)
++ react-dom 19.2.6 (19.3.1 is available)
++ react-hook-form 7.91.0
++ react-intl 10.2.2 (12.1.7 is available)
++ react-use 17.6.1
++ sonner 2.0.8
++ zod 4.6.7
++ zustand 5.1.0
+
+devDependencies:
++ @commitlint/cli 20.5.3 (21.2.4 is available)
++ @commitlint/config-conventional 20.5.3 (21.2.4 is available)
++ @next/eslint-plugin-next 16.2.6 (16.4.6 is available)
++ @stylistic/eslint-plugin 5.10.0
++ @tailwindcss/postcss 4.2.4 (4.3.5 is available)
++ @testing-library/dom 10.4.2
++ @testing-library/react 16.3.3
++ @testing-library/user-event 14.6.9
++ @types/node 25.6.1 (26.6.6 is available)
++ @types/nodemailer 6.4.24 (8.0.2 is available)
++ @types/react 19.2.14 (19.3.0 is available)
++ @types/react-dom 19.2.3 (19.3.0 is available)
++ @vitejs/plugin-react 6.3.0
++ @vitest/coverage-v8 4.1.12 (5.1.0 is available)
++ @vitest/ui 4.1.12 (5.1.0 is available)
++ autoprefixer 10.6.2
++ eslint 9.39.5 (10.14.0 is available) deprecated
++ eslint-config-next 16.2.5 (16.4.6 is available)
++ eslint-plugin-simple-import-sort 13.0.0 (14.0.0 is available)
++ husky 9.1.7
++ jsdom 29.1.1 (31.0.0 is available)
++ lint-staged 17.6.0
++ next 16.4.6
++ pino-pretty 13.2.0
++ postcss 8.5.32
++ tailwindcss 4.3.5
++ typescript 6.0.3 (7.0.2 is available)
++ typescript-eslint 8.72.2
++ vitest 4.1.12 (5.1.0 is available)
++ vitest-dom 0.1.1
+
+Done in 13.9s using pnpm v11.28.11
+exit 0
